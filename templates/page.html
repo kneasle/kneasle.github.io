@@ -3,3 +3,5 @@
 {% block title %} {{ page.title }} {% endblock %}
 {% block name %} {{ page.title }} {% endblock %}
 
+<!-- By default, put the page content into the content box -->
+{% block content %} {{ page.content | safe }} {% endblock %}

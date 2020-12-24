@@ -5,10 +5,20 @@
 
 {% block content %}
 
-<h1>Ben White-Horne's personal website</h1>
+{{ section.content | safe }}
 
-<h2>Projects</h2>
+{% for subsec_path in section.subsections %}
+    {% set subsec = get_section(path=subsec_path) %}
 
-<a href="/blog">Blog</a>
+    <h2><a href="{{ subsec.path }}">{{ subsec.title }}</a></h2>
+
+    <p class="date">{{ subsec.description }}</p>
+
+    {% for page in subsec.pages %}
+        <h3><a href="{{ page.path }}">{{ page.title }}</a></h3>
+        <p>{{ page.date }}</p>
+        <p>{{ page.description }}</p>
+    {% endfor %}
+{% endfor %}
 
 {% endblock content %}

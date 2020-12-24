@@ -1,0 +1,9 @@
+{% extends "page.html" %}
+
+{% block content %}
+<p class="date">{{ page.description }}</p>
+<hr>
+
+{{ page.content | safe }}
+{% endblock content %}
+

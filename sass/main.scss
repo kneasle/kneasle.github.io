@@ -161,9 +161,11 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         h1, h2 {
-            text-align: center;
+            margin-top: 40px;
             padding-bottom: .3em;
             border-bottom: 1px solid $heading-line-color;
+
+            text-align: center;
         }
 
         p {
