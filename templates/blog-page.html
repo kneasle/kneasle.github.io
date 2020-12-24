@@ -1,9 +1,7 @@
-{% extends "base.html" %}
+{% extends "page.html" %}
 
 {% block content %}
-<h1 class="title">
-    {{ page.title }}
-</h1>
-<p class="subtitle"><strong>{{ page.date }}</strong></p>
-<p>{{ page.content | safe }}</p>
+<p class="date">Written on: {{ page.date }}</p>
+
+{{ page.content | safe }}
 {% endblock content %}

@@ -1,0 +1,8 @@
+@import 'vars';
+
+.blog-article-box {
+    margin-top: 30px;
+    padding: 20px;
+    border: $border-width solid black;
+    border-radius: $border-radius;
+}

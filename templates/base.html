@@ -2,17 +2,43 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>MyBlog</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <title>Kneasle - {% block title %} {% endblock %}</title>
+    
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="/blog.css"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 </head>
 
 <body>
-  <section class="section">
-    <div class="container">
-      {% block content %} {% endblock %}
+    <div class="header">
+        <a href="/">
+            <img class="logo" src="/images/logo.png" alt="Kneasle"/>
+        </a>
+        <img class="menu-button" src="/images/menu_button.png" alt="Menu"/>
     </div>
-  </section>
+    
+    <div class="main">
+        <div class="content-container">
+            <div class="title-bar-div">
+                <img src="{{ current_path }}icon.svg" alt="Logo"/>
+                <div class="title-div">
+                    <h1>&gt;&gt; {% block name %} {% endblock %} </h1>
+                </div>
+            </div>
+        
+            <div class="content">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div style="display: block;">
+                <p>© Kneasle 2020</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

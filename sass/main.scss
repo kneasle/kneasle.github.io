@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Patua+One|Roboto+Mono|Source+Code+Pro:500,700');
+@import 'range';
+@import 'vars';
+
+/* generic styling */
+body, html {
+	margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: Garamond, 'EB Garamond', serif;
+    font-size: 17px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Patua One', cursive;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+/* header styling */
+.header {
+	position: fixed;
+	
+	left: 0;
+	right: 0;
+	top: 0;
+	
+	z-index: +1;
+	
+	background-color: white;
+	border-bottom: $border-width solid black;
+	
+	box-shadow: 0 0 20px black;
+}
+
+.header {
+	.logo {
+		float: left;
+		
+		width: 133px;
+		height: 50px;
+		
+		margin: 0 15px 0 15px;
+	}
+
+	ul {
+		display: none; /* from `block` */
+		float: right;
+		
+		margin: 7px 20px 0 20px;
+		padding: 0;
+		
+		list-style-type: none;
+		vertical-align: middle;
+	}
+
+	li {
+		display: inline-block;
+		
+		margin: 0 2px 0 2px;
+		padding: 10px 15px 10px 15px;
+		
+		border: $border-width solid black;
+		border-bottom: none;
+		border-radius: $border-radius $border-radius 0 0;
+	}
+
+	li a {
+		color: black;
+		text-decoration: none;
+		font-family: 'Roboto Mono', monospace;
+	}
+
+	.menu-button {
+		float: right;
+		display: block; /* from `none` */
+		
+		margin: 0;
+		
+		width: 50px;
+		height: 50px;
+	}
+}
+
+.date {
+    text-align: center;
+    font-style: italic;
+}
+
+.main {
+    background: $bg-color;
+    min-height: 100%;
+
+    /* title bar styling */
+    .title-bar-div {
+        margin: 0;
+        margin-top: $header-height;
+
+        img {
+            display: block;
+            
+            margin: 0 auto;
+            padding: 0;
+            
+            width: $title-height;
+            height: $title-height;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+
+            margin-bottom: 20px;
+        }
+    }
+
+    @media only screen and (min-width: 560px) {
+        .title-bar-div {
+            height: $title-height;
+
+            img {
+                position: absolute;
+            }
+            
+            .title-div {
+                height: $title-height;
+                padding-left: $title-height;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            h1 {
+                margin: 0px;
+                margin-left: 20px;
+                text-align: left;
+            }
+        }
+    }
+
+    /* page body styling */
+
+    .content-container {
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 0 40px;
+    }
+
+    .content {
+        margin: 0;
+        padding: 30px 40px;
+        border-radius: $border-radius;
+
+        background-color: $page-bg-color;
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 16px;
+            color: $heading-color;
+        }
+
+        h1, h2 {
+            text-align: center;
+            padding-bottom: .3em;
+            border-bottom: 1px solid $heading-line-color;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: $link-color;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        strong {
+            font-family: 'Patua One', cursive;
+            letter-spacing: 0.05em;
+            font-size: 85%;
+            color: $bold-color;
+        }
+
+        code {
+            background: $code-bg-color;
+            border-radius: 6px;
+            padding: 0.1em 0.4em 0.2em 0.4em;
+            margin: 0;
+            font-family: Source Code Pro, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            font-size: 85%;
+        }
+    }
+
+    .content::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+/* footer styling */
+.footer {
+    background-color: $bg-color;
+    
+    margin-top: 20px;
+
+    width: 100%;
+
+    text-align: center;
+}

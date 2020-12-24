@@ -1,0 +1,34 @@
+/// Variables that should be accessed by the entire site
+
+// Size variables
+
+$border-width: 3px;
+$border-radius: 15px;
+$slider-thumb-size: 10px;
+
+$header-height: 50px;
+$title-height: 200px;
+$footer-height: 100px;
+
+// Color theming
+$main-color-light: #89c2d9;
+$main-color-dark: #014f86;
+
+$second-color-light: #ffebe0;
+$second-color-dark: #ba6c23;
+
+/* SPECIFIC COLORS */
+
+$bg-color: $main-color-light;
+$page-bg-color: white;
+
+$heading-color: $main-color-dark;
+$heading-line-color: $main-color-light;
+
+$bold-color: $main-color-dark;
+
+$link-color: $second-color-dark;
+
+$code-bg-color: $second-color-light;
+
+
