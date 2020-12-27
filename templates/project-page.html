@@ -4,6 +4,12 @@
 <p class="date">{{ page.description }}</p>
 <hr>
 
+<p class="link-line">
+    {% for link in page.extra.links %}
+    <span class="link"><a href="{{ link[1] }}">{{ link[0] }}</a></span>
+    {% endfor %}
+</p>
+
 {{ page.content | safe }}
 {% endblock content %}
 
