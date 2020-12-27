@@ -10,14 +10,24 @@
 {% for subsec_path in section.subsections %}
     {% set subsec = get_section(path=subsec_path) %}
 
-    <h2><a href="{{ subsec.path }}">{{ subsec.title }}</a></h2>
+    <h1 style="margin-top: 50px;"><a href="{{ subsec.path }}">{{ subsec.title }}</a></h1>
 
     <p class="date">{{ subsec.description }}</p>
 
     {% for page in subsec.pages %}
+        <div class="blog-article-box">
+            <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+            <p class="date">{{ page.date }}</p>
+            {{ page.summary | safe }}
+            <a href="{{ page.permalink }}">Continue Reading...</a>
+        </div>
+
+        <!--
         <h3><a href="{{ page.path }}">{{ page.title }}</a></h3>
         <p>{{ page.date }}</p>
         <p>{{ page.description }}</p>
+        {{ page.summary | safe }}
+        -->
     {% endfor %}
 {% endfor %}
 

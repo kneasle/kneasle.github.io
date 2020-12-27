@@ -3,3 +3,19 @@
 {% block title %} {{ section.title }} {% endblock %}
 {% block name %} {{ section.title }} {% endblock %}
 
+{# By default, make a nice rounded box for every page #}
+
+{% block content %}
+
+{% for page in section.pages %}
+<div class="blog-article-box">
+    <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+    {% if page.date %}<p class="date">{{ page.date }}</p>{% endif %}
+    {% if page.description %}<p class="date">{{ page.description }}</p>{% endif %}
+
+    {{ page.summary | safe }}
+    <a href="{{ page.permalink }}">More...</a>
+</div>
+{% endfor %}
+
+{% endblock content %}

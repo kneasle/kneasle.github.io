@@ -1,14 +1,1 @@
 {% extends "section.html" %}
-
-{% block content %}
-
-{% for page in section.pages %}
-<div class="blog-article-box">
-    <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-    <p class="date">{{ page.date }}</p>
-    {{ page.summary | safe }}
-    <a href="{{ page.permalink }}">Continue Reading...</a>
-</div>
-{% endfor %}
-
-{% endblock content %}
