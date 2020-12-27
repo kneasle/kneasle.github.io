@@ -9,7 +9,20 @@ links = [
 ]
 +++
 
-Wheatley is a v
+**Wheatley** is a computer ringer for the popular online change-ringing website
+[Ringing Room](https://ringingroom.com) which aims to be a _'ninja helper with no ego'_.  Ringing
+with Wheatley should feel just like ringing with another human ringer (with the exception that
+Wheatley can ring any number of bells to anything without making mistakes).
+
+<!-- more -->
+
+Wheatley uses a number of novel techniques to work towards this goal.  The main one of these is that
+Wheatley detects and adjusts to the rhythm of the human ringers in real time.  This adjustment is
+most apparent when pulling off, since Wheatley will seamlessly pull off at the same speed as the
+other ringers.  Wheatley will also wait patiently if other people pause to think, which is
+particularly useful during practice nights.
+
+<!--
 
 ## It's Summer of 2020
 
@@ -46,3 +59,5 @@ ringers.  But this seems silly - computers should work around us, not the other 
 Therefore, Matthew Johnson and I built Wheatley in order to fill this niche - Wheatley can
 **constructively** ring only a few bells in a practice without requiring the human ringers to behave
 any differently.
+
+-->
