@@ -4,11 +4,13 @@
 <p class="date">{{ page.description }}</p>
 <hr>
 
+{% if page.extra.links %}
 <p class="link-line">
     {% for link in page.extra.links %}
     <span class="link"><a href="{{ link[1] }}">{{ link[0] }}</a></span>
     {% endfor %}
 </p>
+{% endif %}
 
 <div class="article">
     {{ page.content | safe }}

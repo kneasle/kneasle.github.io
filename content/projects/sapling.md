@@ -4,7 +4,7 @@ description = "A highly experimental vi-inspired editor where you edit code, not
 
 [extra]
 links = [
-    ["Github", "https://github.com/kneasle/sapling"]
+    ["Github repo", "https://github.com/kneasle/sapling"]
 ]
 +++
 
