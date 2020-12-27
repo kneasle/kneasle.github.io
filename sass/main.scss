@@ -97,6 +97,18 @@ h1, h2, h3, h4, h5, h6 {
 
     /* title bar styling */
     .title-bar-div {
+        /* If the window is less than 560px wide, then the title-bar should be rendered with the title
+         * centred beneath the logo:
+         * 
+         * +------------------------+
+         * |        LOGOLOGO        |
+         * |        LOGOLOGO        |
+         * |        LOGOLOGO        |
+         * |        LOGOLOGO        |
+         * |        LOGOLOGO        |
+         * |        >> TITLE        |
+         * +------------------------+
+         */
         margin: 0;
         margin-top: $header-height;
 
@@ -116,10 +128,19 @@ h1, h2, h3, h4, h5, h6 {
 
             margin-bottom: 20px;
         }
-    }
 
-    @media only screen and (min-width: 560px) {
-        .title-bar-div {
+        /* If the window is more than 560px wide, then the title-bar should be rendered with the title
+         * to the right of the logo:
+         * 
+         * +-------------------------------------------+
+         * |LOGOLOGO                                   |
+         * |LOGOLOGO                                   |
+         * |LOGOLOGO >> TITLE                          |
+         * |LOGOLOGO                                   |
+         * |LOGOLOGO                                   |
+         * +-------------------------------------------+
+         */
+        @media only screen and (min-width: 560px) {
             height: $title-height;
 
             img {
@@ -162,7 +183,6 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         h1, h2 {
-            margin-top: 40px;
             padding-bottom: .3em;
             border-bottom: 1px solid $heading-line-color;
 

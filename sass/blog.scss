@@ -1,8 +1,17 @@
 @import 'vars';
 
+// Styling for the blog article boxes in the `Blog` category page
 .blog-article-box {
     margin-top: 30px;
     padding: 20px;
     border: $border-width solid black;
     border-radius: $border-radius;
+}
+
+// Inside the blog, we add much more space above h1 and h2.  This makes articles easier to read,
+// but doesn't cause all the headings to go crazy
+.article {
+    h1, h2 {
+        margin-top: 40px;
+    }
 }

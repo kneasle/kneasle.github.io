@@ -1,7 +1,9 @@
 {% extends "page.html" %}
 
 {% block content %}
-<p class="date">Written on: {{ page.date }}</p>
+<div class="article">
+    <p class="date">Written on: {{ page.date }}</p>
 
-{{ page.content | safe }}
+    {{ page.content | safe }}
+</div>
 {% endblock content %}
