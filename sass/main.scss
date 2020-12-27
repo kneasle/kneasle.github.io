@@ -5,12 +5,12 @@
 /* generic styling */
 body, html {
 	margin: 0;
-    height: 100%;
 }
 
 body {
     font-family: Garamond, 'EB Garamond', serif;
     font-size: 17px;
+    background: $bg-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -91,8 +91,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main {
-    background: $bg-color;
-    min-height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
 
     /* title bar styling */
     .title-bar-div {
@@ -208,8 +209,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* footer styling */
 .footer {
-    background-color: $bg-color;
-    
     margin-top: 20px;
 
     width: 100%;
