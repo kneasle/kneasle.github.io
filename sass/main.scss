@@ -231,6 +231,14 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+// Inside the blog, we add much more space above h1 and h2.  This makes articles easier to read,
+// but doesn't cause all the headings to go crazy
+.article {
+    h1, h2 {
+        margin-top: 40px;
+    }
+}
+
 /* footer styling */
 .footer {
     margin-top: 20px;
