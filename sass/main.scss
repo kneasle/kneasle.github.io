@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .date {
-    text-align: center;
+    text-align: center !important;
     font-style: italic;
 }
 
@@ -194,6 +194,10 @@ h1, h2, h3, h4, h5, h6 {
             margin-bottom: 16px;
         }
 
+        p, li {
+            text-align: justify;
+        }
+
         a {
             text-decoration: none;
             color: $link-color;
@@ -227,12 +231,6 @@ h1, h2, h3, h4, h5, h6 {
             font-family: Source Code Pro, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
             font-size: 85%;
         }
-    }
-
-    .content::after {
-        content: "";
-        clear: both;
-        display: table;
     }
 }
 

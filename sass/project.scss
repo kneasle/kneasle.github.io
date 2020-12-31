@@ -2,7 +2,7 @@
 
 // Styling for the line of links underneath the title
 .link-line {
-    text-align: center;
+    text-align: center !important;
 
     // Add bullets between the links
     .link+.link:before {
