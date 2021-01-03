@@ -23,5 +23,5 @@ vital here, since full rotational symmetry is AFAIK a completely new idea and th
 supported by any existing tools.  However, in Bellmetal, I could simply add the rotational symmetry
 as a proof constraint (similar to how multi-part proving worked) and get immediate feedback over
 whether the methods and their reversals were true in the context of the composition.  Without this,
-the process of compositing would have been incredibly tedious and error prone and I likely would
-have given up early on in the composing process.
+the process of composing would have been incredibly tedious and error prone and I likely would have
+given up early on in the composing process.
