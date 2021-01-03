@@ -10,36 +10,38 @@
 {% for subsec_path in section.subsections %}
     {% set subsec = get_section(path=subsec_path) %}
 
-    <h1 style="margin-top: 50px;"><a href="{{ subsec.path }}">{{ subsec.title }}</a></h1>
+    {% if subsec.pages %}
+        <h1 style="margin-top: 50px;"><a href="{{ subsec.path }}">{{ subsec.title }}</a></h1>
 
-    <p class="date">{{ subsec.description }}</p>
+        <p class="date">{{ subsec.description }}</p>
 
-    <table class="section-table">
-    {% for page in subsec.pages %}
-        <tr>
-            <td class="page-title">
-                <a href="{{ page.permalink | safe }}"><strong>{{ page.title }}</strong></a>
-            </td>
-            {% if page.date %}<td class="date">{{ page.date }}</td>{% endif %}
-            <td>{{ page.description }}</td>
-        </tr>
-        {#
-        <div class="blog-article-box">
-            <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-            {% if page.date %}<p class="date">{{ page.date }}</p>{% endif %}
-            {% if page.description %}<p class="date">{{ page.description }}</p>{% endif %}
+        <table class="section-table">
+        {% for page in subsec.pages %}
+            <tr>
+                <td class="page-title">
+                    <a href="{{ page.permalink | safe }}"><strong>{{ page.title }}</strong></a>
+                </td>
+                {% if page.date %}<td class="date">{{ page.date }}</td>{% endif %}
+                <td>{{ page.description }}</td>
+            </tr>
+            {#
+            <div class="blog-article-box">
+                <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+                {% if page.date %}<p class="date">{{ page.date }}</p>{% endif %}
+                {% if page.description %}<p class="date">{{ page.description }}</p>{% endif %}
 
+                {{ page.summary | safe }}
+                <a href="{{ page.permalink }}">More...</a>
+            </div>
+
+            <h3><a href="{{ page.path }}">{{ page.title }}</a></h3>
+            <p>{{ page.date }}</p>
+            <p>{{ page.description }}</p>
             {{ page.summary | safe }}
-            <a href="{{ page.permalink }}">More...</a>
-        </div>
-
-        <h3><a href="{{ page.path }}">{{ page.title }}</a></h3>
-        <p>{{ page.date }}</p>
-        <p>{{ page.description }}</p>
-        {{ page.summary | safe }}
-        #}
-    {% endfor %}
-    </table>
+            #}
+        {% endfor %}
+        </table>
+    {% endif %}
 {% endfor %}
 
 {% endblock content %}
