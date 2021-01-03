@@ -7,6 +7,13 @@
 
 {% block content %}
 
+{% if section.description %}
+<p class="date">{{ section.description }}</p>
+<hr/>
+{% endif %}
+
+{{ section.content | safe }}
+
 {% for page in section.pages %}
 <div class="blog-article-box">
     <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
