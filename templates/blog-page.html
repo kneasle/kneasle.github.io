@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="article">
-    <p class="date">Written on: {{ page.date }}</p>
+    {% if page.date %}<p class="date">Written on: {{ page.date }}</p>{% endif %}
 
     {{ page.content | safe }}
 </div>

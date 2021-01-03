@@ -1,6 +1,5 @@
 +++
 title = "Musings over Composition Formats"
-date = 2020-12-23
 draft = true
 +++
 
