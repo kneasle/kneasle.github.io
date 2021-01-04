@@ -1,13 +1,35 @@
 @import 'vars';
 
-.section-table {
-    margin: 0 auto;
+.index-table-view {
+    display: none;
+}
 
-    td {
-        padding: 1px 3px;
+.index-heading-view {
+    display: block;
+
+    h3 {
+        margin-top: 30px !important;
+        margin-bottom: 5px !important;
+        text-align: center;
+    }
+}
+
+/* REACTIVE LAYOUT - swap out the two layouts when the page gets too small */
+@media only screen and (min-width: 753px) {
+    .index-table-view {
+        display: block;
+        margin: 0 auto;
+
+        td {
+            padding: 1px 3px;
+        }
+
+        .page-title {
+            text-align: right;
+        }
     }
 
-    .page-title {
-        text-align: right;
+    .index-heading-view {
+        display: none;
     }
 }

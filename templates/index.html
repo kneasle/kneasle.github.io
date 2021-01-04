@@ -25,32 +25,27 @@
 
         <p class="date">{{ subsec.description }}</p>
 
-        <table class="section-table">
-        {% for page in subsec.pages %}
-            <tr>
-                <td class="page-title">
-                    <a href="{{ page.permalink | safe }}"><strong>{{ page.title }}</strong></a>
-                </td>
-                {% if page.date %}<td class="date">{{ page.date }}</td>{% endif %}
-                <td>{{ page.description }}</td>
-            </tr>
-            {#
-            <div class="blog-article-box">
-                <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+        <div class="index-table-view">
+            <table class="section-table">
+                {% for page in subsec.pages %}
+                    <tr>
+                        <td class="page-title">
+                            <a href="{{ page.permalink | safe }}"><strong>{{ page.title }}</strong></a>
+                        </td>
+                        {% if page.date %}<td class="date">{{ page.date }}</td>{% endif %}
+                        <td>{{ page.description }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="index-heading-view">
+            {% for page in subsec.pages %}
+                <h3><a href="{{ page.path }}">{{ page.title }}</a></h3>
                 {% if page.date %}<p class="date">{{ page.date }}</p>{% endif %}
-                {% if page.description %}<p class="date">{{ page.description }}</p>{% endif %}
-
-                {{ page.summary | safe }}
-                <a href="{{ page.permalink }}">More...</a>
-            </div>
-
-            <h3><a href="{{ page.path }}">{{ page.title }}</a></h3>
-            <p>{{ page.date }}</p>
-            <p>{{ page.description }}</p>
-            {{ page.summary | safe }}
-            #}
-        {% endfor %}
-        </table>
+                <p style="text-align: center;">{{ page.description }}</p>
+            {% endfor %}
+        </div>
     {% endif %}
 {% endfor %}
 
