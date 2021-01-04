@@ -2,6 +2,8 @@
 title = "Bellmetal"
 description = "A Rust library for efficiently proving and generating change ringing touches."
 
+weight = 40
+
 [extra]
 links = [
     ["GitHub repo", "https://github.com/Kneasle/bellmetal"]

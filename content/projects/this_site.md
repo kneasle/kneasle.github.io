@@ -2,6 +2,8 @@
 title = "This Site"
 description = "The website you're looking at right now."
 
+weight = 20
+
 [extra]
 links = [
     ["Unrendered Source", "https://github.com/kneasle/kneasle.github.io"],
