@@ -5,13 +5,23 @@
 
 {% block content %}
 
+<h1>Ben White-Horne's Website</h1>
+
+{% if section.extra.links %}
+<p class="link-line">
+    {% for link in section.extra.links %}
+        <span class="link"><a href="{{ link[1] }}">{{ link[0] }}</a></span>
+    {% endfor %}
+</p>
+{% endif %}
+
 {{ section.content | safe }}
 
 {% for subsec_path in section.subsections %}
     {% set subsec = get_section(path=subsec_path) %}
 
     {% if subsec.pages %}
-        <h1 style="margin-top: 50px;"><a href="{{ subsec.path }}">{{ subsec.title }}</a></h1>
+        <h2 style="margin-top: 50px;"><a href="{{ subsec.path }}">{{ subsec.title }}</a></h2>
 
         <p class="date">{{ subsec.description }}</p>
 
