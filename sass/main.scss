@@ -34,9 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 	border-bottom: $border-width solid black;
 	
 	box-shadow: 0 0 20px black;
-}
 
-.header {
 	.logo {
 		float: left;
 		
@@ -165,15 +163,22 @@ h1, h2, h3, h4, h5, h6 {
     /* page body styling */
 
     .content-container {
-        margin: 0 auto;
-        max-width: 800px;
-        padding: 0 40px;
+        /* Only use the container to centre the content if the screen is wide enough */
+        @media only screen and (min-width: 500px) {
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 0 40px;
+        }
     }
 
     .content {
         margin: 0;
         padding: 30px 40px;
-        border-radius: $border-radius;
+
+        /* Only have rounded corners if the screen is wide enough */
+        @media only screen and (min-width: 500px) {
+            border-radius: $border-radius;
+        }
 
         background-color: $page-bg-color;
 
