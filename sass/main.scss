@@ -36,12 +36,11 @@ h1, h2, h3, h4, h5, h6 {
 	box-shadow: 0 0 20px black;
 
 	.logo {
-		float: left;
-		
+        display: block;
+        margin: 0 auto;
+
 		width: 133px;
 		height: 50px;
-		
-		margin: 0 15px 0 15px;
 	}
 
 	ul {
@@ -82,7 +81,13 @@ h1, h2, h3, h4, h5, h6 {
 		height: 50px;
 	}
         
+    /* If the screen is wide enough, make the links visible. */
     @media only screen and (min-width: 516px) {
+        .logo {
+            float: left;
+            margin: 0 15px 0 15px;
+        }
+		
         ul {
             display: block;
         }
