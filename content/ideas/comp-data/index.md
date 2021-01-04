@@ -1,6 +1,6 @@
 +++
-title = "Musings over Composition Formats"
-draft = true
+title = "A Data Format for Compositions"
+# description = "Musings over data formats that could store change ringing compositions."
 +++
 
 There are many computer programs that all want to be able to handle compositions, and very few of
