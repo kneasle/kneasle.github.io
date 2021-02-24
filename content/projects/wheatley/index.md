@@ -7,7 +7,7 @@ weight = 10
 [extra]
 links = [
     ["Github", "https://github.com/kneasle/wheatley"],
-    ["PyPI", "pypi.org/project/wheatley/"]
+    ["PyPI", "https://pypi.org/project/wheatley/"]
 ]
 +++
 
