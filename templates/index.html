@@ -5,8 +5,10 @@
 
 {% block content %}
 
+{# Title #}
 <h1>Ben White-Horne's Website</h1>
 
+{# Bar of links #}
 {% if section.extra.links %}
 <p class="link-line">
     {% for link in section.extra.links %}
@@ -15,14 +17,15 @@
 </p>
 {% endif %}
 
+{# Add a welcome section (defined in `content/_index.md`) #}
 {{ section.content | safe }}
 
+{# Add sections for each top-level section of the site #}
 {% for subsec_path in section.subsections %}
     {% set subsec = get_section(path=subsec_path) %}
 
     {% if subsec.pages %}
         <h2 style="margin-top: 50px;"><a href="{{ subsec.path }}">{{ subsec.title }}</a></h2>
-
         <p class="date">{{ subsec.description }}</p>
 
         <div class="index-table-view">
@@ -48,5 +51,25 @@
         </div>
     {% endif %}
 {% endfor %}
+
+{# External Links #}
+<h2 style="margin-top: 50px;">Interesting Links</h2>
+<p class="date">Some blog posts or videos that I have enjoyed/found useful and think are worth sharing.</p>
+
+<h3>General Programming</h3>
+<ul>
+    <li><a href="http://aosabook.org/en/index.html">Architecture of Open Source Applications</a></li>
+</ul>
+
+<h3>Maintaining Open Source Software</h3>
+<ul>
+    <li><a href="https://www.freecodecamp.org/news/ultimate-owners-guide-to-open-source/">How to be a Good Open Source Project Owner</a></li>
+    <li><a href="https://matklad.github.io/2021/02/06/ARCHITECTURE.md.html">ARCHITECTURE.md</a></li>
+</ul>
+
+<h3>Why OOP is Not What People Think</h3>
+<ul>
+    <li><a href="https://towardsdatascience.com/object-oriented-programming-is-dead-wait-really-db1f1f05cc44">Object-oriented programming is dead. Wait, really?</a></li>
+</ul>
 
 {% endblock content %}
