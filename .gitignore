@@ -1,1 +1,4 @@
+# Zola's output directory
 public/
+# The generated files from Jigsaw
+content/jigsaw/
