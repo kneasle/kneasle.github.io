@@ -30,7 +30,8 @@ jobs:
             mkdir /tmp/jigsaw/
             git clone --branch build --single-branch https://github.com/kneasle/3rd-yr-proj.git /tmp/jigsaw
             # Copy the required folders into this one
-            cd static
+            mkdir static/jigsaw
+            cd static/jigsaw
             mv /tmp/jigsaw/firehose .
       - name: 'Build and deploy'
         uses: shalzz/zola-deploy-action@master
