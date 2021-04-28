@@ -24,6 +24,14 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@master
+      - name: Clone Jigsaw build files
+        run: |
+            # Clone build branch into separate directory
+            mkdir /tmp/jigsaw/
+            git clone --branch build --single-branch https://github.com/kneasle/3rd-yr-proj.git /tmp/jigsaw
+            # Copy the required folders into this one
+            cd static
+            mv /tmp/jigsaw/firehose .
       - name: 'Build and deploy'
         uses: shalzz/zola-deploy-action@master
         env:
