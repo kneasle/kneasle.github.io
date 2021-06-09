@@ -1,6 +1,6 @@
 +++
 title = "Bellmetal"
-description = "A Rust library for efficiently proving and generating change ringing touches."
+description = "[archived] A Rust library for efficiently proving and generating change ringing touches."
 
 weight = 40
 
