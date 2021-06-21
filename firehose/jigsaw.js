@@ -113,7 +113,7 @@ function addHeapObject(obj) {
 *
 * The general data-flow is:
 * - User generates some input (keypress, mouse click, etc.)
-* - JS reads this input and calls one of the `#[wasm_bindgen]` methods on `Comp`
+* - JS reads this input and calls one of the `#[wasm_bindgen]` methods on the `Jigsaw` singleton
 * - These call some `self.make_*action*` function which runs a given closure on the existing
 *   [`Spec`]
 *   - This also handles the undo history (i.e. doesn't overwrite old copies, and deallocates
@@ -121,17 +121,17 @@ function addHeapObject(obj) {
 *   - Because the [`Spec`] has changed, we rebuild the [`DerivedState`] from this new [`Spec`].
 *     This is necessary because JS can't access the [`Spec`] directly.
 * - The following all happens during the call to the JS `on_comp_change()` method:
-*   - After every edit, JS will call [`Comp::ser_derived_state`] which returns a JSON
+*   - After every edit, JS will call [`Jigsaw::ser_derived_state`] which returns a JSON
 *     serialisation of the current [`DerivedState`], which is parsed into a full-blown JS object
 *     and the global `derived_state` variable is overwritten with this new value.
 *   - The HUD UI (sidebar, etc.) are all updated to this new value
 *   - A repaint is requested, so that the updated [`DerivedState`] gets fully rendered to the
 *   screen.
 */
-export class Comp {
+export class Jigsaw {
 
     static __wrap(ptr) {
-        const obj = Object.create(Comp.prototype);
+        const obj = Object.create(Jigsaw.prototype);
         obj.ptr = ptr;
 
         return obj;
@@ -146,15 +146,15 @@ export class Comp {
 
     free() {
         const ptr = this.__destroy_into_raw();
-        wasm.__wbg_comp_free(ptr);
+        wasm.__wbg_jigsaw_free(ptr);
     }
     /**
     * Create an example composition
-    * @returns {Comp}
+    * @returns {Jigsaw}
     */
     static example() {
-        var ret = wasm.comp_example();
-        return Comp.__wrap(ret);
+        var ret = wasm.jigsaw_example();
+        return Jigsaw.__wrap(ret);
     }
     /**
     * Attempt to parse a new part head specification [`String`].  If it successfully parses then
@@ -168,7 +168,7 @@ export class Comp {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
             var ptr0 = passStringToWasm0(s, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
             var len0 = WASM_VECTOR_LEN;
-            wasm.comp_parse_part_head_spec(retptr, this.ptr, ptr0, len0);
+            wasm.jigsaw_parse_part_head_spec(retptr, this.ptr, ptr0, len0);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -184,7 +184,7 @@ export class Comp {
     ser_derived_state() {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.comp_ser_derived_state(retptr, this.ptr);
+            wasm.jigsaw_ser_derived_state(retptr, this.ptr);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -200,7 +200,7 @@ export class Comp {
     ser_view() {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.comp_ser_view(retptr, this.ptr);
+            wasm.jigsaw_ser_view(retptr, this.ptr);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -215,14 +215,14 @@ export class Comp {
     set_view_from_json(json) {
         var ptr0 = passStringToWasm0(json, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len0 = WASM_VECTOR_LEN;
-        wasm.comp_set_view_from_json(this.ptr, ptr0, len0);
+        wasm.jigsaw_set_view_from_json(this.ptr, ptr0, len0);
     }
     /**
     * Returns `true` if the editor is in [`State::Idle`]
     * @returns {boolean}
     */
     is_state_idle() {
-        var ret = wasm.comp_is_state_idle(this.ptr);
+        var ret = wasm.jigsaw_is_state_idle(this.ptr);
         return ret !== 0;
     }
     /**
@@ -230,7 +230,7 @@ export class Comp {
     * @returns {boolean}
     */
     is_state_dragging() {
-        var ret = wasm.comp_is_state_dragging(this.ptr);
+        var ret = wasm.jigsaw_is_state_dragging(this.ptr);
         return ret !== 0;
     }
     /**
@@ -239,7 +239,7 @@ export class Comp {
     * @returns {number}
     */
     frag_being_dragged() {
-        var ret = wasm.comp_frag_being_dragged(this.ptr);
+        var ret = wasm.jigsaw_frag_being_dragged(this.ptr);
         return ret >>> 0;
     }
     /**
@@ -248,7 +248,7 @@ export class Comp {
     * @param {number} frag_ind
     */
     start_dragging(frag_ind) {
-        wasm.comp_start_dragging(this.ptr, frag_ind);
+        wasm.jigsaw_start_dragging(this.ptr, frag_ind);
     }
     /**
     * Called to exit [`State::Dragging`].  This moves the [`Frag`] the user was dragging to the
@@ -258,14 +258,14 @@ export class Comp {
     * @param {number} new_y
     */
     finish_dragging(new_x, new_y) {
-        wasm.comp_finish_dragging(this.ptr, new_x, new_y);
+        wasm.jigsaw_finish_dragging(this.ptr, new_x, new_y);
     }
     /**
     * Returns `true` if the editor is in [`State::Transposing`]
     * @returns {boolean}
     */
     is_state_transposing() {
-        var ret = wasm.comp_is_state_transposing(this.ptr);
+        var ret = wasm.jigsaw_is_state_transposing(this.ptr);
         return ret !== 0;
     }
     /**
@@ -280,7 +280,7 @@ export class Comp {
     start_transposing(frag_ind, row_ind) {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.comp_start_transposing(retptr, this.ptr, frag_ind, row_ind);
+            wasm.jigsaw_start_transposing(retptr, this.ptr, frag_ind, row_ind);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -290,7 +290,7 @@ export class Comp {
         }
     }
     /**
-    * Attempt to parse a [`String`] into a [`Row`] of the correct [`Stage`] for this `Comp`, to
+    * Attempt to parse a [`String`] into a [`Row`] of the [`Stage`] of the current [`Spec`], to
     * be used in [`State::Transposing`].  There are two possible outcomes:
     * - **The string corresponds to a valid [`Row`]**: This parsed [`Row`] is used to modify
     *   the temporary [`Spec`] contained with in the [`State::Transposing`] enum.  The
@@ -306,7 +306,7 @@ export class Comp {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
             var ptr0 = passStringToWasm0(row_str, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
             var len0 = WASM_VECTOR_LEN;
-            wasm.comp_try_parse_transpose_row(retptr, this.ptr, ptr0, len0);
+            wasm.jigsaw_try_parse_transpose_row(retptr, this.ptr, ptr0, len0);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -326,7 +326,7 @@ export class Comp {
     finish_transposing(row_str) {
         var ptr0 = passStringToWasm0(row_str, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len0 = WASM_VECTOR_LEN;
-        var ret = wasm.comp_finish_transposing(this.ptr, ptr0, len0);
+        var ret = wasm.jigsaw_finish_transposing(this.ptr, ptr0, len0);
         return ret !== 0;
     }
     /**
@@ -334,14 +334,14 @@ export class Comp {
     * called from any state other than [`State::Transposing`].
     */
     exit_transposing() {
-        wasm.comp_exit_transposing(this.ptr);
+        wasm.jigsaw_exit_transposing(this.ptr);
     }
     /**
     * Returns `true` if the editor is in [`State::EditingMethod`]
     * @returns {boolean}
     */
     is_state_editing_method() {
-        var ret = wasm.comp_is_state_editing_method(this.ptr);
+        var ret = wasm.jigsaw_is_state_editing_method(this.ptr);
         return ret !== 0;
     }
     /**
@@ -349,13 +349,13 @@ export class Comp {
     * @param {number} index
     */
     start_editing_method(index) {
-        wasm.comp_start_editing_method(this.ptr, index);
+        wasm.jigsaw_start_editing_method(this.ptr, index);
     }
     /**
     * Starts editing a new [`MethodSpec`], which will get added at the end
     */
     start_editing_new_method() {
-        wasm.comp_start_editing_new_method(this.ptr);
+        wasm.jigsaw_start_editing_new_method(this.ptr);
     }
     /**
     * Return all the information required for JS to update the method edit box, serialised as
@@ -365,7 +365,7 @@ export class Comp {
     method_edit_state() {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.comp_method_edit_state(retptr, this.ptr);
+            wasm.jigsaw_method_edit_state(retptr, this.ptr);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -384,7 +384,7 @@ export class Comp {
         var len0 = WASM_VECTOR_LEN;
         var ptr1 = passStringToWasm0(new_shorthand, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len1 = WASM_VECTOR_LEN;
-        wasm.comp_set_method_names(this.ptr, ptr0, len0, ptr1, len1);
+        wasm.jigsaw_set_method_names(this.ptr, ptr0, len0, ptr1, len1);
     }
     /**
     * Sets the place notatation string in the method edit box, and reparses to generate a new
@@ -394,13 +394,13 @@ export class Comp {
     set_method_pn(new_pn) {
         var ptr0 = passStringToWasm0(new_pn, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len0 = WASM_VECTOR_LEN;
-        wasm.comp_set_method_pn(this.ptr, ptr0, len0);
+        wasm.jigsaw_set_method_pn(this.ptr, ptr0, len0);
     }
     /**
     * Exit method editing mode, without commiting any of the changes
     */
     exit_method_edit() {
-        wasm.comp_exit_method_edit(this.ptr);
+        wasm.jigsaw_exit_method_edit(this.ptr);
     }
     /**
     * Exit method editing mode, commiting the new method to the composition if valid.  This
@@ -408,18 +408,18 @@ export class Comp {
     * @returns {boolean}
     */
     finish_editing_method() {
-        var ret = wasm.comp_finish_editing_method(this.ptr);
+        var ret = wasm.jigsaw_finish_editing_method(this.ptr);
         return ret !== 0;
     }
     /**
     */
     undo() {
-        wasm.comp_undo(this.ptr);
+        wasm.jigsaw_undo(this.ptr);
     }
     /**
     */
     redo() {
-        wasm.comp_redo(this.ptr);
+        wasm.jigsaw_redo(this.ptr);
     }
     /**
     * See [`Spec::extend_frag_end`] for docs
@@ -428,7 +428,7 @@ export class Comp {
     * @param {boolean} add_course
     */
     extend_frag(frag_ind, method_ind, add_course) {
-        wasm.comp_extend_frag(this.ptr, frag_ind, method_ind, add_course);
+        wasm.jigsaw_extend_frag(this.ptr, frag_ind, method_ind, add_course);
     }
     /**
     * See [`Spec::add_frag`] for docs
@@ -439,7 +439,7 @@ export class Comp {
     * @returns {number}
     */
     add_frag(x, y, method_ind, add_course) {
-        var ret = wasm.comp_add_frag(this.ptr, x, y, method_ind, add_course);
+        var ret = wasm.jigsaw_add_frag(this.ptr, x, y, method_ind, add_course);
         return ret >>> 0;
     }
     /**
@@ -447,7 +447,18 @@ export class Comp {
     * @param {number} frag_ind
     */
     delete_frag(frag_ind) {
-        wasm.comp_delete_frag(this.ptr, frag_ind);
+        wasm.jigsaw_delete_frag(this.ptr, frag_ind);
+    }
+    /**
+    * Duplicates a [`Frag`]ment by index, returning the index of the cloned [`Frag`].
+    * @param {number} frag_ind
+    * @param {number} new_x
+    * @param {number} new_y
+    * @returns {number}
+    */
+    duplicate_frag(frag_ind, new_x, new_y) {
+        var ret = wasm.jigsaw_duplicate_frag(this.ptr, frag_ind, new_x, new_y);
+        return ret >>> 0;
     }
     /**
     * See [`Spec::join_frags`] for docs.
@@ -455,7 +466,7 @@ export class Comp {
     * @param {number} frag_2_ind
     */
     join_frags(frag_1_ind, frag_2_ind) {
-        wasm.comp_join_frags(this.ptr, frag_1_ind, frag_2_ind);
+        wasm.jigsaw_join_frags(this.ptr, frag_1_ind, frag_2_ind);
     }
     /**
     * Splits a given [`Frag`]ment into two fragments, returning `""` on success and an error
@@ -469,7 +480,7 @@ export class Comp {
     split_frag(frag_ind, split_index, new_y) {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.comp_split_frag(retptr, this.ptr, frag_ind, split_index, new_y);
+            wasm.jigsaw_split_frag(retptr, this.ptr, frag_ind, split_index, new_y);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -489,7 +500,7 @@ export class Comp {
     set_call(frag_ind, row_ind, call_ind) {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.comp_set_call(retptr, this.ptr, frag_ind, row_ind, call_ind);
+            wasm.jigsaw_set_call(retptr, this.ptr, frag_ind, row_ind, call_ind);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -503,7 +514,7 @@ export class Comp {
     * @param {number} frag_ind
     */
     toggle_frag_mute(frag_ind) {
-        wasm.comp_toggle_frag_mute(this.ptr, frag_ind);
+        wasm.jigsaw_toggle_frag_mute(this.ptr, frag_ind);
     }
     /**
     * [`Frag`] soloing ala FL Studio; this has two cases:
@@ -512,7 +523,7 @@ export class Comp {
     * @param {number} frag_ind
     */
     toggle_frag_solo(frag_ind) {
-        wasm.comp_toggle_frag_solo(this.ptr, frag_ind);
+        wasm.jigsaw_toggle_frag_solo(this.ptr, frag_ind);
     }
     /**
     * Toggles the lead folding at a given **on screen** row index.  This doesn't update the undo
@@ -521,7 +532,7 @@ export class Comp {
     * @param {number} on_screen_row_ind
     */
     toggle_lead_fold(frag_ind, on_screen_row_ind) {
-        wasm.comp_toggle_lead_fold(this.ptr, frag_ind, on_screen_row_ind);
+        wasm.jigsaw_toggle_lead_fold(this.ptr, frag_ind, on_screen_row_ind);
     }
     /**
     * Remove a method from the list, if it doesn't appear in the composition
@@ -531,7 +542,7 @@ export class Comp {
     remove_method(method_ind) {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.comp_remove_method(retptr, this.ptr, method_ind);
+            wasm.jigsaw_remove_method(retptr, this.ptr, method_ind);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -548,7 +559,7 @@ export class Comp {
     set_method_shorthand(method_ind, new_name) {
         var ptr0 = passStringToWasm0(new_name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len0 = WASM_VECTOR_LEN;
-        wasm.comp_set_method_shorthand(this.ptr, method_ind, ptr0, len0);
+        wasm.jigsaw_set_method_shorthand(this.ptr, method_ind, ptr0, len0);
     }
     /**
     * Change the full name of a method (without causing an undo history
@@ -558,13 +569,13 @@ export class Comp {
     set_method_name(method_ind, new_name) {
         var ptr0 = passStringToWasm0(new_name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len0 = WASM_VECTOR_LEN;
-        wasm.comp_set_method_name(this.ptr, method_ind, ptr0, len0);
+        wasm.jigsaw_set_method_name(this.ptr, method_ind, ptr0, len0);
     }
     /**
     * Resets the composition to the example
     */
     reset() {
-        wasm.comp_reset(this.ptr);
+        wasm.jigsaw_reset(this.ptr);
     }
     /**
     * Returns the saved JSON of the current undo history
@@ -573,7 +584,7 @@ export class Comp {
     get_save_file() {
         try {
             const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
-            wasm.comp_get_save_file(retptr, this.ptr);
+            wasm.jigsaw_get_save_file(retptr, this.ptr);
             var r0 = getInt32Memory0()[retptr / 4 + 0];
             var r1 = getInt32Memory0()[retptr / 4 + 1];
             return getStringFromWasm0(r0, r1);
@@ -588,14 +599,14 @@ export class Comp {
     * @param {number} new_cam_y
     */
     set_view_coords(new_cam_x, new_cam_y) {
-        wasm.comp_set_view_coords(this.ptr, new_cam_x, new_cam_y);
+        wasm.jigsaw_set_view_coords(this.ptr, new_cam_x, new_cam_y);
     }
     /**
     * Sets the current part being viewed
     * @param {number} new_part
     */
     set_current_part(new_part) {
-        wasm.comp_set_current_part(this.ptr, new_part);
+        wasm.jigsaw_set_current_part(this.ptr, new_part);
     }
     /**
     * Toggles the foldedness of the method section, returning `false` if no section with that
@@ -606,7 +617,7 @@ export class Comp {
     toggle_section_fold(section_name) {
         var ptr0 = passStringToWasm0(section_name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len0 = WASM_VECTOR_LEN;
-        var ret = wasm.comp_toggle_section_fold(this.ptr, ptr0, len0);
+        var ret = wasm.jigsaw_toggle_section_fold(this.ptr, ptr0, len0);
         return ret !== 0;
     }
     /**
@@ -614,7 +625,7 @@ export class Comp {
     * @param {number} method_ind
     */
     toggle_method_fold(method_ind) {
-        wasm.comp_toggle_method_fold(this.ptr, method_ind);
+        wasm.jigsaw_toggle_method_fold(this.ptr, method_ind);
     }
     /**
     * Returns whether or not a given method info panel is open
@@ -622,7 +633,7 @@ export class Comp {
     * @returns {boolean}
     */
     is_method_panel_open(method_ind) {
-        var ret = wasm.comp_is_method_panel_open(this.ptr, method_ind);
+        var ret = wasm.jigsaw_is_method_panel_open(this.ptr, method_ind);
         return ret !== 0;
     }
 }
