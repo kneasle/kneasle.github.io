@@ -1,6 +1,6 @@
 +++
 title = "Minor General"
-description = "Run extremely efficient Ringing Room practices."
+description = "Run extremely efficient Ringing Room practices"
 
 weight = 100 # 1xx is for not-huge but completed projects
 

@@ -1,6 +1,6 @@
 +++
 title = "Home"
-description = "The home page of my website."
+description = "The home page of my website"
 
 [extra]
 links = [

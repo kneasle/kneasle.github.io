@@ -1,6 +1,6 @@
 +++
 title = "Sapling"
-description = "A highly experimental vi-inspired editor where you edit code, not text."
+description = "A highly experimental vi-inspired editor where you edit code, not text"
 
 weight = 40
 

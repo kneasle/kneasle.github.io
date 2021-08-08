@@ -1,6 +1,6 @@
 +++
 title = "This Site"
-description = "The website you're looking at right now."
+description = "The website you're looking at right now"
 
 weight = 120 # 1xx is for not-huge but completed projects
 
