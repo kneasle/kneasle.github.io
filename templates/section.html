@@ -1,3 +1,5 @@
+{% import "macros.html" as macros %}
+
 {% extends "base.html" %}
 
 {% block title %} {{ section.title }} {% endblock %}
@@ -16,9 +18,7 @@
 
 {% for page in section.pages %}
 <div class="blog-article-box">
-    <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
-    {% if page.date %}<p class="date">{{ page.date }}</p>{% endif %}
-    {% if page.description %}<p class="date">{{ page.description }}</p>{% endif %}
+    {{ macros::icon_and_title(page=page) }}
 
     {{ page.summary | safe }}
 

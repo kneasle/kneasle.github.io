@@ -1,3 +1,5 @@
+{% import "macros.html" as macros %}
+
 {% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
@@ -25,8 +27,9 @@
     {% set subsec = get_section(path=subsec_path) %}
 
     {% if subsec.pages %}
-        <h2 style="margin-top: 50px;"><a href="{{ subsec.path }}">{{ subsec.title }}</a></h2>
-        <p class="date">{{ subsec.description }}</p>
+        <div style="margin-top: 50px;">
+            {{ macros::icon_and_title(page=subsec) }}
+        </div>
 
         <div class="index-table-view">
             <table class="section-table">

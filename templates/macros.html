@@ -1,0 +1,22 @@
+{% macro icon_and_title(page) %} {# Generate a title-bar, with the page's icon to the left #}
+<div style="display: flex; flex-direction: row">
+    <a href="{{ page.permalink | safe }}">
+        <img
+            width="100px"
+            height="100px"
+            src="{{ page.path }}icon.svg"
+            style="float: left; border: none; margin: 0 20px 15px 0"
+        />
+    </a>
+    <div style="flex-grow: 100">
+        <h2>
+            <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+        </h2>
+        {% if page.date %}
+        <p class="date">{{ page.date }}</p>
+        {% endif %} {% if page.description %}
+        <p class="date">{{ page.description }}</p>
+        {% endif %}
+    </div>
+</div>
+{% endmacro icon_and_title %}
