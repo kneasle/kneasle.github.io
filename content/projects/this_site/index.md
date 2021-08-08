@@ -2,7 +2,7 @@
 title = "This Site"
 description = "The website you're looking at right now."
 
-weight = 100 # 1xx is for not-huge but completed projects
+weight = 120 # 1xx is for not-huge but completed projects
 
 [extra]
 links = [

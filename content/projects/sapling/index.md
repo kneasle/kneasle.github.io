@@ -2,7 +2,7 @@
 title = "Sapling"
 description = "A highly experimental vi-inspired editor where you edit code, not text."
 
-weight = 0
+weight = 40
 
 [extra]
 links = [

@@ -2,7 +2,7 @@
 title = "Wheatley"
 description = "A bot for Ringing Room that can ring any number of bells to increase the scope of practices."
 
-weight = 10
+weight = 20
 
 [extra]
 links = [

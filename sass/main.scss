@@ -1,20 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Patua+One|Roboto+Mono|Source+Code+Pro:500,700');
-@import 'range';
-@import 'vars';
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond|Patua+One|Roboto+Mono|Source+Code+Pro:500,700");
+@import "range";
+@import "vars";
 
 /* generic styling */
-body, html {
-	margin: 0;
+body,
+html {
+    margin: 0;
 }
 
 body {
-    font-family: Garamond, 'EB Garamond', serif;
+    font-family: Garamond, "EB Garamond", serif;
     font-size: 17px;
     background: $bg-color;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Patua One', cursive;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Patua One", cursive;
     font-weight: bold;
     letter-spacing: 0.05em;
     margin: 0;
@@ -22,72 +28,72 @@ h1, h2, h3, h4, h5, h6 {
 
 /* header styling */
 .header {
-	position: fixed;
-	
-	left: 0;
-	right: 0;
-	top: 0;
-	
-	z-index: +1;
-	
-	background-color: white;
-	border-bottom: $border-width solid black;
-	
-	box-shadow: 0 0 20px black;
+    position: fixed;
 
-	.logo {
+    left: 0;
+    right: 0;
+    top: 0;
+
+    z-index: +1;
+
+    background-color: white;
+    border-bottom: $border-width solid black;
+
+    box-shadow: 0 0 20px black;
+
+    .logo {
         display: block;
         margin: 0 auto;
 
-		width: 133px;
-		height: 50px;
-	}
+        width: 133px;
+        height: 50px;
+    }
 
-	ul {
-		display: none;
-		float: right;
-		
-		margin: 3px 20px 0 20px;
-		padding: 0;
-		
-		list-style-type: none;
-		vertical-align: middle;
-	}
+    ul {
+        display: none;
+        float: right;
 
-	li {
-		display: inline-block;
-		
-		margin: 0 2px 0 2px;
-		padding: 10px 15px 10px 15px;
-		
-		/* border: $border-width solid black;
+        margin: 3px 20px 0 20px;
+        padding: 0;
+
+        list-style-type: none;
+        vertical-align: middle;
+    }
+
+    li {
+        display: inline-block;
+
+        margin: 0 2px 0 2px;
+        padding: 10px 15px 10px 15px;
+
+        /* border: $border-width solid black;
 		border-bottom: none;
 		border-radius: $border-radius $border-radius 0 0; */
-	}
+    }
 
-	li a {
-		color: black;
-		text-decoration: none;
-		font-family: 'Roboto Mono', monospace;
-	}
+    li a {
+        color: black;
+        text-decoration: none;
+        font-family: "Roboto Mono", monospace;
+    }
 
-	.menu-button {
-		float: right;
-		display: block; /* from `none` */
-		
-		margin: 0;
-		
-		width: 50px;
-		height: 50px;
-	}
-        
+    .menu-button {
+        float: right;
+        display: block; /* from `none` */
+
+        margin: 0;
+
+        width: 50px;
+        height: 50px;
+    }
+
     /* If the screen is wide enough, make the links visible. */
     @media only screen and (min-width: 516px) {
         .logo {
             float: left;
             margin: 0 15px 0 15px;
         }
-		
+
         ul {
             display: block;
         }
@@ -123,10 +129,10 @@ h1, h2, h3, h4, h5, h6 {
 
         img {
             display: block;
-            
+
             margin: 0 auto;
             padding: 0;
-            
+
             width: $title-height;
             height: $title-height;
         }
@@ -155,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
             img {
                 position: absolute;
             }
-            
+
             .title-div {
                 height: $title-height;
                 padding-left: $title-height;
@@ -193,24 +199,31 @@ h1, h2, h3, h4, h5, h6 {
 
         background-color: $page-bg-color;
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             margin-bottom: 16px;
             color: $heading-color;
         }
 
-        h1, h2 {
-            padding-bottom: .3em;
+        h1,
+        h2 {
+            padding-bottom: 0.3em;
             border-bottom: 1px solid $heading-line-color;
 
             text-align: center;
         }
 
         p {
-            margin-top: 0;
+            margin: 0;
             margin-bottom: 16px;
         }
 
-        p, li {
+        p,
+        li {
             text-align: justify;
         }
 
@@ -233,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         strong {
-            font-family: 'Patua One', cursive;
+            font-family: "Patua One", cursive;
             letter-spacing: 0.05em;
             font-size: 85%;
             color: $bold-color;
@@ -244,8 +257,22 @@ h1, h2, h3, h4, h5, h6 {
             border-radius: 6px;
             padding: 0.1em 0.4em 0.2em 0.4em;
             margin: 0;
-            font-family: Source Code Pro, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            font-family: Source Code Pro, SFMono-Regular, Consolas, Liberation Mono, Menlo,
+                monospace;
             font-size: 85%;
+        }
+
+        img {
+            // Give images round borders
+            border-radius: $border-radius;
+            border: $border-width solid black;
+
+            max-width: 100%; // Prevent images from overflowing their container
+            max-height: 30em; // Also prevent images from getting really big
+
+            // Display images in the centre of the page
+            display: block;
+            margin: 0 auto;
         }
     }
 }
@@ -253,7 +280,8 @@ h1, h2, h3, h4, h5, h6 {
 // Inside the blog, we add much more space above h1 and h2.  This makes articles easier to read,
 // but doesn't cause all the headings to go crazy
 .article {
-    h1, h2 {
+    h1,
+    h2 {
         margin-top: 40px;
     }
 }

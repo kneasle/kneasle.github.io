@@ -1,6 +1,6 @@
 +++
 title = "Projects"
-description = "Interesting projects that I've done or am doing."
+description = "Interesting coding projects that I'm working on."
 page_template = "project-page.html"
 
 sort_by = "weight"
