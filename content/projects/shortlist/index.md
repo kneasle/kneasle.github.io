@@ -1,9 +1,8 @@
 +++
 title = "Shortlist"
-description = "An efficient data structure to track the largest items pushed to it."
+description = "A tiny Rust crate which keeps the largest items given to it."
 
-weight = 30
-draft = true
+weight = 120 # 1xx is for not-huge but completed projects
 
 [extra]
 links = [
@@ -12,19 +11,18 @@ links = [
 ]
 +++
 
-**Shortlist** is a simple Rust implementation of a data structure which I call a 'shortlist' (I
-can't find a name for it).
+A 'Shortlist' is a data structure which stores a fixed length buffer of the best items pushed to it.
+The intended use case is doing searches over large search spaces: we might generate billions of
+candidates, but the user will only need a couple of hundred.  Obviously, we don't want any
+candidates - we only want to keep the _best_ items by some metric.  A 'shortlist' handles this for
+us.
 
 <!-- more -->
 
-A `shortlist` storing items of type `T` has an associated constant `n >
-0`, and the following operations:
-- `fn len(&self) -> usize`: Returns the number of items currently in the `shortlist`.  For any
-  shortlist `s`, `0 <= s.len() <= n`.
-- `fn push(&mut self, value: T)`: Add a new value to the `shortlist`.  If the `shortlist` already contains `n`
-  items, remove the smallest item so that the size never exceeds `n`.
-- `fn to_vec(self) -> Vec<T>`: Consumes the `shortlist` and returns a `Vec` of its contents.
+This crate is a tiny Rust implementation of a shortlist with no (re-)allocations, `unsafe` code or
+additional dependencies.  All common operations - `len`, `push`, `peek_min`, etc. - have `O(1)`
+amortised time complexity, with `O(log n)` worst-case for any single operation.
 
-The `shortlist` library implements more operations, but these are the important ones.  This library
-implements all the above operations in constant time (amortised over all possible input sequences),
-and no heap allocations will be performed except when creating the `shortlist`.
+A `Shortlist` is a thin wrapper around a min-heap (and inherits the `O(log n)` time complexity).
+Despite being a simple wrapper, I haven't found any other implementations of it.  If anyone has
+implemented it (or knows what it's actually called), then please let me know :).
