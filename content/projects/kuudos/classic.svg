@@ -1,0 +1,289 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+	<polygon points="140.00002,260 140.00002,220 180.00002,220 180.00002,260" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,220 140.00002,180 180.00002,180 180.00002,220" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,180 140.00002,140 180.00002,140 180.00002,180" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,260 180.00002,220 220.00002,220 220.00002,260" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,220 180.00002,180 220.00002,180 220.00002,220" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,180 180.00002,140 220.00002,140 220.00002,180" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,260 220.00002,220 260.00003,220 260.00003,260" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,220 220.00002,180 260.00003,180 260.00003,220" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,180 220.00002,140 260.00003,140 260.00003,180" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,260 260.00003,220 300.00003,220 300.00003,260" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,220 260.00003,180 300.00003,180 300.00003,220" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,180 260.00003,140 300.00003,140 300.00003,180" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,260 300.00003,220 340,220 340,260" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,220 300.00003,180 340,180 340,220" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,180 300.00003,140 340,140 340,180" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,260 340,220 380,220 380,260" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,220 340,180 380,180 380,220" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,180 340,140 380,140 380,180" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,260 180.00002,260 180.00002,300 140.00002,300" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,260 220.00002,260 220.00002,300 180.00002,300" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,260 260.00003,260 260.00003,300 220.00002,300" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,300 180.00002,300 180.00002,340 140.00002,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,300 220.00002,300 220.00002,340 180.00002,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,300 260.00003,300 260.00003,340 220.00002,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,340 180.00002,340 180,380 140.00002,380" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,340 220.00002,340 220,380 180,380" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,340 260.00003,340 260,380 220,380" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,140 140.00002,180 100.000015,180 100.000015,140" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,180 140.00002,220 100.000015,220 100.000015,180" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,220 140.00002,260 100.000015,260 100.000015,220" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100.000015,140 100.000015,180 60.00002,180 60.00002,139.99998" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100.000015,180 100.000015,220 60.00002,220 60.00002,180" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100.000015,220 100.000015,260 60.00002,260 60.00002,220" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60.00002,139.99998 60.00002,180 20.00002,179.99998 20.00002,139.99998" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60.00002,180 60.00002,220 20.00002,219.99998 20.00002,179.99998" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60.00002,220 60.00002,260 20.00002,259.99997 20.00002,219.99998" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,140 220.00002,140 220.00002,100 260.00003,100" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,140 180.00002,140 180.00002,100 220.00002,100" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,140 140.00002,140 140.00002,100 180.00002,100" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,100 220.00002,100 220.00002,60 260.00003,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,100 180.00002,100 180.00002,60 220.00002,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,100 140.00002,100 140.00002,60 180.00002,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,60 220.00002,60 220.00002,20 260.00003,20" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="220.00002,60 180.00002,60 180.00002,20 220.00002,20" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="180.00002,60 140.00002,60 140.00002,20 180.00002,20" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,140 260.00003,100 300.00003,100 300.00003,140" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,100 260.00003,60 300.00003,60 300.00003,100" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,60 260.00003,20 300.00003,20 300.00003,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,140 300.00003,100 340,100 340,140" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,100 300.00003,60 340,60 340,100" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,60 300.00003,20 340,20 340,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,140 340,100 380,100 380,140" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,100 340,60 380,60 380,100" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,60 340,20 380,20 380,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,260 300.00003,260 300.00003,300 260.00003,300" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,260 340,260 340,300 300.00003,300" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,260 380,260 380,300 340,300" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,300 300.00003,300 300.00003,340 260.00003,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,300 340,300 340,340 300.00003,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,300 380,300 380,340 340,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="260.00003,340 300.00003,340 300,380 260,380" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="300.00003,340 340,340 340,380 300,380" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="340,340 380,340 380,380 340,380" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,260 140.00002,300 100.000015,300 100.000015,260" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,300 140.00002,340 100,340 100.000015,300" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,340 140.00002,380 100,380 100,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100.000015,260 100.000015,300 60.00002,300 60.00002,260" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100.000015,300 100,340 60,340 60.00002,300" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100,340 100,380 60,380 60,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60.00002,260 60.00002,300 20.00002,299.99997 20.00002,259.99997" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60.00002,300 60,340 20,340 20.00002,299.99997" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60,340 60,380 20,380 20,340" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,140 100.000015,140 100.000015,100 140.00002,100" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100.000015,140 60.00002,139.99998 60.00002,99.99999 100.000015,100" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60.00002,139.99998 20.00002,139.99998 20.00002,99.99999 60.00002,99.99999" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,100 100.000015,100 100.000015,60 140.00002,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100.000015,100 60.00002,99.99999 60.00002,60 100.000015,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60.00002,99.99999 20.00002,99.99999 20.00002,60 60.00002,60" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="140.00002,60 100.000015,60 100.000015,20 140.00002,20" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="100.000015,60 60.00002,60 60.00002,20 100.000015,20" fill="rgb(255,255,255)" stroke="none" />
+	<polygon points="60.00002,60 20.00002,60 20.00002,20 60.00002,20" fill="rgb(255,255,255)" stroke="none" />
+	<text transform="translate(200.00002,209.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">4</text>
+	<text transform="translate(280.00003,169.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">6</text>
+	<text transform="translate(320,249.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">4</text>
+	<text transform="translate(360,249.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">1</text>
+	<text transform="translate(240.00002,289.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">1</text>
+	<text transform="translate(160.00002,329.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">3</text>
+	<text transform="translate(160,369.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">9</text>
+	<text transform="translate(120.000015,249.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">3</text>
+	<text transform="translate(80.000015,169.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">5</text>
+	<text transform="translate(40.00002,169.23997) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">2</text>
+	<text transform="translate(160.00002,129.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">1</text>
+	<text transform="translate(240.00002,89.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">6</text>
+	<text transform="translate(240.00002,49.239998) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">7</text>
+	<text transform="translate(280.00003,89.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">7</text>
+	<text transform="translate(280.00003,49.239998) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">5</text>
+	<text transform="translate(320,49.239998) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">6</text>
+	<text transform="translate(320,289.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">2</text>
+	<text transform="translate(360,289.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">3</text>
+	<text transform="translate(360,329.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">9</text>
+	<text transform="translate(120.00001,329.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">1</text>
+	<text transform="translate(120,369.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">7</text>
+	<text transform="translate(80,369.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">2</text>
+	<text transform="translate(80.000015,129.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">6</text>
+	<text transform="translate(40.00002,129.23999) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">7</text>
+	<text transform="translate(40.00002,89.24) rotate(0)" font-size="28" font-family="monospace" text-anchor="middle" fill="rgb(0,0,0)" stroke="none">9</text>
+	<line x1="60.00002" y1="220" x2="20.00002" y2="219.99998" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="100" x2="220.00002" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="180" x2="300.00003" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="180" x2="60.00002" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="220" x2="220.00002" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="180" x2="220.00002" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="300" x2="100.000015" y2="260" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="220" x2="340" y2="260" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="300" x2="20.00002" y2="299.99997" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="220" x2="300.00003" y2="260" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="180" x2="180.00002" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="100" x2="180.00002" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="340" x2="300" y2="380" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60" y1="340" x2="20" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="300" x2="100.000015" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="99.99999" x2="60.00002" y2="99.99999" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="99.99999" x2="60.00002" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="60" x2="300.00003" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="220" x2="180.00002" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="220" x2="380" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="300" x2="140.00002" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="300" x2="260.00003" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100" y1="340" x2="100.000015" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="220" x2="260.00003" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="340" x2="180.00002" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="180" x2="100.000015" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="140" x2="300.00003" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="340" x2="100" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="60" x2="340" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="60" x2="380" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="220" x2="60.00002" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="60" x2="220.00002" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="260" x2="300.00003" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="60" x2="100.000015" y2="20" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="140" x2="180.00002" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="300" x2="300.00003" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="139.99998" x2="60.00002" y2="99.99999" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="340" x2="180" y2="380" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="20" x2="340" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="260" x2="220.00002" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60" y1="340" x2="60.00002" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="60" x2="220.00002" y2="20" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="60" x2="300.00003" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="100" x2="340" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="220" x2="100.000015" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="60" x2="140.00002" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="100" x2="180.00002" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="60" x2="260.00003" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="180" x2="220.00002" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="340" x2="340" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="100" x2="260.00003" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="300" x2="180.00002" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="180" x2="20.00002" y2="179.99998" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="60" x2="180.00002" y2="20" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="220" x2="60.00002" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="140" x2="340" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="100" x2="140.00002" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="100" x2="340" y2="140" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="60" x2="100.000015" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="220" x2="100.000015" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="60" x2="180.00002" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="260" x2="60.00002" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="180" x2="180.00002" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="340" x2="260.00003" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="340" x2="140.00002" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="300" x2="340" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="140" x2="180.00002" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="220" x2="300.00003" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="180" x2="340" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="99.99999" x2="100.000015" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="60" x2="60.00002" y2="20" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="140" x2="220.00002" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="260" x2="340" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="100" x2="220.00002" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="100" x2="380" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="180" x2="100.000015" y2="140" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60" y1="380" x2="60" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="300" x2="180.00002" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="300" x2="340" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="220" x2="340" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="260" x2="180.00002" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="300" x2="300.00003" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="180" x2="300.00003" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="140" x2="100.000015" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="220" x2="180.00002" y2="260" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="100" x2="100.000015" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="180" x2="340" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="220" x2="220.00002" y2="260" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="340" x2="220.00002" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="100" x2="300.00003" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100" y1="380" x2="100" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="300" x2="220.00002" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="340" x2="300.00003" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="20" x2="300.00003" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="140" x2="220.00002" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="180" x2="60.00002" y2="139.99998" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="300" x2="60.00002" y2="300" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100" y1="340" x2="60" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="180" x2="380" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="300" x2="220.00002" y2="340" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="60" x2="340" y2="100" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="300" x2="60.00002" y2="260" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="340" x2="340" y2="380" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="340" x2="220" y2="380" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="260" x2="100.000015" y2="220" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="60" x2="60.00002" y2="60" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="180" x2="260.00003" y2="180" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="100" x2="300.00003" y2="140" fill="none" stroke="rgb(200,200,200)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="299.99997" x2="20.00002" y2="259.99997" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="180" x2="260.00003" y2="220" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="60" x2="260.00003" y2="100" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="220" x2="140.00002" y2="180" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="20" x2="300.00003" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="260" x2="140.00002" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="380" x2="340" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="140" x2="220.00002" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20" y1="380" x2="20" y2="340" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="260" x2="180.00002" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="99.99999" x2="20.00002" y2="60" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60" y1="380" x2="20" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="180" x2="140.00002" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="300" x2="140.00002" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="140" x2="180.00002" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="300" x2="380" y2="340" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300" y1="380" x2="260" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="20" x2="60.00002" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="260" x2="260.00003" y2="300" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="340" x2="380" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="259.99997" x2="20.00002" y2="219.99998" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180" y1="380" x2="140.00002" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="20" x2="260.00003" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="139.99998" x2="20.00002" y2="99.99999" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="20" x2="340" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="139.99998" x2="60.00002" y2="139.99998" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="260" x2="100.000015" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="140" x2="260.00003" y2="180" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="219.99998" x2="20.00002" y2="179.99998" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="260" x2="380" y2="300" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="60" x2="140.00002" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="260" x2="20.00002" y2="259.99997" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="380" x2="300" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="140" x2="380" y2="180" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="140" x2="340" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="60" x2="380" y2="100" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="140" x2="380" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="300.00003" y1="260" x2="260.00003" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="20" x2="380" y2="60" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20" y1="340" x2="20.00002" y2="299.99997" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="20" x2="380" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="260" x2="340" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="20" x2="260.00003" y2="60" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="100" x2="380" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="20" x2="180.00002" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="300" x2="260.00003" y2="340" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="220" x2="380" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="380" y1="180" x2="380" y2="220" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="340" y1="260" x2="300.00003" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260" y1="380" x2="220" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="260" x2="60.00002" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="100" x2="260.00003" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="100" x2="140.00002" y2="60" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="140" x2="140.00002" y2="100" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="20" x2="100.000015" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="60" x2="20.00002" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="140" x2="140.00002" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="20.00002" y1="179.99998" x2="20.00002" y2="139.99998" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="380" x2="100" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="180.00002" y1="20" x2="220.00002" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="140" x2="300.00003" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220.00002" y1="140" x2="260.00003" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="60.00002" y1="139.99998" x2="100.000015" y2="140" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="260" x2="140.00002" y2="220" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="220" x2="260.00003" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100.000015" y1="20" x2="140.00002" y2="20" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="340" x2="140.00002" y2="300" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="340" x2="260" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="260.00003" y1="260" x2="220.00002" y2="260" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="220" y1="380" x2="180" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="140.00002" y1="380" x2="140.00002" y2="340" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	<line x1="100" y1="380" x2="60" y2="380" fill="none" stroke="rgb(0,0,0)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
