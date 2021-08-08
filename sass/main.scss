@@ -109,14 +109,14 @@ h1, h2, h3, h4, h5, h6 {
         /* If the window is less than 560px wide, then the title-bar should be rendered with the title
          * centred beneath the logo:
          * 
-         * +------------------------+
-         * |        LOGOLOGO        |
-         * |        LOGOLOGO        |
-         * |        LOGOLOGO        |
-         * |        LOGOLOGO        |
-         * |        LOGOLOGO        |
-         * |        >> TITLE        |
-         * +------------------------+
+         * +--------------+
+         * |   LOGOLOGO   |
+         * |   LOGOLOGO   |
+         * |   LOGOLOGO   |
+         * |   LOGOLOGO   |
+         * |   LOGOLOGO   |
+         * |   >> TITLE   |
+         * +--------------+
          */
         margin: 0;
         margin-top: $header-height;
@@ -142,11 +142,11 @@ h1, h2, h3, h4, h5, h6 {
          * to the right of the logo:
          * 
          * +-------------------------------------------+
-         * |LOGOLOGO                                   |
-         * |LOGOLOGO                                   |
-         * |LOGOLOGO >> TITLE                          |
-         * |LOGOLOGO                                   |
-         * |LOGOLOGO                                   |
+         * | LOGOLOGO                                  |
+         * | LOGOLOGO                                  |
+         * | LOGOLOGO >> TITLE                         |
+         * | LOGOLOGO                                  |
+         * | LOGOLOGO                                  |
          * +-------------------------------------------+
          */
         @media only screen and (min-width: 560px) {
