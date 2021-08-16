@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kneasle -  A Data Format for Compositions </title>
+    
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="/blog.css"/>
+    <link rel="stylesheet" href="/project.css"/>
+    <link rel="stylesheet" href="/index.css"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img class="logo" src="/images/logo.png" alt="Kneasle"/>
+        </a>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/ideas">Ideas</a></li>
+        </ul>
+    </div>
+    
+    <div class="main">
+        <div class="content-container">
+            <div class="title-bar-div">
+                <img src="&#x2F;ideas&#x2F;comp-data&#x2F;icon.svg" alt="Logo"/>
+                <div class="title-div">
+                    <h1>&gt;&gt;  A Data Format for Compositions  </h1>
+                </div>
+            </div>
+        
+            <div class="content">
+                
+<div class="article">
+    
+
+    <p>There are many computer programs that all want to be able to handle compositions, and very few of
+these share an interchangeable data format.  Therefore, transferring a composition between any of
+these programs requires the whole composition to be rewritten by hand, which is incredibly tedious
+and error prone.</p>
+<p>Here, I will argue that it would be very beneficial to have a standard data format to store and
+share compositions, so that programs (and humans) could use to share information about compositions.
+I will also persue some options of how such a format could look.</p>
+<span id="continue-reading"></span><h2 id="why-would-a-standard-data-format-be-useful">Why would a standard data format be useful?</h2>
+<p>Existing programs include:</p>
+<ul>
+<li><strong>Generators</strong> of compositions: for example <a href="http://www.byroc.org.uk/">BYROC</a>,
+<a href="http://www.bronze-age.com/elf/">Elf</a>, <a href="https://github.com/GACJ/smc">SMC32</a>, Sabre (can't find a
+link), <a href="http://www.ropley.com/eril-instructions.aspx">Eril</a> as well as much younger programs like
+<a href="https://github.com/kneasle/bellmetal">Bellmetal</a></li>
+<li><strong>Provers</strong> of compositions: for example Siril and all its implementations/derivatives,
+<a href="http://jwholdsworth.github.io/JSProve/">JSProve</a>,
+<a href="https://sites.google.com/view/pealprover/home">PealProver</a> <strong>Libraries</strong> of compositions: for
+example <a href="https://complib.org/">Composition Library</a>, Don Morrison's
+<a href="https://www.ringing.org/">ringing.org</a> and even compositions attached to BellBoard performances</li>
+<li><strong>'Bot' Ringers</strong> for online and offline ringing programs: for example
+<a href="http://www.abelsim.co.uk/">Abel</a>, <a href="https://github.com/kneasle/wheatley">Wheatley</a> for Ringing
+Room, <a href="https://handbellstadium.org/">Handbell Stadium</a> and Bob for Ding (can't find a link)</li>
+</ul>
+<p>There is also a 5th class of program that I believe doesn't exist yet, which my 3rd year project
+will consist of building:</p>
+<ul>
+<li><strong>Visualisers</strong> of compositions: Programs which <em>aid</em> composers by providing instant truth
+checking, visualisations of music distribution, etc. but don't try to generate compositions
+themselves.</li>
+</ul>
+<p>In some cases, we can piggy-back on other programs (e.g. Wheatley and Handbell Stadium use CompLib's
+row and call generation), which works OK for these programs as they need network connection to run.
+However, this piggy-backing is not really acceptable for programs like composition generators, who's
+bread and butter is to be able to generate compositions as fast as possible.  Therefore, calling out
+to CompLib's server is not probably not acceptable for both the program and CompLib's server.</p>
+<p>My vision is that you should be able to be composing a composition with (for example) BYROC, and
+then when you are satisfied with the composition, you can immediately take the save file of that
+program and upload it directly to CompLib or import it directly into Abel or Wheatley to see how it
+feels to ring.  All without ever having to transcribe a single bob or single.</p>
+<h2 id="features-of-an-ideal-composition-data-format">Features of an ideal composition data format:</h2>
+<ul>
+<li><strong>Complete</strong>: Everything that is considered change ringing should be expressible in the format.</li>
+<li><strong>Expressive</strong>: Simple compositions should produce simple and short files.</li>
+<li><strong>Flexible</strong>: The format should be able to handle things like partial/incomplete compositions,
+mixed stage splicing, etc.</li>
+<li><strong>Portable</strong>: It should be easy to use this format to send data between different languages and
+OSes.</li>
+<li><strong>Extensible</strong>: Programs should be able to add their own metadata to the any part of the data.</li>
+<li><strong>Readable</strong>: A computer-savvy human should be able to read, debug and modify data in this format.</li>
+<li><strong>Specified</strong>: Pricking rows and calls from this format should be entirely mechanical and
+unambiguous.</li>
+</ul>
+<h3 id="more-details">More details</h3>
+<h4 id="completeness">Completeness</h4>
+<p>'Everything' is defined according to the
+<a href="https://cccbr.github.io/method_ringing_framework/index.html">Framework for Change Ringing</a>.</p>
+<h4 id="portablity">Portablity</h4>
+<p>Ideally this should be built on top of an existing data format to aid portablity (e.g. <code>JSON</code> or <code>XML</code>).</p>
+<h4 id="specification">Specification</h4>
+<p>Having said that no implementation should be canonical, it would be massively advantageous for the
+adoption of a such a data format if 'standard' libraries for parsing it are written in most major
+languages (preferably open sourced) and published on the standard package repositories for those
+languages (e.g. <code>nuget</code> for <code>.NET</code>, <code>npm</code> for <code>JavaScript</code>, <code>pip</code> for <code>python</code>, etc.).  If this were
+done, then using this data format would hopefully be more convenient and compatible than making more
+'roll-your-own' implementations.</p>
+<p>This is a (reasonably complete) list of language families to cover:</p>
+<ul>
+<li><code>C</code>, callable from <code>C++</code>, <code>Rust</code>, <code>Python</code>, etc.</li>
+<li>Any <code>.NET</code> language, callable from <code>C#</code>, <code>F#</code>, etc.</li>
+<li>Any JVM language, callable from <code>Java</code>, <code>Scala</code>, <code>Kotlin</code>, etc.</li>
+<li><code>JavaScript</code> or any language compilable to WebAssembly for client-side web applications</li>
+</ul>
+<p>Also from the top 10 languages are <code>PHP</code>, <code>Go</code>, and <code>R</code> which likely need their own implemenations if
+required (though I think <code>Go</code> might be able to call <code>C</code> code).</p>
+<h2 id="microsiril">MicroSiril</h2>
+<p>Currently the only format that could possibly be called standard is microSiril, and usually when I
+ask people whether a new standard is needed the common answer seems to be <em>'but we have
+microSiril'</em>.  However, microSiril satisfies only a few of the above features that I believe an
+ideal composition format should have.  This makes sense and is not a fault of microSiril; it is a
+<strong>language</strong> rather than a <strong>data format</strong> - designed to be used by humans to represent a complete
+composition with the sole purpose of determining the truth of that composition and nothing else.</p>
+<p>As a result, microSiril works very well for <em>provers</em> and is a passable output format for
+<em>generators</em> (to be fed into a <em>prover</em>), but it is not remotely convenient for the other two use
+cases (<em>libraries</em> and <em>bot ringers</em>).</p>
+<p>This is because it is not possible to algorithmically convert microSiril into a human-readable
+representation (as is needed for <em>libraries</em>), or to generate the locations and names of the calls
+(as is needed for <em>bot ringers</em>).  microSiril is also unable to represent concepts like partial
+compositions, which I believe should be included in such a format.</p>
+<p>I therefore believe that microSiril is not the answer to this data format problem, though it does
+embody many ideas that are worth taking inspiration from.</p>
+
+</div>
+
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div style="display: block;">
+                <p>© Ben White-Horne 2020-2021</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
