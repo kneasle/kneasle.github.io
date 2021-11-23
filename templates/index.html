@@ -1,3 +1,5 @@
+{# Template for my website's home page #}
+
 {% import "macros.html" as macros %}
 
 {% extends "base.html" %}
@@ -27,6 +29,7 @@
     {% set subsec = get_section(path=subsec_path) %}
 
     {% if subsec.pages %}
+    <div>
         <div style="margin-top: 50px;">
             {{ macros::icon_and_title(page=subsec) }}
         </div>
@@ -52,6 +55,7 @@
                 <p style="text-align: center;">{{ page.description }}</p>
             {% endfor %}
         </div>
+    </div>
     {% endif %}
 {% endfor %}
 
