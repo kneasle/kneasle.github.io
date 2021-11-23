@@ -8,6 +8,10 @@ weight = 100 # 1xx is for not-huge but completed projects
 links = [
     ["GitHub", "https://github.com/kneasle/minor-general"],
 ]
+
+[taxonomies]
+Language = ["python"]
+Topic = ["bell-ringing"]
 +++
 
 During 2020, I was running several Ringing Room practices by keeping a plan of the practice on

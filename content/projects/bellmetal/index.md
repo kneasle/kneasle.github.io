@@ -8,6 +8,10 @@ weight = 200 # 2xx is for archived projects, to keep them at the bottom of the l
 links = [
     ["GitHub repo", "https://github.com/Kneasle/bellmetal"]
 ]
+
+[taxonomies]
+Language = ["rust"]
+Topic = ["bell-ringing"]
 +++
 
 **Bellmetal** was a Rust library that I wrote to aid me with composing change-ringing compositions.
@@ -20,7 +24,7 @@ composing projects.
 
 However, Bellmetal was not a failure, and was vital in the creation of [this
 composition](https://complib.org/composition/65034), which I'm quite sure is the first time that a
-peal composition _in its entirety_ has had rotational symmetry.  The flexibility of Bellmetal was
+peal composition _in its entirety_ has had double symmetry.  The flexibility of Bellmetal was
 vital here, since full rotational symmetry is AFAIK a completely new idea and therefore isn't easily
 supported by any existing tools.  However, in Bellmetal, I could simply add the rotational symmetry
 as a proof constraint (similar to how multi-part proving worked) and get immediate feedback over

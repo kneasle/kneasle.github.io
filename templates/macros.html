@@ -1,4 +1,5 @@
-{% macro icon_and_title(page) %} {# Generate a title-bar, with the page's icon to the left #}
+{# Generate a title-bar, with the page's icon to the left #}
+{% macro icon_and_title(page) %}
 <div style="display: flex; flex-direction: row">
     <a href="{{ page.permalink | safe }}">
         <img
@@ -20,3 +21,29 @@
     </div>
 </div>
 {% endmacro icon_and_title %}
+
+{# Creates a list of pages as either a table or boxes.  Used in the home and taxonomy pages. #}
+{% macro page_list(pages) %}
+        <div class="index-table-view">
+            <table class="section-table">
+                {% for page in pages %}
+                    <tr>
+                        <td class="page-title">
+                            <a href="{{ page.permalink | safe }}"><strong>{{ page.title }}</strong></a>
+                        </td>
+                        {% if page.date %}<td class="date">{{ page.date }}</td>{% endif %}
+                        <td>{{ page.description }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="index-heading-view">
+            {% for page in pages %}
+                <h3><a href="{{ page.path }}">{{ page.title }}</a></h3>
+                {% if page.date %}<p class="date">{{ page.date }}</p>{% endif %}
+                <p style="text-align: center;">{{ page.description }}</p>
+            {% endfor %}
+        </div>
+
+{% endmacro page_list %}

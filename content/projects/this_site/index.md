@@ -9,6 +9,10 @@ links = [
     ["Site Source", "https://github.com/kneasle/kneasle.github.io"],
     ["Rendered Source", "https://github.com/kneasle/kneasle.github.io/tree/gh-pages"],
 ]
+
+[taxonomies]
+Language = ["web"]
+Topic = ["other"]
 +++
 
 **This site** is my personal website.  Everything - content, icons, CSS/web design, etc. - is made

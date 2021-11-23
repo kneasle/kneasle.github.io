@@ -31,30 +31,10 @@
     {% if subsec.pages %}
     <div>
         <div style="margin-top: 50px;">
-            {{ macros::icon_and_title(page=subsec) }}
+            {{ macros::icon_and_title(page = subsec) }}
         </div>
 
-        <div class="index-table-view">
-            <table class="section-table">
-                {% for page in subsec.pages %}
-                    <tr>
-                        <td class="page-title">
-                            <a href="{{ page.permalink | safe }}"><strong>{{ page.title }}</strong></a>
-                        </td>
-                        {% if page.date %}<td class="date">{{ page.date }}</td>{% endif %}
-                        <td>{{ page.description }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
-        </div>
-
-        <div class="index-heading-view">
-            {% for page in subsec.pages %}
-                <h3><a href="{{ page.path }}">{{ page.title }}</a></h3>
-                {% if page.date %}<p class="date">{{ page.date }}</p>{% endif %}
-                <p style="text-align: center;">{{ page.description }}</p>
-            {% endfor %}
-        </div>
+        {{ macros::page_list(pages = subsec.pages) }}
     </div>
     {% endif %}
 {% endfor %}

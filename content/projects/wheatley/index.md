@@ -9,6 +9,10 @@ links = [
     ["Github", "https://github.com/kneasle/wheatley"],
     ["PyPI", "https://pypi.org/project/wheatley/"]
 ]
+
+[taxonomies]
+Language = ["python"]
+Topic = ["bell-ringing"]
 +++
 
 **Wheatley** is a computer ringer for the popular online change-ringing website

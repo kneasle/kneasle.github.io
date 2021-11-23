@@ -8,6 +8,10 @@ weight = 120 # 1xx is for not-huge but basically working projects
 links = [
     ["GitHub", "https://github.com/kneasle/kuudos"],
 ]
+
+[taxonomies]
+Language = ["rust"]
+Topic = ["other"]
 +++
 
 **Kuudos** is a Rust library that can generate, solve and render arbitrarily shaped sudokus.

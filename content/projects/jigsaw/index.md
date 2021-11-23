@@ -9,6 +9,10 @@ links = [
     ["GitHub", "https://github.com/kneasle/jigsaw"],
     ["Prototype", "https://kneasle.github.io/jigsaw/firehose"],
 ]
+
+[taxonomies]
+Language = ["rust", "web"]
+Topic = ["bell-ringing"]
 +++
 
 **Jigsaw** is a web app designed to be a sort of 'Microsoft Word' to aid people compose pieces of

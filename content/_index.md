@@ -35,4 +35,4 @@ theory of change ringing.
 I also play trombone and drums and produce funky/dancy electronic music.  My recent music is on
 [Spotify](https://open.spotify.com/artist/5se1gPrgyw8RP1cX4tRABi) (amongst other places).  Earlier
 music remains on [YouTube](https://www.youtube.com/channel/UCKl0T4IDZC3vUz152hDAzGw) and
-[SoundCloud](https://soundcloud.com/kneasle) as an archive for those who want to listen to it...
+[SoundCloud](https://soundcloud.com/kneasle) as an archive for those who want to listen to it.

@@ -8,6 +8,10 @@ weight = 40
 links = [
     ["Github repo", "https://github.com/kneasle/sapling"]
 ]
+
+[taxonomies]
+Language = ["rust"]
+Topic = ["other"]
 +++
 
 **Sapling** is an experimental general-purpose code editor, based on the design principles behind

@@ -1,6 +1,9 @@
 +++
 title = "A Data Format for Compositions"
-# description = "Musings over data formats that could store change ringing compositions"
+description = "Musings over data formats that could store change ringing compositions"
+
+[taxonomies]
+Topic = ["Bell Ringing"]
 +++
 
 There are many computer programs that all want to be able to handle compositions, and very few of
@@ -18,25 +21,23 @@ I will also persue some options of how such a format could look.
 
 Existing programs include:
 
-- **Generators** of compositions: for example [BYROC](http://www.byroc.org.uk/),
-  [Elf](http://www.bronze-age.com/elf/), [SMC32](https://github.com/GACJ/smc), Sabre (can't find a
-  link), [Eril](http://www.ropley.com/eril-instructions.aspx) as well as much younger programs like
-  [Bellmetal](https://github.com/kneasle/bellmetal)
-- **Provers** of compositions: for example Siril and all its implementations/derivatives,
-  [JSProve](http://jwholdsworth.github.io/JSProve/),
-  [PealProver](https://sites.google.com/view/pealprover/home) **Libraries** of compositions: for
-  example [Composition Library](https://complib.org/), Don Morrison's
-  [ringing.org](https://www.ringing.org/) and even compositions attached to BellBoard performances
-- **'Bot' Ringers** for online and offline ringing programs: for example
-  [Abel](http://www.abelsim.co.uk/), [Wheatley](https://github.com/kneasle/wheatley) for Ringing
-  Room, [Handbell Stadium](https://handbellstadium.org/) and Bob for Ding (can't find a link)
-
-There is also a 5th class of program that I believe doesn't exist yet, which my 3rd year project
-will consist of building:
-
+- **Generators** of compositions: [Monument](https://github.com/kneasle/monument),
+  [BYROC](http://www.byroc.org.uk/), [Elf](http://www.bronze-age.com/elf/),
+  [SMC32](https://github.com/GACJ/smc), Sabre (can't find a link),
+  [Eril](http://www.ropley.com/eril-instructions.aspx) and whatever Don Morrison uses.
+- **Provers** of compositions: [Siril](http://www.ex-parrot.com/~richard/gsiril/) and all its
+  implementations/derivatives, [JSProve](http://jwholdsworth.github.io/JSProve/),
+  [PealProver](https://sites.google.com/view/pealprover/home)
+- **Libraries** of compositions: [Composition Library](https://complib.org/), Don Morrison's
+  [ringing.org](https://www.ringing.org/) and even compositions attached to
+  [BellBoard](https://bb.ringingworld.co.uk) performances
+- **'Bot' Ringers** for online and offline ringing programs: [Abel](http://www.abelsim.co.uk/),
+  [Wheatley](https://github.com/kneasle/wheatley) for [Ringing Room](https://ringingroom.com),
+  [Handbell Stadium](https://handbellstadium.org/) and [Bob](http://www.dinging.co.uk/bob.php) for
+  [Ding](http://www.dinging.co.uk/)
 - **Visualisers** of compositions: Programs which _aid_ composers by providing instant truth
   checking, visualisations of music distribution, etc. but don't try to generate compositions
-  themselves.
+  themselves.  As far as I know, [Jigsaw](/projects/jigsaw) is the only implementation of this idea.
 
 In some cases, we can piggy-back on other programs (e.g. Wheatley and Handbell Stadium use CompLib's
 row and call generation), which works OK for these programs as they need network connection to run.
@@ -59,8 +60,7 @@ feels to ring.  All without ever having to transcribe a single bob or single.
   OSes.
 - **Extensible**: Programs should be able to add their own metadata to the any part of the data.
 - **Readable**: A computer-savvy human should be able to read, debug and modify data in this format.
-- **Specified**: Pricking rows and calls from this format should be entirely mechanical and
-  unambiguous.
+- **Specified**: Pricking rows and calls from this format should be simple and unambiguous.
 
 ### More details
 

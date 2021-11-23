@@ -9,6 +9,10 @@ links = [
     ["GitHub", "https://github.com/kneasle/shortlist"],
     ["crates.io", "https://crates.io/crates/shortlist"]
 ]
+
+[taxonomies]
+Language = ["rust"]
+Topic = ["other"]
 +++
 
 A **Shortlist** is a data structure which stores a fixed length buffer of the best items pushed to it.
