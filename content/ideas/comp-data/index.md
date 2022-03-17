@@ -3,7 +3,7 @@ title = "A Data Format for Compositions"
 description = "Musings over data formats that could store change ringing compositions"
 
 [taxonomies]
-Topic = ["Bell Ringing"]
+Topic = ["bell-ringing"]
 +++
 
 There are many computer programs that all want to be able to handle compositions, and very few of
