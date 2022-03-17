@@ -286,6 +286,13 @@ h6 {
     }
 }
 
+// Styling for the blog article boxes in the `Blog` category page
+.box {
+    margin: 20px 0 10px 0;
+    border: $border-width solid black;
+    border-radius: $border-radius;
+}
+
 /* footer styling */
 .footer {
     margin-top: 20px;

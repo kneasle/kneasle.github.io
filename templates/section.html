@@ -17,7 +17,7 @@
 {{ section.content | safe }}
 
 {% for page in section.pages %}
-<div class="blog-article-box">
+<div class="box" style="padding: 20px;">
     {{ macros::icon_and_title(page=page) }}
 
     {{ page.summary | safe }}
