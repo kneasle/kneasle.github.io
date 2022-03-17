@@ -19,7 +19,7 @@ own work, from the content/projects right down to the icons and web design.
 
 ### Let me introduce myself...
 
-My name's Ben White-Horne and I'm starting my 4<sup>th</sup> year studying Computer Science at
+My name's Ben White-Horne and I'm in my 4<sup>th</sup> year studying Computer Science at
 Oxford University (at St Anne's college, along with the other beavers).  On the internet I'm
 usually known as 'Kneasle', and I sometimes livestream coding on [my YouTube
 channel](https://www.youtube.com/channel/UCKl0T4IDZC3vUz152hDAzGw) of the same name - you'd be very
