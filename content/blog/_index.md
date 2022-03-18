@@ -1,6 +1,6 @@
 +++
 title = "Blog"
-description = "Some blog-style things that people might find interesting"
+description = "About programming, tech or bell ringing"
 
 sort_by = "date"
 
