@@ -105,8 +105,8 @@ fn main() {
         "sHsH","avg_score":-0.45625},{"length":64,"string":"sHWsMH","avg_score":
         -0.44062495},{"length":96,"string":"WMsWMHsH","avg_score":-0.33124998},
         {"length":96,"string":"WsMHWsMH","avg_score":-0.33124998},{"length":96,
-        "string":"sHWMsWMH","avg_score":-0.33124995},{"length":64,"string":"WsMHsH",
-        "avg_score":-0.284375}]}}"#;
+        "string":"sHWMsWMH","avg_score":-0.33124995},{"length":64,"string":
+        "WsMHsH","avg_score":-0.284375}]}}"#;
 
     let perfect_json = goldilocks_json_fmt::format(&json).expect("Invalid JSON");
 
