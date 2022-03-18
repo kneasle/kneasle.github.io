@@ -262,6 +262,19 @@ h6 {
             font-size: 85%;
         }
 
+        pre {
+            // Scroll for long lines, but don't add a vertical scrollbar
+            overflow-x: scroll;
+            overflow-y: hidden;
+
+            padding: 0.2em;
+
+            // Override the background for inline code blocks
+            code {
+                background: none;
+            }
+        }
+
         img {
             // Give images round borders
             border-radius: $border-radius;
