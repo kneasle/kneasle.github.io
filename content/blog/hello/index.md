@@ -11,6 +11,8 @@ with one thing and another I never wrote anything I really felt was worth publis
 of things, after all, and I only have 24 hours per day (and it's highly recommended that at least 8
 of those are sleep - I've been there, gone there, done it.  0/10, would not recommend to a friend).
 
+<!-- more -->
+
 Anyway, I've decided to just push the boat out and start writing.  After all, the only way to get
 good at something is
 [to actually do it](https://steveklabnik.com/writing/80-of-success-is-showing-up).  So, here we are:

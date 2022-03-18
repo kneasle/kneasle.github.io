@@ -14,6 +14,8 @@ within, decides that the house must be empty.  Finding the back door ajar, she p
 walks, silently, into the kitchen. On the kitchen table there are three bowls of JSON, still warm
 and ready to eat.
 
+<!-- more -->
+
 The first bowl of JSON is from the _minified_ formatter.  It's all right - it's very compact and
 good for computers, but the computer scientist doesn't like it - it's just too _wide_:
 
