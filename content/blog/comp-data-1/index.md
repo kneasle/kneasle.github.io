@@ -1,6 +1,9 @@
 +++
 title = "A Data Format for Compositions"
-description = "Musings over data formats that could store change ringing compositions"
+# description = "Musings over data formats that could store change ringing compositions"
+
+date = 2022-07-17
+draft = true
 
 [taxonomies]
 Topic = ["bell-ringing"]
@@ -8,14 +11,18 @@ Topic = ["bell-ringing"]
 
 There are many computer programs that all want to be able to handle compositions, and very few of
 these share an interchangeable data format.  Therefore, transferring a composition between any of
-these programs requires the whole composition to be rewritten by hand, which is incredibly tedious
-and error prone.
-
-Here, I will argue that it would be very beneficial to have a standard data format to store and
-share compositions, so that programs (and humans) could use to share information about compositions.
-I will also persue some options of how such a format could look.
+these programs often requires the whole composition to be rewritten by hand, which is incredibly
+tedious and error prone.  I think it would be nice to have a flexible data format for compositions
+that all programs can use, and
 
 <!-- more -->
+
+
+
+
+
+
+---
 
 ## Why would a standard data format be useful?
 
@@ -24,7 +31,7 @@ Existing programs include:
 - **Generators** of compositions: [Monument](https://github.com/kneasle/monument),
   [BYROC](http://www.byroc.org.uk/), [Elf](http://www.bronze-age.com/elf/),
   [SMC32](https://github.com/GACJ/smc), Sabre (can't find a link),
-  [Eril](http://www.ropley.com/eril-instructions.aspx) and whatever Don Morrison uses.
+  [Eril](https://ropley.com/?page_id=25777) and whatever Don Morrison uses.
 - **Provers** of compositions: [Siril](http://www.ex-parrot.com/~richard/gsiril/) and all its
   implementations/derivatives, [JSProve](http://jwholdsworth.github.io/JSProve/),
   [PealProver](https://sites.google.com/view/pealprover/home)
@@ -35,9 +42,6 @@ Existing programs include:
   [Wheatley](https://github.com/kneasle/wheatley) for [Ringing Room](https://ringingroom.com),
   [Handbell Stadium](https://handbellstadium.org/) and [Bob](http://www.dinging.co.uk/bob.php) for
   [Ding](http://www.dinging.co.uk/)
-- **Visualisers** of compositions: Programs which _aid_ composers by providing instant truth
-  checking, visualisations of music distribution, etc. but don't try to generate compositions
-  themselves.  As far as I know, [Jigsaw](/projects/jigsaw) is the only implementation of this idea.
 
 In some cases, we can piggy-back on other programs (e.g. Wheatley and Handbell Stadium use CompLib's
 row and call generation), which works OK for these programs as they need network connection to run.
