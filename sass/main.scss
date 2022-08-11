@@ -285,7 +285,25 @@ h6 {
 
             // Display images in the centre of the page
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 16px auto;
+        }
+
+        .side-by-side-images {
+            text-align: center;
+
+            img {
+                margin: 0 auto 16px auto;
+                width: 100%;
+                max-width: 350px;
+
+                // For not-tiny screens, display the images inline
+                @media only screen and (min-width: 688px) {
+                    max-width: none;
+                    display: inline-block;
+                    width: 47%;
+                    margin: 0.5%;
+                }
+            }
         }
     }
 }
