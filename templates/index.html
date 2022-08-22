@@ -28,14 +28,16 @@
 {% for subsec_path in section.subsections %}
     {% set subsec = get_section(path=subsec_path) %}
 
-    {% if subsec.pages %}
-    <div>
-        <div style="margin-top: 50px;">
-            {{ macros::icon_and_title(page = subsec) }}
-        </div>
+    {% if subsec.title != "Drafts" %}
+        {% if subsec.pages %}
+        <div>
+            <div style="margin-top: 50px;">
+                {{ macros::icon_and_title(page = subsec) }}
+            </div>
 
-        {{ macros::page_list(pages = subsec.pages) }}
-    </div>
+            {{ macros::page_list(pages = subsec.pages) }}
+        </div>
+        {% endif %}
     {% endif %}
 {% endfor %}
 
