@@ -4,7 +4,7 @@ title = "Unicycling Isn't Much Harder Than Walking"
 date = 2022-08-11
 +++
 
-So, here's a hot take.  I think that riding a unicycle isn't significantly harder than walking.
+Here's a hot take.  I think that riding a unicycle isn't significantly harder than walking.
 
 In fact, I would go so far as to say that unicycling and walking are roughly the same difficulty.
 This is not to say that unicycling is extremely easy but instead that, if you actually stop and
@@ -26,11 +26,11 @@ For bipedal animals (i.e. those that walk on two legs) humans have crazily small
 Let's do some quick calculations.  To make a fair comparison between animals of different sizes, we
 can compute the unitless ratio `height / sqrt(foot area)` - i.e. treat each species' feet as perfect
 squares with the same area as their actual feet.  We should really be computing the height of each
-species' centre of mass rather than height, but that's super hard to measure so I'm not going to
+species' centre of mass rather than height, because that's super hard to measure so I'm not going to
 bother.  We're also only considering one foot, but that's what animals have to balance on when
 walking.
 
-The mean human foot length is about 26cm - not quite one foot, ironically - and the width is about
+The mean human foot length is about 26cm - ironically, not quite one foot - and the width is about
 7.8cm.  The average height is about 180cm, which gives us a foot size factor of
 `180 / sqrt(26 * 7.8) ~= 13`.  In other words, we're roughly thirteen times taller than our feet.
 
@@ -51,13 +51,13 @@ trusty metal ruler and measure Flecky's height and foot size:
     <img alt="Measuring Flecky's height" src="flecky-height.jpg" />
 </p>
 
-So, the trusty metal ruler concludes that Flecky is about 26cm tall and each of her feet are 10cm
+The trusty metal ruler concludes that Flecky is about 26cm tall and each of her feet are 10cm
 long and 9cm wide.  All incredibly rough measurements, but it's fine - this is not exactly a
 ground-breaking physics experiment.  Anyway, pulling out our formula from earlier, we compute
 Flecky's foot size factor to be `26 / sqrt(8 * 9) ~= 3`.  For comparison, the value for a human was
 13.
 
-So, compared to their height, humans balance on feet that are **four times** smaller than those of a
+Compared to their height, humans balance on feet that are **four times** smaller than those of a
 chicken.  If we were to scale a chicken so that it's the same height as a human, we can see just how
 much easier it is for chickens to balance:
 
@@ -72,14 +72,14 @@ bike can only fall in one axis: left or right.  It is technically possible to ma
 fall over forwards (I've done it) but it takes serious amounts of energy and you have to be going
 quite fast before it's possible at all.  It's really not something you have to worry about while
 learning.  And other vehicles, like cars or tricycles, will literally stay upright _by themselves_.
-You totally can still flip cars but, like with a bike, it's pretty hard.
+You totally can still flip cars but, as with bikes, it's pretty hard.
 
 Walking involves two axis of freedom in which we have to balance: left/right (aka 'roll') and
 front/back (aka 'pitch').  The third axis is 'yaw' and involves spinning on the spot.  Clearly it's
 not possible to fall by spinning, so it's not something we need to deal with (we can, of course,
 spin in the 'yaw' axis _whilst_ falling but the falling itself has to happen in another axis).
 
-So, walking upright gives us _the maximum_ number of axis of freedom that we need to control to
+Walking upright gives us _the maximum_ number of axis of freedom that we need to control to
 balance.  It is, in some sense, as hard as balancing can ever be.
 
 ### Walking Actually is Hard
@@ -90,9 +90,10 @@ it!
 
 Even with years of nearly-continuous practice, it doesn't take very long to forget how to walk.  As
 crazy as this may sound, my dad once broke his leg and, after walking with crutches for several
-months, literally had to relearn how to walk.  I don't think this is particularly unusual or that
-Dad is incompetent or anything like that; I'm sure other people with similar injuries will have
-similar stories.
+months, literally had to relearn how to walk.  It didn't take a particularly long time compared to
+the years that babies take to learn, but it was still surprising to me at the time.  I don't think
+this is particularly unusual or that Dad is incompetent or anything like that; I'm sure other people
+with similar injuries will have similar stories.
 
 ## Practice Makes Perfect
 
@@ -103,14 +104,14 @@ and me company, my dad learned to ride a unicycle whilst we were learning to rid
 would be failing at something at the same time as we were.
 
 Shortly after learning to ride a bike, bro and I learned to ride a unicycle.  After all, once you've
-learned to ride one vehicle you may as well keep going.  And five-year-olds are pretty bouncy and with
-shin/elbow pads don't really get hurt if they fall over.  So, we got a truly adorably small unicycle
-(TODO: Add picture) and just tried and tried until we could ride the thing.
+learned to ride one vehicle you may as well keep going.  And five-year-olds are pretty bouncy and
+with shin/elbow pads don't really get hurt if they fall over.  We got a truly adorably small
+unicycle (TODO: Add picture) and just tried and tried until we could ride the thing.
 
-I've been able to ride a unicycle for nearly twenty years and, over that period, I have accrued a
-seriously large number of hours of practice.  And, as the old adage goes, 'practice makes perfect' -
-if you practice anything enough, _it will feel easy_.  My brother and I can now just get on a
-unicycle and ride it with no trouble.
+I've been able to ride a unicycle for the better part of twenty years and, over that period, I have
+accrued a seriously large number of hours of practice.  And, as the old adage goes, 'practice makes
+perfect' - if you practice anything enough, _it will feel easy_.  My brother and I can now just get
+on a unicycle and ride it with little to no trouble.
 
 Practice does, indeed, make perfect.
 
@@ -122,7 +123,7 @@ feet that are way too small for our height.  Unicycling is difficult, sure, but 
 insurmountably so, and with a bit of determination it's completely achievable to learn to ride it
 well.
 
-The only real difference between walking and unicycling is the following: **Walking _feels easier_
-because most of us have been walking for many hours each day, every day, for many decades.**
+Walking _feels easier_ because most of us have been walking for many hours each day, every day,
+for many decades.
 
-If you rode a unicycle for this many hours, it would feel 'as easy as walking'.
+If you rode a unicycle for that many hours, it would feel 'as easy as walking'.
