@@ -19,15 +19,16 @@ own work, from the content/projects right down to the icons and web design.
 
 ### Let me introduce myself...
 
-My name's Ben White-Horne and I'm in my 4<sup>th</sup> year studying Computer Science at
-Oxford University (at St Anne's college, along with the other beavers).  On the internet I'm
-usually known as 'Kneasle', and I sometimes livestream coding on [my YouTube
-channel](https://www.youtube.com/channel/UCKl0T4IDZC3vUz152hDAzGw) of the same name - you'd be very
-welcome to come and chill out while we build crazy projects.
+My name's Ben White-Horne and I like making computers do interesting things quickly.
+
+I currently work at [MathWorks](https://www.mathworks.com), and I studied studied Computer Science at St Anne's College, Oxford
+(along with the other beavers). On the internet I'm usually known as 'Kneasle', and I sometimes
+livestream coding on [my YouTube channel](https://www.youtube.com/channel/UCKl0T4IDZC3vUz152hDAzGw)
+of the same name - you'd be very welcome to come and chill out while we build crazy projects.
 
 This website is mainly devoted to programming in various languages (mostly Rust), but other than
-computing I usually occupy myself with [**change
-ringing**](https://en.wikipedia.org/wiki/Change_ringing), a mathematical and largely secular way of
+computing I usually occupy myself with
+[**change ringing**](https://en.wikipedia.org/wiki/Change_ringing), a very mathematical and largely secular way of
 ringing church bells that is pretty much exclusive to England.  Change ringing also features quite
 heavily in this site, since there is a nice amount of intersection between maths/computing and the
 theory of change ringing.
