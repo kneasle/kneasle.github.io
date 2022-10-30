@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kneasle -  Sapling </title>
+    
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="/blog.css"/>
+    <link rel="stylesheet" href="/project.css"/>
+    <link rel="stylesheet" href="/index.css"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img class="logo" src="/images/logo.png" alt="Kneasle"/>
+        </a>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/projects">Projects</a></li>
+        </ul>
+    </div>
+    
+    <div class="main">
+        <div class="content-container">
+            <div class="title-bar-div">
+                <img src="&#x2F;projects&#x2F;sapling&#x2F;icon.svg" alt="Logo"/>
+                <div class="title-div">
+                    <h1>&gt;&gt;  Sapling  </h1>
+                </div>
+            </div>
+        
+            <div class="content">
+                
+<p class="date">A highly experimental vi-inspired editor where you edit code, not text</p>
+<hr>
+
+
+<table style="width: 100%">
+    <tr>
+        <td>
+            <p class="link-line">
+                <b>Links:</b>
+                
+                    <span class="link"><a href="https:&#x2F;&#x2F;github.com&#x2F;kneasle&#x2F;sapling">Github repo</a></span>
+                
+            </p>
+        </td>
+        <td>
+            <p class="link-line">
+                <b>Tags:</b>
+                
+                    
+                        <span class="link">
+                            <a href="https://kneasle.github.io/language/rust/">#rust</a>
+                        </span>
+                    
+                
+                    
+                        <span class="link">
+                            <a href="https://kneasle.github.io/topic/other/">#other</a>
+                        </span>
+                    
+                
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+<div class="article">
+    <p><strong>Sapling</strong> is an experimental general-purpose code editor, based on the design principles behind
+Vi.  Where Sapling differs from other Vi-based editors is that instead of having keystrokes
+correspond to operations of the text (such as <code>di)</code> deleting the contents of brackets), Sapling
+instead interprets keystrokes as operations on the underlying
+<a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree"><strong>syntax tree</strong></a> representing the code.</p>
+<span id="continue-reading"></span>
+<p>This means that instead of the cursor pointing to a location in text, the cursor points to a node in
+the AST, and any subsequent operations (deletions, insertions, etc.) will be applied to that
+specific node.</p>
+<p>For more details, see <a href="https://github.com/kneasle/sapling">the README</a> of the GitHub repository.</p>
+
+</div>
+
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div style="display: block;">
+                <p>© Ben White-Horne 2020-2022</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kneasle -  Shortlist </title>
+    
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="/blog.css"/>
+    <link rel="stylesheet" href="/project.css"/>
+    <link rel="stylesheet" href="/index.css"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img class="logo" src="/images/logo.png" alt="Kneasle"/>
+        </a>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/projects">Projects</a></li>
+        </ul>
+    </div>
+    
+    <div class="main">
+        <div class="content-container">
+            <div class="title-bar-div">
+                <img src="&#x2F;projects&#x2F;shortlist&#x2F;icon.svg" alt="Logo"/>
+                <div class="title-div">
+                    <h1>&gt;&gt;  Shortlist  </h1>
+                </div>
+            </div>
+        
+            <div class="content">
+                
+<p class="date">A tiny Rust crate which keeps the largest items given to it</p>
+<hr>
+
+
+<table style="width: 100%">
+    <tr>
+        <td>
+            <p class="link-line">
+                <b>Links:</b>
+                
+                    <span class="link"><a href="https:&#x2F;&#x2F;github.com&#x2F;kneasle&#x2F;shortlist">GitHub</a></span>
+                
+                    <span class="link"><a href="https:&#x2F;&#x2F;crates.io&#x2F;crates&#x2F;shortlist">crates.io</a></span>
+                
+            </p>
+        </td>
+        <td>
+            <p class="link-line">
+                <b>Tags:</b>
+                
+                    
+                        <span class="link">
+                            <a href="https://kneasle.github.io/language/rust/">#rust</a>
+                        </span>
+                    
+                
+                    
+                        <span class="link">
+                            <a href="https://kneasle.github.io/topic/other/">#other</a>
+                        </span>
+                    
+                
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+<div class="article">
+    <p>A <strong>Shortlist</strong> is a data structure which stores a fixed length buffer of the best items pushed to it.
+The intended use case is doing searches over large search spaces: we might generate billions of
+candidate solutions, but the user will only need a couple of hundred.  Obviously, we can't just
+return any old solutions - we only want to keep the <em>best</em>.  A 'shortlist' handles this for us.</p>
+<span id="continue-reading"></span>
+<p>This crate is a tiny Rust implementation of a shortlist with no (re-)allocations, <code>unsafe</code> code or
+additional dependencies.  All common operations - <code>len</code>, <code>push</code>, <code>peek_min</code>, etc. - have <code>O(1)</code>
+amortised time complexity, with <code>O(log n)</code> worst-case for any single operation.</p>
+<p>A <code>Shortlist</code> is a thin wrapper around a min-heap (and inherits the <code>O(log n)</code> time complexity).
+Despite being a simple wrapper, I haven't found any other implementations of it.  If anyone has
+implemented it (or knows what it's actually called), then please let me know :).</p>
+
+</div>
+
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div style="display: block;">
+                <p>© Ben White-Horne 2020-2022</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

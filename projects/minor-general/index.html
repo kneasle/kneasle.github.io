@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kneasle -  Minor General </title>
+    
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="/blog.css"/>
+    <link rel="stylesheet" href="/project.css"/>
+    <link rel="stylesheet" href="/index.css"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img class="logo" src="/images/logo.png" alt="Kneasle"/>
+        </a>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/projects">Projects</a></li>
+        </ul>
+    </div>
+    
+    <div class="main">
+        <div class="content-container">
+            <div class="title-bar-div">
+                <img src="&#x2F;projects&#x2F;minor-general&#x2F;icon.svg" alt="Logo"/>
+                <div class="title-div">
+                    <h1>&gt;&gt;  Minor General  </h1>
+                </div>
+            </div>
+        
+            <div class="content">
+                
+<p class="date">Run extremely efficient Ringing Room practices</p>
+<hr>
+
+
+<table style="width: 100%">
+    <tr>
+        <td>
+            <p class="link-line">
+                <b>Links:</b>
+                
+                    <span class="link"><a href="https:&#x2F;&#x2F;github.com&#x2F;kneasle&#x2F;minor-general">GitHub</a></span>
+                
+            </p>
+        </td>
+        <td>
+            <p class="link-line">
+                <b>Tags:</b>
+                
+                    
+                        <span class="link">
+                            <a href="https://kneasle.github.io/language/python/">#python</a>
+                        </span>
+                    
+                
+                    
+                        <span class="link">
+                            <a href="https://kneasle.github.io/topic/bell-ringing/">#bell-ringing</a>
+                        </span>
+                    
+                
+            </p>
+        </td>
+    </tr>
+</table>
+
+
+<div class="article">
+    <p>During 2020, I was running several Ringing Room practices by keeping a plan of the practice on
+pen-and-paper.  And as the saying goes: why spend a few minutes doing a task when you can spend
+several days automating it?</p>
+<span id="continue-reading"></span>
+<p><img src="https://kneasle.github.io/projects/minor-general/screenshot.png" alt="Screenshot of Minor General" /></p>
+<p>After emerging from various rabbit holes, this is the result!  I'm pretty pleased with it - it was
+made pretty quickly, but is surprisingly useful and robust.  This screenshot is taken just before
+the end of a real practice, in this case a joint practice between the Oxford and Cambridge
+University Societies (oops, sorry, I mean Society and <em>Guild</em>. My bad...).  Also, cheeky photo-bomb from
+<a href="../wheatley">Wheatley</a>, one of my other projects.</p>
+<p>Minor General represents a practice as a matrix of cells, with a user-list (automatically updated
+when users arrive/leave) on the x-axis and a list of 'touches' on the y-axis.  Each cell contains the
+bells which should assigned to that user in that touch.  When you press <code>Load</code>, Minor General will
+immediately update the Ringing Room tower to be ready for that touch.</p>
+<p>Touches can be reordered (using the <code>^</code> buttons) and are automatically marked as 'done' once they
+are <code>Load</code>ed.  Minor General also error-checks the assignments - cells will be highlighted red if
+you assign two ringers to the same bell, or assign a bell to a ringer who has since left the
+practice:</p>
+<p><img src="https://kneasle.github.io/projects/minor-general/screenshot-missing-people.png" alt="Screenshot with missing users" /></p>
+<p>Also, Minor General helpfully reports which bells need to be assigned in order to complete the
+touch (this can be seen in both screenshots).</p>
+
+</div>
+
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div style="display: block;">
+                <p>© Ben White-Horne 2020-2022</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

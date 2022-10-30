@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kneasle -  Goldilocks and the Three JSON Formatters </title>
+    
+    <link rel="stylesheet" href="/main.css"/>
+    <link rel="stylesheet" href="/blog.css"/>
+    <link rel="stylesheet" href="/project.css"/>
+    <link rel="stylesheet" href="/index.css"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <div class="header">
+        <a href="/">
+            <img class="logo" src="/images/logo.png" alt="Kneasle"/>
+        </a>
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/projects">Projects</a></li>
+        </ul>
+    </div>
+    
+    <div class="main">
+        <div class="content-container">
+            <div class="title-bar-div">
+                <img src="&#x2F;blog&#x2F;goldilocks-json&#x2F;icon.svg" alt="Logo"/>
+                <div class="title-div">
+                    <h1>&gt;&gt;  Goldilocks and the Three JSON Formatters  </h1>
+                </div>
+            </div>
+        
+            <div class="content">
+                
+<div class="article">
+    <p class="date">Written on: 2021-03-16</p>
+
+    <p>Once upon a time, there lived a computer scientist with beautiful golden hair.  One day, she was
+walking through the woods when she stumbled upon an old house, in which there lived three JSON
+formatters.  Burning with curiosity, she walks around the house and upon hearing no sound from
+within, decides that the house must be empty.  Finding the back door ajar, she pushes it open and
+walks, silently, into the kitchen. On the kitchen table there are three bowls of JSON, still warm
+and ready to eat.</p>
+<span id="continue-reading"></span>
+<p>The first bowl of JSON is from the <em>minified</em> formatter.  It's all right - it's very compact and
+good for computers, but the computer scientist doesn't like it - it's just too <em>wide</em>:</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{&quot;</span><span style="color:#a3be8c;">test/cases/87s-at-back.toml</span><span>&quot;:{&quot;</span><span style="color:#a3be8c;">comps</span><span>&quot;:[{&quot;</span><span style="color:#a3be8c;">length</span><span>&quot;:</span><span style="color:#d08770;">32</span><span>,&quot;</span><span style="color:#a3be8c;">string</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">sHsH</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;:</span><span style="color:#d08770;">-0.45625</span><span>},{&quot;</span><span style="color:#a3be8c;">length</span><span>&quot;:</span><span style="color:#d08770;">64</span><span>,&quot;</span><span style="color:#a3be8c;">string</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">sHWsMH</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;:</span><span style="color:#d08770;">-0.44062495</span><span>},{&quot;</span><span style="color:#a3be8c;">length</span><span>&quot;:</span><span style="color:#d08770;">96</span><span>,&quot;</span><span style="color:#a3be8c;">string</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">WMsWMHsH</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;:</span><span style="color:#d08770;">-0.33124998</span><span>},{&quot;</span><span style="color:#a3be8c;">length</span><span>&quot;:</span><span style="color:#d08770;">96</span><span>,&quot;</span><span style="color:#a3be8c;">string</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">WsMHWsMH</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;:</span><span style="color:#d08770;">-0.33124998</span><span>},{&quot;</span><span style="color:#a3be8c;">length</span><span>&quot;:</span><span style="color:#d08770;">96</span><span>,&quot;</span><span style="color:#a3be8c;">string</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">sHWMsWMH</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;:</span><span style="color:#d08770;">-0.33124995</span><span>},{&quot;</span><span style="color:#a3be8c;">length</span><span>&quot;:</span><span style="color:#d08770;">64</span><span>,&quot;</span><span style="color:#a3be8c;">string</span><span>&quot;:&quot;</span><span style="color:#a3be8c;">WsMHsH</span><span>&quot;,&quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;:</span><span style="color:#d08770;">-0.284375</span><span>}]}} &quot;</span><span style="color:#a3be8c;">oh look you actually scrolled to the end! That&#39;s very nice of you, so here&#39;s a star: ⭐</span><span>&quot;
+</span></code></pre>
+<p>&quot;This can't do!&quot; she thinks.  &quot;If I check this into git, I won't be able to tell what on earth is
+going on!  All the diffs will just be one line!&quot;.  She moves on to the next bowl, disappointed.</p>
+<p>The second bowl belongs to the <em>pretty</em> formatter.  &quot;This is much better!&quot;, she thinks.  Everything
+is on its own line, so the git diffs will be much easier to read.  However, it's still not perfect
+- it's just a bit too <em>tall</em>:</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>  &quot;</span><span style="color:#a3be8c;">test/cases/87s-at-back.toml</span><span>&quot;: {
+</span><span>    &quot;</span><span style="color:#a3be8c;">comps</span><span>&quot;: [
+</span><span>      {
+</span><span>        &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">32</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">sHsH</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.45625
+</span><span>      },
+</span><span>      {
+</span><span>        &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">64</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">sHWsMH</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.44062495
+</span><span>      },
+</span><span>      {
+</span><span>        &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">96</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">WMsWMHsH</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.33124998
+</span><span>      },
+</span><span>      {
+</span><span>        &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">96</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">WsMHWsMH</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.33124998
+</span><span>      },
+</span><span>      {
+</span><span>        &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">96</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">sHWMsWMH</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.33124995
+</span><span>      },
+</span><span>      {
+</span><span>        &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">64</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">WsMHsH</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.284375
+</span><span>      }
+</span><span>    ]
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<p>If only there were a way to have a middle ground: a formatter that isn't too wide, and isn't too
+tall!</p>
+<p>Finally, the computer scientist comes to the third bowl of JSON.  She gasps.  This is the JSON
+she'd been hoping for!  It's not too wide, it's not too tall, its just... <em>perfect</em>:</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>  &quot;</span><span style="color:#a3be8c;">test/cases/87s-at-back.toml</span><span>&quot;: {
+</span><span>    &quot;</span><span style="color:#a3be8c;">comps</span><span>&quot;: [
+</span><span>      { &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">32</span><span>, &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">sHsH</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.45625 </span><span>},
+</span><span>      { &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">64</span><span>, &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">sHWsMH</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.44062495 </span><span>},
+</span><span>      { &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">96</span><span>, &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">WMsWMHsH</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.33124998 </span><span>},
+</span><span>      { &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">96</span><span>, &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">WsMHWsMH</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.33124998 </span><span>},
+</span><span>      { &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">96</span><span>, &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">sHWMsWMH</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.33124995 </span><span>},
+</span><span>      { &quot;</span><span style="color:#a3be8c;">length</span><span>&quot;: </span><span style="color:#d08770;">64</span><span>, &quot;</span><span style="color:#a3be8c;">string</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">WsMHsH</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">avg_score</span><span>&quot;: </span><span style="color:#d08770;">-0.284375 </span><span>}
+</span><span>    ]
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<h2 id="introducing-the-goldilocks-json-formatter">Introducing the Goldilocks JSON Formatter</h2>
+<p>Luckily for everyone, this story has a happy ending!  Not only was Goldilocks not eaten by the
+<del>bears</del> JSON formatters, but the Goldilocks formatter is available as <code>goldilocks-json-fmt</code> <a href="https://crates.io/crates/goldilocks-json-fmt">on
+crates.io</a> for everyone to use!</p>
+<p>A quick example, just to make sure you're fully sold on the idea:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#65737e;">// Ewww so horrible
+</span><span>    </span><span style="color:#b48ead;">let</span><span> json = </span><span style="color:#b48ead;">r</span><span>#&quot;</span><span style="color:#a3be8c;">{&quot;test/cases/87s-at-back.toml&quot;:{&quot;comps&quot;:[{&quot;length&quot;:32,&quot;string&quot;:
+</span><span style="color:#a3be8c;">        &quot;sHsH&quot;,&quot;avg_score&quot;:-0.45625},{&quot;length&quot;:64,&quot;string&quot;:&quot;sHWsMH&quot;,&quot;avg_score&quot;:
+</span><span style="color:#a3be8c;">        -0.44062495},{&quot;length&quot;:96,&quot;string&quot;:&quot;WMsWMHsH&quot;,&quot;avg_score&quot;:-0.33124998},
+</span><span style="color:#a3be8c;">        {&quot;length&quot;:96,&quot;string&quot;:&quot;WsMHWsMH&quot;,&quot;avg_score&quot;:-0.33124998},{&quot;length&quot;:96,
+</span><span style="color:#a3be8c;">        &quot;string&quot;:&quot;sHWMsWMH&quot;,&quot;avg_score&quot;:-0.33124995},{&quot;length&quot;:64,&quot;string&quot;:
+</span><span style="color:#a3be8c;">        &quot;WsMHsH&quot;,&quot;avg_score&quot;:-0.284375}]}}</span><span>&quot;#;
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> perfect_json = goldilocks_json_fmt::format(&amp;json).</span><span style="color:#96b5b4;">expect</span><span>(&quot;</span><span style="color:#a3be8c;">Invalid JSON</span><span>&quot;);
+</span><span>
+</span><span>    assert_eq!(
+</span><span>         &amp;perfect_json,
+</span><span>         </span><span style="color:#65737e;">// So perfect!
+</span><span>         </span><span style="color:#b48ead;">r</span><span>#&quot;</span><span style="color:#a3be8c;">{
+</span><span style="color:#a3be8c;">  &quot;test/cases/87s-at-back.toml&quot;: {
+</span><span style="color:#a3be8c;">    &quot;comps&quot;: [
+</span><span style="color:#a3be8c;">      { &quot;length&quot;: 32, &quot;string&quot;: &quot;sHsH&quot;, &quot;avg_score&quot;: -0.45625 },
+</span><span style="color:#a3be8c;">      { &quot;length&quot;: 64, &quot;string&quot;: &quot;sHWsMH&quot;, &quot;avg_score&quot;: -0.44062495 },
+</span><span style="color:#a3be8c;">      { &quot;length&quot;: 96, &quot;string&quot;: &quot;WMsWMHsH&quot;, &quot;avg_score&quot;: -0.33124998 },
+</span><span style="color:#a3be8c;">      { &quot;length&quot;: 96, &quot;string&quot;: &quot;WsMHWsMH&quot;, &quot;avg_score&quot;: -0.33124998 },
+</span><span style="color:#a3be8c;">      { &quot;length&quot;: 96, &quot;string&quot;: &quot;sHWMsWMH&quot;, &quot;avg_score&quot;: -0.33124995 },
+</span><span style="color:#a3be8c;">      { &quot;length&quot;: 64, &quot;string&quot;: &quot;WsMHsH&quot;, &quot;avg_score&quot;: -0.284375 },
+</span><span style="color:#a3be8c;">    ]
+</span><span style="color:#a3be8c;">  }
+</span><span style="color:#a3be8c;">}</span><span>&quot;#,
+</span><span>    );
+</span><span>}
+</span></code></pre>
+<p>Quick links:</p>
+<ul>
+<li><a href="https://github.com/kneasle/goldilocks-json-fmt">GitHub repo</a></li>
+<li><a href="https://crates.io/crates/goldilocks-json-fmt">crates.io</a></li>
+<li><a href="https://docs.rs/goldilocks-json-fmt/">docs.rs</a></li>
+</ul>
+
+</div>
+
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div style="display: block;">
+                <p>© Ben White-Horne 2020-2022</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
