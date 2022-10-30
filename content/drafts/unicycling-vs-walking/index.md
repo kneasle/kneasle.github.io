@@ -27,7 +27,9 @@ Let's do some quick calculations.  To make a fair comparison between animals of 
 can compute the unitless ratio `height / sqrt(foot area)` - i.e. treat each species' feet as perfect
 squares with the same area as their actual feet.  We should really be computing the height of each
 species' centre of mass rather than height, because that's super hard to measure so I'm not going to
-bother.  We're also only considering one foot, but that's what animals have to balance on when
+bother.  I will, however, be ignoring the chickens' heads to get a bit closer to their centre of
+mass (chicken's heads are really tiny compared to their bodies.  It's no wonder they're not very
+smart). We're also only considering one foot, but that's what animals have to balance on when
 walking.
 
 The mean human foot length is about 26cm - ironically, not quite one foot - and the width is about
@@ -35,7 +37,7 @@ The mean human foot length is about 26cm - ironically, not quite one foot - and 
 `180 / sqrt(26 * 7.8) ~= 13`.  In other words, we're roughly thirteen times taller than our feet.
 
 Contrast this with, say, a chicken.  I just happen to currently have twelve chickens in my
-(parents') back garden, so they make useful test subjects.  We also have no shortage of hilariously
+parents' back garden, so they make useful test subjects.  We also have no shortage of hilariously
 derpy chicken photos - they are, after all, hilariously derpy creatures - but here's a particularly
 good one.  Meet Flecky, our glamorous assistant:
 
@@ -88,12 +90,31 @@ In summary, walking is really a phenomenal balancing act, and it takes new human
 years_ to learn how to do it.  Honestly, you could do nearly anything if you spent a year practicing
 it!
 
-Even with years of nearly-continuous practice, it doesn't take very long to forget how to walk.  As
+Even with decades of nearly-continuous practice, it doesn't take very long to forget how to walk.  As
 crazy as this may sound, my dad once broke his leg and, after walking with crutches for several
 months, literally had to relearn how to walk.  It didn't take a particularly long time compared to
 the years that babies take to learn, but it was still surprising to me at the time.  I don't think
 this is particularly unusual or that Dad is incompetent or anything like that; I'm sure other people
 with similar injuries will have similar stories.
+
+## How much harder is unicycling?
+
+Now that we've covered the ways that walking is hard, let's look at the ways in which unicycling
+is hard.
+
+1. Unicycling allows you to fall in any direction.  This is, frankly, the main reason that
+   unicycle is hard.  But this is also a feature of walking so, in this regard, unicycling is no more
+   difficult than walking.
+2. Unicycling requires balancing on a point that's much smaller a foot.  So, in this regard,
+   unicycling is slightly harder.
+3. Unicycling has a more complex control mechanism.  Instead of our feet interacting directly
+   with the ground, they interact with pedals which power a wheel that then interacts with the
+   ground.  This makes unicycling harder, but the control mechanism of walking is already pretty
+   complex so I'm not sure the difference is that great.  Either way, both control mechanisms are
+   predictable, and we just learn to deal with them.
+
+So, unicycling is certainly harder than walking.  But many of the difficult features are also
+features of walking.
 
 ## Practice Makes Perfect
 
@@ -105,11 +126,11 @@ would be failing at something at the same time as we were.
 
 Shortly after learning to ride a bike, bro and I learned to ride a unicycle.  After all, once you've
 learned to ride one vehicle you may as well keep going.  And five-year-olds are pretty bouncy and
-with shin/elbow pads don't really get hurt if they fall over.  We got a truly adorably small
-unicycle (TODO: Add picture) and just tried and tried until we could ride the thing.
+with some knee/elbow pads don't really get hurt if they fall over.  We got a truly adorably small
+unicycle and just tried and tried until we could ride the thing.
 
 I've been able to ride a unicycle for the better part of twenty years and, over that period, I have
-accrued a seriously large number of hours of practice.  And, as the old adage goes, 'practice makes
+accrued many many hours of practice.  And, as the old adage goes, 'practice makes
 perfect' - if you practice anything enough, _it will feel easy_.  My brother and I can now just get
 on a unicycle and ride it with little to no trouble.
 
