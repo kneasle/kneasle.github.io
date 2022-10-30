@@ -14,12 +14,7 @@ think about it, walking is actually _much, much_ harder than people give it cred
 
 ## What Do You Mean, Walking is Hard!?
 
-OK, I know what you're thinking.  "This guy is such a nut-case, why am I reading his crazy
-thoughts?"  Well, that's a fair question, I guess - but you seem to be find my crazy thoughts
-interesting enough to be reading them 🤷.   Anyway, before you just stop reading and write me off as
-a madman, hear me out.
-
-### Human Feet are Really Small
+### Major Difficulty #1: Human Feet are Really Small
 
 For bipedal animals (i.e. those that walk on two legs) humans have crazily small feet.
 
@@ -65,7 +60,7 @@ much easier it is for chickens to balance:
 
 ![Balance comparison between humans and chickens](balancing.svg)
 
-### We Can Fall in Any Direction
+### Major Difficulty #2: We Can Fall in Any Direction
 
 Here's another way walking is hard: when walking, you can fall over in any direction.
 
@@ -114,7 +109,7 @@ is hard.
    predictable, and we just learn to deal with them.
 
 So, unicycling is certainly harder than walking.  But many of the difficult features are also
-features of walking.
+features of walking.  Therefore, unicycling isn't too much harder.
 
 ## Practice Makes Perfect
 
