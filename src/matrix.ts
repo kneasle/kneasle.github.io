@@ -3,31 +3,35 @@
 let matrices: Matrix[] = [];
 
 function main() {
-  makeMatrix(
-    "matrix-1",
+  let urls = [
     "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/parameters.rs",
-    4
-  );
-  makeMatrix(
-    "matrix-2",
     "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/composition.rs",
-    3
-  );
-  makeMatrix(
-    "matrix-3",
-    "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/composition.rs",
-    2
-  );
+    "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/lib.rs",
+    "https://raw.githubusercontent.com/kneasle/ringing/master/bellframe/src/row/borrowed.rs",
+    "https://raw.githubusercontent.com/kneasle/ringing/master/bellframe/src/row/owned.rs",
+    "https://raw.githubusercontent.com/kneasle/ringing/master/bellframe/src/lib.rs",
+    "https://raw.githubusercontent.com/kneasle/ringing/master/bellframe/src/method/mod.rs",
+    "https://raw.githubusercontent.com/kneasle/ringing/master/bellframe/src/method/class.rs",
+  ];
+
+  const parent = document.getElementById("matrix-container")!;
+  let num_codes = 8;
+  for (let i = 0; i < num_codes; i++) {
+    makeMatrix(parent, urls[i], 1.1 + 6 * (1 - i / num_codes));
+  }
 
   frame();
 }
 
-function makeMatrix(id: string, url: string, distance: number) {
-  const elem = document.getElementById(id)!;
+function makeMatrix(parent: HTMLElement, url: string, distance: number) {
+  let elem = document.createElement("p");
+  elem.className = "matrix";
+  parent.appendChild(elem);
+
   fetch(url)
     .then((response: Response) => response.text())
     .then((code: string) => {
-      const speed = 50 + 50 * Math.random();
+      const speed = 30 + 20 * Math.random();
       matrices.push(new Matrix(code, elem, speed, distance));
     });
 }
@@ -58,24 +62,28 @@ class Matrix {
   ) {
     this.code_left_to_type = code;
     this.dom_element = element;
-    this.speed = speed;
+    this.speed = speed * Math.sqrt(distance);
     this.distance = distance;
 
     // Initialise everything such that we haven't typed any code yet
     this.start_time = Date.now();
     this.chars_typed = 0;
     this.code_on_screen = "";
+    for (let i = 0; i < this.max_num_lines() - 1; i++) {
+      this.code_on_screen += "\n";
+    }
 
     // Configure DOM element
-    this.dom_element.style.left = `${Math.random() * 30}%`;
+    let position_variance = 1 - 1 / (this.distance - 0.5);
+    this.dom_element.style.left = `${Math.random() * 100 * position_variance}%`;
     this.dom_element.style.top = "-10px";
     this.dom_element.style.fontSize = `${this.font_size()}px`;
     this.dom_element.style.color = this.color();
   }
 
   max_num_lines(): number {
-    let height = 0.8 * window.innerHeight;
-    return Math.floor((height / this.font_size()) * 0.8);
+    let height = 0.7 * window.innerHeight;
+    return Math.floor((height / this.font_size()) * 0.7);
   }
 
   font_size(): number {
@@ -87,8 +95,9 @@ class Matrix {
   }
 
   color(): string {
-    let col_scale = 1 - this.distance / 9;
-    return `rgb(0, ${col_scale * 128}, ${col_scale * 255})`;
+    let color_factor = Math.pow(this.distance - 1, -0.8);
+    let color_scale = 0.1 + color_factor * 0.7;
+    return `rgb(0, ${color_scale * 128}, ${color_scale * 255})`;
   }
 
   type_code() {
