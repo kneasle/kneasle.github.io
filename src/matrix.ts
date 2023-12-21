@@ -5,23 +5,31 @@ let matrices: Matrix[] = [];
 function main() {
   makeMatrix(
     "matrix-1",
-    "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/parameters.rs"
+    "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/parameters.rs",
+    4
   );
   makeMatrix(
     "matrix-2",
-    "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/composition.rs"
+    "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/composition.rs",
+    3
+  );
+  makeMatrix(
+    "matrix-3",
+    "https://raw.githubusercontent.com/kneasle/ringing/master/monument/lib/src/composition.rs",
+    2
   );
 
   frame();
 }
 
-function makeMatrix(id: string, url: string) {
+function makeMatrix(id: string, url: string, distance: number) {
   const elem = document.getElementById(id)!;
   fetch(url)
     .then((response: Response) => response.text())
-    .then((code: string) =>
-      matrices.push(new Matrix(code, elem, 100 + 100 * Math.random(), 50))
-    );
+    .then((code: string) => {
+      const speed = 50 + 50 * Math.random();
+      matrices.push(new Matrix(code, elem, speed, distance));
+    });
 }
 
 function frame() {
@@ -39,19 +47,19 @@ class Matrix {
 
   start_time: number;
   chars_typed: number;
-  max_num_lines: number;
+  distance: number;
   speed: number; // Chars per second
 
   constructor(
     code: string,
     element: HTMLElement,
     speed: number,
-    max_num_lines: number
+    distance: number
   ) {
     this.code_left_to_type = code;
     this.dom_element = element;
     this.speed = speed;
-    this.max_num_lines = max_num_lines;
+    this.distance = distance;
 
     // Initialise everything such that we haven't typed any code yet
     this.start_time = Date.now();
@@ -61,13 +69,33 @@ class Matrix {
     // Configure DOM element
     this.dom_element.style.left = `${Math.random() * 30}%`;
     this.dom_element.style.top = "-10px";
+    this.dom_element.style.fontSize = `${this.font_size()}px`;
+    this.dom_element.style.color = this.color();
+  }
+
+  max_num_lines(): number {
+    let height = 0.8 * window.innerHeight;
+    return Math.floor((height / this.font_size()) * 0.8);
+  }
+
+  font_size(): number {
+    return this.scale() * 50;
+  }
+
+  scale(): number {
+    return 1 / this.distance;
+  }
+
+  color(): string {
+    let col_scale = 1 - this.distance / 9;
+    return `rgb(0, ${col_scale * 128}, ${col_scale * 255})`;
   }
 
   type_code() {
     // Determine how many chars to type
     let secs_since_start = (Date.now() - this.start_time) / 1000;
     let expected_chars_typed = secs_since_start * this.speed;
-    let chars_to_add = expected_chars_typed - this.chars_typed;
+    let chars_to_add = Math.round(expected_chars_typed - this.chars_typed);
     // Take the next `chars_to_add` chars to be typed
     let text_to_add = this.code_left_to_type.substring(0, chars_to_add);
     this.code_left_to_type = this.code_left_to_type.substring(chars_to_add);
@@ -76,7 +104,7 @@ class Matrix {
     this.chars_typed += chars_to_add; // These chars have now be typed
     // Truncate the code if it's too tall
     let lines = this.code_on_screen.split("\n");
-    lines = lines.slice(-this.max_num_lines);
+    lines = lines.slice(-this.max_num_lines());
     this.code_on_screen = lines.join("\n");
     // Update the screen
     this.dom_element.textContent = this.code_on_screen;
@@ -86,108 +114,5 @@ class Matrix {
     return this.code_left_to_type == "";
   }
 }
-
-const code = `use crate::{method::LABEL_LEAD_END, Block, PnBlock, Row, Stage};
-
-pub const NOTATION_BOB: char = '-';
-pub const NOTATION_SINGLE: char = 's';
-
-#[derive(Debug, Clone)]
-pub struct Call {
-    notation: char,
-    label: String,
-    covers: usize,
-    /// The block replaced by this \`Call\`.
-    ///
-    /// Invariant: This must start with rounds
-    block: Block<()>,
-}
-
-// \`Call\`s can't have size 0 because it is backed by a \`Block\`, which enforces a non-zero size
-// invariant.
-#[allow(clippy::len_without_is_empty)]
-impl Call {
-    /// Creates a new \`Call\` from its parts
-    #[inline]
-    pub fn new(notation: char, label: String, covers: usize, block: Block<()>) -> Self {
-        Call {
-            notation,
-            label,
-            covers,
-            block,
-        }
-    }
-
-    /// Creates a call with notation \`'-'\`, which covers only the lead end
-    pub fn le_bob(pn_block: PnBlock) -> Self {
-        Self::new(
-            NOTATION_BOB,
-            LABEL_LEAD_END.to_owned(),
-            pn_block.len(),
-            pn_block.to_block_from_rounds(),
-        )
-    }
-
-    /// Creates a call with notation \`'s'\`, which covers only the lead end
-    pub fn le_single(pn_block: PnBlock) -> Self {
-        Self::new(
-            NOTATION_SINGLE,
-            LABEL_LEAD_END.to_owned(),
-            pn_block.len(),
-            pn_block.to_block_from_rounds(),
-        )
-    }
-
-    /// Gets the [\`Block\`] representing the chunk of composition generated by this \`Call\`.
-    #[inline]
-    pub fn block(&self) -> &Block<()> {
-        &self.block
-    }
-
-    /// Gets the [\`Stage\`] of this \`Call\`
-    #[inline]
-    pub fn stage(&self) -> Stage {
-        self.block.stage()
-    }
-
-    /// Gets the effective [\`Stage\`] of this \`Call\` (i.e. no places above this [\`Stage\`] are
-    /// affected by the call).
-    #[inline]
-    pub fn effective_stage(&self) -> Stage {
-        self.block.effective_stage()
-    }
-
-    /// Gets the number of [\`Row\`]s that will be covered by this \`Call\`
-    #[inline]
-    pub fn cover_len(&self) -> usize {
-        self.covers
-    }
-
-    /// Gets the number of [\`Row\`]s that will be **generated** by this \`Call\`
-    #[inline]
-    pub fn len(&self) -> usize {
-        self.block.len()
-    }
-
-    /// Gets the [\`char\`] that represents this \`Call\`.
-    #[inline]
-    pub fn notation(&self) -> char {
-        self.notation
-    }
-
-    /// Gets the label that this \`Call\` can be applied to
-    #[inline]
-    pub fn label(&self) -> &str {
-        &self.label
-    }
-
-    /// Returns a [\`Row\`] representing the overall transposition of this \`Call\` (i.e. the
-    /// permutation which maps the [\`Row\`] where this \`Call\` starts to the [\`Row\`] where it ends).
-    #[inline]
-    pub fn transposition(&self) -> &Row {
-        self.block.leftover_row()
-    }
-}
-`;
 
 main();
