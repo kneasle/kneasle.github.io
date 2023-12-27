@@ -1,5 +1,8 @@
 // Code for the matrix-style scrolling text on the home page
 
+const MIN_START_HEIGHT = 0.6; // Factor of window height
+const MAX_START_HEIGHT = 0.8; // Factor of window height
+
 let matrices: Matrix[] = [];
 
 function main() {
@@ -59,17 +62,19 @@ class Matrix {
   chars_typed: number;
   distance: number;
   speed: number; // Chars per second
+  start_height: number; // Factor of window height
 
   constructor(
     code: string,
     element: HTMLElement,
     speed: number,
-    distance: number
+    distance: number,
   ) {
     this.code_left_to_type = code;
     this.dom_element = element;
     this.speed = speed * Math.sqrt(distance);
     this.distance = distance;
+    this.start_height = MIN_START_HEIGHT + (MAX_START_HEIGHT - MIN_START_HEIGHT) * Math.random();
     this.update_y_pos();
 
     // Initialise everything such that we haven't typed any code yet
@@ -88,8 +93,8 @@ class Matrix {
   }
 
   max_num_lines(): number {
-    let height = 0.7 * window.innerHeight;
-    return Math.floor((height / this.font_size()) * 0.7);
+    let height = this.start_height * window.innerHeight;
+    return Math.floor((height / this.font_size()) * 0.85);
   }
 
   font_size(): number {

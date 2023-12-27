@@ -14,3 +14,15 @@
   font-weight: bold;
   font-size: 15px;
 }
+
+.site-title {
+  margin: 0;
+
+  /* font-size: Set in HTML */
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+
+  color: #cff;
+  text-shadow: 0 0 4vw #000, 0 0 3vw #aff, 0 0 1vw #aff;
+}
