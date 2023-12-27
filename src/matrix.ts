@@ -40,6 +40,15 @@ function makeMatrix(elem: HTMLElement, distance: number) {
 }
 
 function frame() {
+  const is_matrix_in_view = document.scrollingElement!.scrollTop < window.innerHeight;
+  if (is_matrix_in_view) {
+    update_matrices();
+  }
+
+  requestAnimationFrame(frame);
+}
+
+function update_matrices() {
   let faded_indices = [];
   for (let i = 0; i < matrices.length; i++) {
     matrices[i].type_code();
@@ -55,8 +64,6 @@ function frame() {
     makeMatrix(matrices[idx].dom_element, matrices[idx].distance);
     matrices.splice(idx, 1); // Remove the old matrix
   }
-
-  requestAnimationFrame(frame);
 }
 
 class Matrix {
