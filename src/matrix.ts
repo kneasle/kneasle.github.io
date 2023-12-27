@@ -36,6 +36,12 @@ function makeMatrix(parent: HTMLElement, url: string, distance: number) {
     });
 }
 
+document.onscroll = () => {
+  for (const m of matrices) {
+    m.update_y_pos();
+  }
+};
+
 function frame() {
   for (const m of matrices) {
     m.type_code();
@@ -64,6 +70,7 @@ class Matrix {
     this.dom_element = element;
     this.speed = speed * Math.sqrt(distance);
     this.distance = distance;
+    this.update_y_pos();
 
     // Initialise everything such that we haven't typed any code yet
     this.start_time = Date.now();
@@ -76,7 +83,6 @@ class Matrix {
     // Configure DOM element
     let position_variance = 1 - 1 / (this.distance - 0.5);
     this.dom_element.style.left = `${Math.random() * 100 * position_variance}%`;
-    this.dom_element.style.top = "-10px";
     this.dom_element.style.fontSize = `${this.font_size()}px`;
     this.dom_element.style.color = this.color();
   }
@@ -98,6 +104,11 @@ class Matrix {
     let color_factor = Math.pow(this.distance - 1, -0.8);
     let color_scale = 0.1 + color_factor * 0.7;
     return `rgb(0, ${color_scale * 128}, ${color_scale * 255})`;
+  }
+
+  update_y_pos(): void {
+    const y_pos = -10 + document.scrollingElement!.scrollTop * (1 - this.scale());
+    this.dom_element.style.top = `${y_pos}px`;
   }
 
   type_code() {
