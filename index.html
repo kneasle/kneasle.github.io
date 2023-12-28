@@ -30,30 +30,35 @@
 		<p id="scroll-down" class="site-title scroll-down scroll-down-present">Scroll down ...</p>
 	</div>
 
-	<!-- "About me" -->
-	<div style="height: 50px;"></div>
-	<div style="height: 200px; background: #048;">
-		<!-- TODO: Contents -->
-	</div>
-	<div style="height: 100px;"></div>
-
-	<!-- Site Subpages -->
-	<div style="height: 1000px">
-		<div class="subpage-entry">
-			<img src="https://avatars.githubusercontent.com/u/32932209?v=4"></img>
-			<div style="display: flex; flex-direction: column">
-				<h2>Monument</h2>
-				<div style="display: flex; justify-content: space-between; margin: 0;">
-					<p class="subheading">1st Dec 2023</p>
-					<p class="subheading">
-						<span>project</span>
-						<span>bellringing</span>
-						<span>rust</span>
-					</p>
-				</div>
-				<p>A fast, flexible and human-friendly composition generator.</p>
-			</div>
+	<div class="site-body">
+		<!-- "About me" -->
+		<div style="height: 50px;"></div>
+		<div style="height: 200px; background: #048;">
+			<!-- TODO: Contents -->
 		</div>
+		<div style="height: 100px;"></div>
+
+		<!-- Site Subpages -->
+		<div id="subpage-container">
+		</div>
+
+		<!-- <template id="supage-entry-template"> -->
+			<div class="subpage-entry">
+				<img src="https://avatars.githubusercontent.com/u/32932209?v=4"></img>
+				<div style="display: flex; flex-direction: column">
+					<h2>Monument</h2>
+					<div style="display: flex; justify-content: space-between; margin: 0;">
+						<p class="subheading">1st Dec 2023</p>
+						<p class="subheading">
+							<span>project</span>
+							<span>bellringing</span>
+							<span>rust</span>
+						</p>
+					</div>
+					<p>A fast, flexible and human-friendly composition generator.</p>
+				</div>
+			</div>
+		<!-- </template> -->
 	</div>
 
 	<script src="build/matrix.js"></script>

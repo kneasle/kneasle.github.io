@@ -71,10 +71,15 @@ body {
 
 /* PAGE ENTRIES */
 
-.subpage-entry {
-  color: #38f; /* To be inherited by other items */
+.site-body {
+  margin: 0 auto;
+  max-width: 900px;
+}
 
-  margin: 40px 30px;
+.subpage-entry {
+  color: #38f; /* Inherited by other items */
+
+  margin: 40px 10px;
 
   border: 8px solid;
   border-radius: 30px;
