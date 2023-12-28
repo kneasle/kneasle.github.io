@@ -78,14 +78,22 @@ body {
 
 .subpage-entry {
   color: #38f; /* Inherited by other items */
+  cursor: pointer;
 
   margin: 40px 10px;
-
   border: 8px solid;
   border-radius: 30px;
 
+  transition: background 0.2s, margin 0.2s ease-in-out;
+
   display: flex;
   flex-direction: row;
+}
+
+.subpage-entry:hover {
+  background: #00070f;
+  margin-left: 0;
+  margin-right: 20px;
 }
 
 .subpage-entry img {
