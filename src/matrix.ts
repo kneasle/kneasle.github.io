@@ -13,16 +13,26 @@ function main() {
   let num_codes = 8;
   for (let i = 0; i < num_codes; i++) {
     let elem = document.createElement("p");
-    elem.className = "matrix";
+    elem.className = "matrix-text";
     parent.appendChild(elem);
 
     makeMatrix(elem, 1.1 + 6 * (1 - i / num_codes));
   }
 
   // Update the parallax when the user scrolls
+  let scroll_down_elem = document.getElementById("scroll-down")!;
   document.onscroll = () => {
     for (const m of matrices) {
       m.update_y_pos();
+    }
+
+    // Update the scroll
+    let should_be_present = document.scrollingElement!.scrollTop == 0;
+    let class_to_keep = should_be_present ? "scroll-down-present" : "scroll-down-faded";
+    let class_to_remove = should_be_present ? "scroll-down-faded" : "scroll-down-present";
+    if (!scroll_down_elem.classList.contains(class_to_keep)) {
+      scroll_down_elem.classList.remove(class_to_remove);
+      scroll_down_elem.classList.add(class_to_keep);
     }
   };
 
@@ -60,7 +70,6 @@ function update_matrices() {
   // Remove the finished arrays
   faded_indices.reverse();
   for (const idx of faded_indices) {
-    console.log(`Removing ${idx}`);
     makeMatrix(matrices[idx].dom_element, matrices[idx].distance);
     matrices.splice(idx, 1); // Remove the old matrix
   }

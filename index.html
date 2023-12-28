@@ -12,20 +12,23 @@
 
 <body>
 	<!-- HEADER -->
-	<div style="width: 100%; height: 80vh; background: black;">
-		<div id="matrix-container" style="width: 100%; height: 100%; overflow: hidden;"></div>
-		<div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0">
-			<div style="height: 15vh;"></div>
-			<p class="site-title" style="font-size: 5vw;">Welcome to</p>
-			<h1 class="site-title" style="font-size: 7vw;">kneasle.github.io</h1>
-			<div style="height: 10vh;"></div>
-			<h2 class="site-title" style="font-size: 3vw;">Ben White-Horne's personal website</h2>
-
-			<!-- TODO: Fade out when the user scrolls -->
-			<p class="site-title" style="font-size: 5vh; position: absolute; bottom: 20px; left: 0; right: 0">Scroll down ...</p>
+	<div>
+		<div style="width: 100%; height: 80vh; background: black;">
+			<div id="matrix-container"></div>
+			<div class="matrix-title-overlay">
+				<div style="flex-grow: 1;"></div>
+				<p class="site-title" style="font-size: 5vw;">Welcome to</p>
+				<h1 class="site-title" style="font-size: 7vw;">kneasle.github.io</h1>
+				<div style="height: 10vh;"></div>
+				<h2 class="site-title" style="font-size: 3vw;">A site by Ben White-Horne</h2>
+				<div style="flex-grow: 1;"></div>
+				<div style="height: 17vh;"></div>
+			</div>
 		</div>
+		<div style="width: 100%; height: 20vh; background: linear-gradient(#000, #012)"></div>
+
+		<p id="scroll-down" class="site-title scroll-down scroll-down-present">Scroll down ...</p>
 	</div>
-	<div style="width: 100%; height: 20vh; background: linear-gradient(#000, #012)"></div>
 
 	<!-- "About me" -->
 	<div style="height: 50px;"></div>

@@ -5,7 +5,15 @@ body {
   font-size: 17px;
 }
 
-.matrix {
+/* SITE "MATRIX" HEADERS */
+
+#matrix-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.matrix-text {
   position: absolute;
   /* `left` and top are set by the JS code */
   right: 0;
@@ -21,6 +29,16 @@ body {
   font-size: 15px;
 }
 
+.matrix-title-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .site-title {
   margin: 0;
 
@@ -31,6 +49,27 @@ body {
   color: #cff;
   text-shadow: 0 0 4vw #000, 0 0 3vw #aff, 0 0 1vw #aff;
 }
+
+.scroll-down {
+  font-size: 5vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.scroll-down-present {
+  bottom: 20px;
+  opacity: 1;
+}
+
+.scroll-down-faded {
+  bottom: 100px;
+  opacity: 0;
+}
+
+/* PAGE ENTRIES */
 
 .subpage-entry {
   color: #38f; /* To be inherited by other items */
