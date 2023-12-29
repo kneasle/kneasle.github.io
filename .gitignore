@@ -3,5 +3,5 @@ public/
 # The generated files from Jigsaw
 static/jigsaw/
 
-# Typescript's build directory
-build/
+# Directory where the fully rendered site will be created
+rendered/
