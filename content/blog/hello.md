@@ -1,7 +1,11 @@
 +++
 title = "Hello, World!"
+desctiption = "First blog post"
 
 date = 2021-03-16
+
+topics = ["misc"]
+languages = []
 +++
 
 Hello!
@@ -10,8 +14,6 @@ So, turns out I've made a blog after all.  I've been meaning to start writing st
 with one thing and another I never wrote anything I really felt was worth publishing.  I do _a lot_
 of things, after all, and I only have 24 hours per day (and it's highly recommended that at least 8
 of those are sleep - I've been there, gone there, done it.  0/10, would not recommend to a friend).
-
-<!-- more -->
 
 Anyway, I've decided to just push the boat out and start writing.  After all, the only way to get
 good at something is

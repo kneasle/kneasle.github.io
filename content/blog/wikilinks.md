@@ -1,8 +1,12 @@
 +++
 title = "WikiLinks"
+description = "Verifying the 'Philsophy' myth."
 
 date = 2023-12-21
 draft = true
+
+topics = ["misc"]
+languages = []
 +++
 
 # WikiLinks

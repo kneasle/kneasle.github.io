@@ -1,10 +1,11 @@
 +++
 title = "Goldilocks and the Three JSON Formatters"
+description = "Once upon a time, there lived a computer scientist with beautiful golden hair..."
 
 date = 2021-03-16
 
-[taxonomies]
-Language = ["rust"]
+topics = ["coding"]
+languages = ["rust"]
 +++
 
 Once upon a time, there lived a computer scientist with beautiful golden hair.  One day, she was
@@ -13,8 +14,6 @@ formatters.  Burning with curiosity, she walks around the house and upon hearing
 within, decides that the house must be empty.  Finding the back door ajar, she pushes it open and
 walks, silently, into the kitchen. On the kitchen table there are three bowls of JSON, still warm
 and ready to eat.
-
-<!-- more -->
 
 The first bowl of JSON is from the _minified_ formatter.  It's all right - it's very compact and
 good for computers, but the computer scientist doesn't like it - it's just too _wide_:

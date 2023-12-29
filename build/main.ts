@@ -1,6 +1,7 @@
 import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
 import * as jsonc from "https://deno.land/std@0.210.0/jsonc/parse.ts";
 import { walkSync } from "https://deno.land/std@0.207.0/fs/walk.ts";
+import { parse as parseToml } from "https://deno.land/std@0.207.0/toml/mod.ts";
 
 const OUT_DIR = "rendered/";
 
@@ -14,23 +15,88 @@ function build() {
   removeIfExists(OUT_DIR);
   makeDirExist(OUT_DIR);
 
+  // Render and collect the subpages
+  const pages = buildBlogPages("content/blog");
+  console.log(pages);
+
   // Render the main page
   console.log("Rendering main page");
-  renderDirectory("main-page/", ".");
+  renderDirectory("main-page/", ".", []);
 }
 
 build();
+
+function buildBlogPages(blogDir: string): Page[] {
+  console.log("Building blog");
+
+  const pages: Page[] = [];
+  function addPage(markdownPath: string, slug: string) {
+    console.log(`    ${slug}`);
+    const [page] = renderFrontmatteredMarkdown(markdownPath, slug, "blog");
+    pages.push(page);
+  }
+
+  for (const entry of Deno.readDirSync(blogDir)) {
+    if (entry.isDirectory) {
+      // Render `${entry.name}/index.md` as the main markdown file
+      const dirPath = path.join(blogDir, entry.name);
+      const markdownPath = path.join(dirPath, "index.md");
+      const slug = entry.name;
+      addPage(markdownPath, slug);
+      // Render the rest of the directory as usual
+      renderDirectory(dirPath, slug, ["index.md"]);
+    } else if (entry.name.endsWith(".md")) {
+      // Render this page without any other files
+      const slug = path.basename(entry.name, ".md");
+      addPage(path.join(blogDir, entry.name), slug);
+    }
+  }
+  return pages;
+}
+
+function renderFrontmatteredMarkdown(mdFilePath: string, slug: string, category: Category): [Page] {
+  // Read file into frontmatter and markdown.  They are split by the next occurrence of the first
+  // line (usually `+++`)
+  const fileContents = Deno.readTextFileSync(mdFilePath);
+  const lines = fileContents.split("\n");
+  const splitIndex = lines.indexOf(lines[0], 1);
+  console.assert(splitIndex >= 0);
+  const frontMatterToml = lines.slice(1, splitIndex).join("\n").trim();
+  const markdown = lines.slice(splitIndex + 1).join("\n").trim();
+
+  // Parse frontmatter as TOML
+  const frontMatter = <FrontMatter> parseToml(frontMatterToml);
+  const page: Page = { slug, category, ...frontMatter };
+
+  // TODO: Render markdown
+
+  return [page];
+}
+
+type FrontMatter = {
+  title: string;
+  description: string;
+
+  date: Date;
+  draft?: boolean;
+
+  topics: string[];
+  languages: string[];
+};
+
+type Page = FrontMatter & { slug: string; category: Category };
+type Category = "project" | "blog";
 
 ///////////////
 // RENDERING //
 ///////////////
 
-function renderDirectory(in_dir: string, out_dir?: string): void {
+function renderDirectory(in_dir: string, out_dir: string, ignorePaths: string[]): void {
   // Create output directory
-  const output_path = path.join(OUT_DIR, out_dir || in_dir);
+  const output_path = path.join(OUT_DIR, out_dir);
   makeDirExist(output_path);
   // Handle files with a special meaning
-  const pathsToNotCopy: string[] = [];
+  const pathsToNotCopy = ignorePaths;
   for (const entry of Deno.readDirSync(in_dir)) {
     if (
       entry.isFile &&
@@ -63,7 +129,6 @@ function renderDirectory(in_dir: string, out_dir?: string): void {
       const destPath = path.join(output_path, relativePath);
       makeDirExist(path.dirname(destPath));
       Deno.copyFileSync(sourcePath, destPath);
-      console.log(`    Copying ${sourcePath} to ${destPath}`);
     }
   }
 }

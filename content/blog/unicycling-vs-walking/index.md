@@ -2,15 +2,16 @@
 title = "Unicycling Isn't Much Harder Than Walking"
 
 date = 2022-08-11
+
+topics = ["misc"]
+languages = []
 +++
 
-Here's a hot take.  I think that riding a unicycle isn't significantly harder than walking.
+I think that riding a unicycle isn't significantly harder than walking.
 
 In fact, I would go so far as to say that unicycling and walking are roughly the same difficulty.
 This is not to say that unicycling is extremely easy but instead that, if you actually stop and
 think about it, walking is actually _much, much_ harder than people give it credit for.
-
-<!-- more -->
 
 ## What Do You Mean, Walking is Hard!?
 

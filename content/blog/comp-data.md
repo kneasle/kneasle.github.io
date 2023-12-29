@@ -1,12 +1,12 @@
 +++
 title = "A Data Format for Compositions"
-# description = "Musings over data formats that could store change ringing compositions"
+description = "Musings over data formats for ringing compositions"
 
 date = 2022-07-17
 draft = true
 
-[taxonomies]
-Topic = ["bell-ringing"]
+topics = ["bell-ringing", "coding"]
+languages = ["any"]
 +++
 
 There are many computer programs that all want to be able to handle compositions, and very few of
@@ -14,8 +14,6 @@ these share an interchangeable data format.  Therefore, transferring a compositi
 these programs often requires the whole composition to be rewritten by hand, which is incredibly
 tedious and error prone.  I think it would be nice to have a flexible data format for compositions
 that all programs can use, and
-
-<!-- more -->
 
 
 
