@@ -12,31 +12,32 @@ function build() {
   // Prepare output directory
   console.log("Preparing output directory");
   removeIfExists(OUT_DIR);
-  Deno.mkdirSync(OUT_DIR);
+  makeDirExist(OUT_DIR);
 
-  // Copy the main site's pages
+  // Render the main page
   console.log("Rendering main page");
   renderDirectory("main-page/", ".");
 }
 
 build();
 
-///////////////////////////
-// RENDERING DIRECTORIES //
-///////////////////////////
+///////////////
+// RENDERING //
+///////////////
 
 function renderDirectory(in_dir: string, out_dir?: string): void {
   // Create output directory
   const output_path = path.join(OUT_DIR, out_dir || in_dir);
-  makeDir(output_path);
+  makeDirExist(output_path);
   // Handle files with a special meaning
   const pathsToNotCopy: string[] = [];
-  for (const dirEntry of Deno.readDirSync(in_dir)) {
-    if (dirEntry.isFile) {
-      if (dirEntry.name == "tsconfig.json") {
-        const tsSourcePaths = buildTypescript(in_dir, output_path);
-        pathsToNotCopy.push(dirEntry.name, ...tsSourcePaths);
-      }
+  for (const entry of Deno.readDirSync(in_dir)) {
+    if (
+      entry.isFile &&
+      entry.name == "tsconfig.json"
+    ) {
+      const tsSourcePaths = buildTypescript(in_dir, output_path);
+      pathsToNotCopy.push(entry.name, ...tsSourcePaths);
     }
   }
 
@@ -60,7 +61,7 @@ function renderDirectory(in_dir: string, out_dir?: string): void {
     // Copy if not ignored
     if (!shouldBeIgnored) {
       const destPath = path.join(output_path, relativePath);
-      makeDir(path.dirname(destPath));
+      makeDirExist(path.dirname(destPath));
       Deno.copyFileSync(sourcePath, destPath);
       console.log(`    Copying ${sourcePath} to ${destPath}`);
     }
@@ -74,7 +75,7 @@ function buildTypescript(ts_dir: string, page_dir: string): string[] {
   const ts_config_path = path.join(ts_dir, "tsconfig.json");
   const ts_config = <TsConfig> jsonc.parse(Deno.readTextFileSync(ts_config_path))!;
   const out_dir = path.join(page_dir, ts_config.compilerOptions.outDir);
-  Deno.mkdirSync(out_dir, { recursive: true });
+  makeDirExist(out_dir);
 
   // Run the compiler
   console.log(`    Compiling ${ts_config_path} with tsc...`);
@@ -95,7 +96,7 @@ function buildTypescript(ts_dir: string, page_dir: string): string[] {
 // UTILS //
 ///////////
 
-function makeDir(output_path: string) {
+function makeDirExist(output_path: string) {
   Deno.mkdirSync(output_path, { recursive: true });
 }
 
