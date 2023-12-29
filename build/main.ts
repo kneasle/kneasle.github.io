@@ -115,29 +115,29 @@ type FrontMatter = {
   languages: string[];
 };
 
-function renderDirectory(in_dir: string, out_dir: string, ignorePaths: string[]): void {
+function renderDirectory(inDir: string, outDir: string, ignorePaths: string[]): void {
   // Create output directory
-  const output_path = path.join(OUT_DIR, out_dir);
-  makeDirExist(output_path);
+  const outputPath = path.join(OUT_DIR, outDir);
+  makeDirExist(outputPath);
   // Handle files with a special meaning
   const pathsToNotCopy = ignorePaths;
-  for (const entry of Deno.readDirSync(in_dir)) {
+  for (const entry of Deno.readDirSync(inDir)) {
     if (
       entry.isFile &&
       entry.name == "tsconfig.json"
     ) {
-      const tsSourcePaths = buildTypescript(in_dir, output_path);
+      const tsSourcePaths = buildTypescript(inDir, outputPath);
       pathsToNotCopy.push(entry.name, ...tsSourcePaths);
     }
   }
 
   // Copy everything which isn't in `pathsNotToCopy`
-  for (const entry of walkSync(in_dir)) {
+  for (const entry of walkSync(inDir)) {
     if (!entry.isFile) continue; // Skip non-files
     const sourcePath = entry.path;
 
-    // Remove `in_dir` from the path
-    let relativePath = sourcePath.slice(in_dir.length);
+    // Remove `inDir` from the path
+    let relativePath = sourcePath.slice(inDir.length);
     if (relativePath.startsWith("/")) {
       relativePath = relativePath.slice(1);
     }
@@ -150,43 +150,43 @@ function renderDirectory(in_dir: string, out_dir: string, ignorePaths: string[])
     }
     // Copy if not ignored
     if (!shouldBeIgnored) {
-      const destPath = path.join(output_path, relativePath);
+      const destPath = path.join(outputPath, relativePath);
       makeDirExist(path.dirname(destPath));
       Deno.copyFileSync(sourcePath, destPath);
     }
   }
 }
 
-function buildTypescript(ts_dir: string, page_dir: string): string[] {
+function buildTypescript(tsDir: string, pageDir: string): string[] {
   // Type containing the parts of a `tsconfig.json` file that we care about
   type TsConfig = { include: string[]; compilerOptions: { outDir: string } };
   // Read tsconfig
-  const ts_config_path = path.join(ts_dir, "tsconfig.json");
-  const ts_config = <TsConfig> jsonc.parse(Deno.readTextFileSync(ts_config_path))!;
-  const out_dir = path.join(page_dir, ts_config.compilerOptions.outDir);
-  makeDirExist(out_dir);
+  const tsConfigPath = path.join(tsDir, "tsconfig.json");
+  const tsConfig = <TsConfig> jsonc.parse(Deno.readTextFileSync(tsConfigPath))!;
+  const outDir = path.join(pageDir, tsConfig.compilerOptions.outDir);
+  makeDirExist(outDir);
 
   // Run the compiler
-  console.log(`    Compiling ${ts_config_path} with tsc...`);
+  console.log(`    Compiling ${tsConfigPath} with tsc...`);
   const command = new Deno.Command("tsc", {
-    args: ["-p", ts_config_path, "--outDir", out_dir],
+    args: ["-p", tsConfigPath, "--outDir", outDir],
     stderr: "inherit",
   });
   const result = command.outputSync();
   if (!result.success) {
-    throw new Error(`TS compilation of '${ts_config_path}' failed`);
+    throw new Error(`TS compilation of '${tsConfigPath}' failed`);
   }
   console.log("    Compilation complete.");
 
-  return ts_config.include; // Don't copy any TS files because they've been compiled
+  return tsConfig.include; // Don't copy any TS files because they've been compiled
 }
 
 ///////////
 // UTILS //
 ///////////
 
-function makeDirExist(output_path: string) {
-  Deno.mkdirSync(output_path, { recursive: true });
+function makeDirExist(outputPath: string) {
+  Deno.mkdirSync(outputPath, { recursive: true });
 }
 
 function removeIfExists(dir: string): void {
