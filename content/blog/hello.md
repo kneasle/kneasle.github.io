@@ -1,6 +1,6 @@
 +++
 title = "Hello, World!"
-desctiption = "First blog post"
+description = "First blog post"
 
 date = 2021-03-16
 

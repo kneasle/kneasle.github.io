@@ -1,5 +1,6 @@
 +++
 title = "Unicycling Isn't Much Harder Than Walking"
+description = "I think that riding a unicycle isn't significantly harder than walking."
 
 date = 2022-08-11
 

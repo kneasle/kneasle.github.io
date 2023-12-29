@@ -76,8 +76,15 @@ body {
   max-width: 900px;
 }
 
-.subpage-entry {
+.category-project {
   color: #38f; /* Inherited by other items */
+}
+
+.category-blog {
+  color: #573efa; /* Inherited by other items */
+}
+
+.subpage-entry {
   cursor: pointer;
 
   margin: 40px 10px;

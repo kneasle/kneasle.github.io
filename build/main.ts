@@ -2,36 +2,39 @@ import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
 import * as jsonc from "https://deno.land/std@0.210.0/jsonc/parse.ts";
 import { walkSync } from "https://deno.land/std@0.207.0/fs/walk.ts";
 import { parse as parseToml } from "https://deno.land/std@0.207.0/toml/mod.ts";
+import Handlebars from "npm:handlebars@4.7.8";
 
 const OUT_DIR = "rendered/";
+const TEMPLATE_DIR = "templates/";
 
 /////////////////////
 // TOP-LEVEL BUILD //
 /////////////////////
 
 function build() {
+  // Setup handlebars
+  Handlebars.registerHelper("formatDate", (date) => date.toLocaleDateString()); // TODO: Better format
+
   // Prepare output directory
   console.log("Preparing output directory");
   removeIfExists(OUT_DIR);
   makeDirExist(OUT_DIR);
 
   // Render and collect the subpages
-  const pages = buildBlogPages("content/blog");
-  console.log(pages);
+  const subPages = buildBlogPages("content/blog");
 
   // Render the main page
-  console.log("Rendering main page");
-  renderDirectory("main-page/", ".", []);
+  renderMainPage(subPages);
 }
 
 build();
 
 function buildBlogPages(blogDir: string): Page[] {
-  console.log("Building blog");
+  console.log("Rendering blog");
 
   const pages: Page[] = [];
   function addPage(markdownPath: string, slug: string) {
-    console.log(`    ${slug}`);
+    console.log(`    Rendering '${slug}'`);
     const [page] = renderFrontmatteredMarkdown(markdownPath, slug, "blog");
     pages.push(page);
   }
@@ -53,6 +56,34 @@ function buildBlogPages(blogDir: string): Page[] {
   }
   return pages;
 }
+
+function renderMainPage(subPages: Page[]) {
+  // Sort pages
+  subPages.sort((a: Page, b: Page) => b.date.valueOf() - a.date.valueOf());
+  // Filter drafts.
+  // TODO: Arg for this
+  subPages = subPages.filter((page) => !page.draft);
+
+  console.log("Rendering main page");
+
+  // Render the main page
+  const templateData = { subPages };
+  // console.log(templateData);
+  const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, "main-page.html"));
+  const template = Handlebars.compile(source);
+  const rendered = template(templateData);
+  Deno.writeTextFileSync(path.join(OUT_DIR, "index.html"), rendered);
+
+  // Render the rest of the directory contents
+  renderDirectory("main-page/", ".", []);
+}
+
+type Page = FrontMatter & { slug: string; category: Category };
+type Category = "project" | "blog";
+
+///////////////
+// RENDERING //
+///////////////
 
 function renderFrontmatteredMarkdown(mdFilePath: string, slug: string, category: Category): [Page] {
   // Read file into frontmatter and markdown.  They are split by the next occurrence of the first
@@ -83,13 +114,6 @@ type FrontMatter = {
   topics: string[];
   languages: string[];
 };
-
-type Page = FrontMatter & { slug: string; category: Category };
-type Category = "project" | "blog";
-
-///////////////
-// RENDERING //
-///////////////
 
 function renderDirectory(in_dir: string, out_dir: string, ignorePaths: string[]): void {
   // Create output directory
