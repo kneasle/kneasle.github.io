@@ -1,17 +1,17 @@
 +++
 title = "Bellmetal"
-description = "[archived] A Rust library for efficiently proving and generating change ringing touches"
+description = "An experimental Rust standard library for change ringing."
 
-weight = 200 # 2xx is for archived projects, to keep them at the bottom of the list
+date = 2019-12-20
+formattedDate = "Dec 2019 - Mar 2022"
+
+topics = ["bell-ringing"]
+languages = ["rust"]
 
 [extra]
 links = [
     ["GitHub repo", "https://github.com/Kneasle/bellmetal"]
 ]
-
-[taxonomies]
-Language = ["rust"]
-Topic = ["bell-ringing"]
 +++
 
 **Bellmetal** was a Rust library that I wrote to aid me with composing change-ringing compositions.
@@ -19,8 +19,6 @@ Its main selling point was to try to be performant, flexible and simple to use -
 turned out generate a huge amount of unwanted complexity, and ultimately resulted in me shelving
 this project.  However, I do plan to use the ideas and lessons learned from Bellmetal in other
 composing projects.
-
-<!-- more -->
 
 However, Bellmetal was not a failure, and was vital in the creation of [this
 composition](https://complib.org/composition/65034), which I'm quite sure is the first time that a

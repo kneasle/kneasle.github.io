@@ -2,23 +2,21 @@
 title = "Minor General"
 description = "Run extremely efficient Ringing Room practices"
 
-weight = 100 # 1xx is for not-huge but completed projects
+date = 2021-02-04
+formattedDate = "Feb-Apr 2021"
+
+languages = ["python"]
+topics = ["bell-ringing"]
 
 [extra]
 links = [
     ["GitHub", "https://github.com/kneasle/minor-general"],
 ]
-
-[taxonomies]
-Language = ["python"]
-Topic = ["bell-ringing"]
 +++
 
 During 2020, I was running several Ringing Room practices by keeping a plan of the practice on
 pen-and-paper.  And as the saying goes: why spend a few minutes doing a task when you can spend
 several days automating it?
-
-<!-- more -->
 
 ![Screenshot of Minor General](screenshot.png)
 

@@ -1,17 +1,17 @@
 +++
 title = "Kuudos"
-description = "Creation tool for spicy sudokus"
+description = "Super spicy sudokus."
 
-weight = 120 # 1xx is for not-huge but basically working projects
+date = 2021-07-21
+formattedDate = "Jun-Aug 2021"
+
+languages = ["rust"]
+topics = ["misc"]
 
 [extra]
 links = [
     ["GitHub", "https://github.com/kneasle/kuudos"],
 ]
-
-[taxonomies]
-Language = ["rust"]
-Topic = ["other"]
 +++
 
 **Kuudos** is a Rust library that can generate, solve and render arbitrarily shaped sudokus.
@@ -22,8 +22,6 @@ to the cells. For each group, the digits placed in each cell must be unique.  Th
 _solution_ is an assignment of digits to cells where all the group constraints are satisfied.  A
 _puzzle_ is, therefore, a 'partial' assignment of digits - i.e. an assignment where some cells may
 be left empty and should be filled by the user.
-
-<!-- more -->
 
 For example, the classic 9x9 sudoku contains 81 cells, which are divided into 9 rows, 9 columns and
 9 boxes = 27 groups (each of which contains 9 cells).

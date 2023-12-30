@@ -1,26 +1,24 @@
 +++
 title = "Wheatley"
-description = "A bot for Ringing Room to increase the scope of practices"
+description = "A robot bell-ringer to increase the scope of Ringing Room practices."
 
-weight = 20
+date = 2020-06-11
+formattedDate = "Jun 2020-Aug 2021"
+
+languages = ["python"]
+topics = ["bell-ringing"]
 
 [extra]
 links = [
     ["Github", "https://github.com/kneasle/wheatley"],
     ["PyPI", "https://pypi.org/project/wheatley/"]
 ]
-
-[taxonomies]
-Language = ["python"]
-Topic = ["bell-ringing"]
 +++
 
 **Wheatley** is a computer ringer for the popular online change-ringing website
 [Ringing Room](https://ringingroom.com) which aims to be a _'ninja helper with no ego'_.  Ringing
 with Wheatley should feel just like ringing with another human ringer (with the exception that
 Wheatley can ring any number of bells to anything without making mistakes).
-
-<!-- more -->
 
 Wheatley uses a number of novel techniques to work towards this goal.  The main one of these is that
 Wheatley detects and adjusts to the rhythm of the human ringers in real time.  This adjustment is

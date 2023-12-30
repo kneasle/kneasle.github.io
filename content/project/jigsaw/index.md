@@ -2,17 +2,17 @@
 title = "Jigsaw"
 description = "A visual, incremental composing tool for change ringing"
 
-weight = 120 # 1xx is for not-huge but completed projects
+date = 2021-02-15
+formattedDate = "Feb-Dec 2021"
+
+languages = ["rust", "web"]
+topics = ["bell-ringing"]
 
 [extra]
 links = [
     ["GitHub", "https://github.com/kneasle/jigsaw"],
     ["Prototype", "https://kneasle.github.io/jigsaw/firehose"],
 ]
-
-[taxonomies]
-Language = ["rust", "web"]
-Topic = ["bell-ringing"]
 +++
 
 **Jigsaw** is a web app designed to be a sort of 'Microsoft Word' to aid people compose pieces of
@@ -20,8 +20,6 @@ Topic = ["bell-ringing"]
 different in many ways to composing music; most notably, it is a mostly mathematical task with
 strong rules that all compositions must follow (rules which are easy for computers to check).
 Jigsaw lets you quickly sketch out composition ideas, providing instant feedback on all these rules.
-
-<!-- more -->
 
 _Quick disclaimer:_ Jigsaw is currently quite new and is missing many features needed for production
 use (notably, it can't save your work).  It is also a little bit unstable and without a save

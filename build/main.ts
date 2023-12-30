@@ -21,7 +21,9 @@ function build() {
   makeDirExist(OUT_DIR);
 
   // Render and collect the subpages
-  const subPages = buildBlogPages("content/blog");
+  const subPages: Page[] = [];
+  subPages.push(...renderCategoryDirectory("blog"));
+  subPages.push(...renderCategoryDirectory("project"));
 
   // Render the main page
   renderMainPage(subPages);
@@ -29,29 +31,30 @@ function build() {
 
 build();
 
-function buildBlogPages(blogDir: string): Page[] {
-  console.log("Rendering blog");
+function renderCategoryDirectory(category: Category): Page[] {
+  const categoryDir = path.join("content", category);
+  console.log(`Rendering pages in '${categoryDir}'`);
 
   const pages: Page[] = [];
   function addPage(markdownPath: string, slug: string) {
     console.log(`    Rendering '${slug}'`);
-    const [page] = renderFrontmatteredMarkdown(markdownPath, slug, "blog");
+    const [page] = renderFrontmatteredMarkdown(markdownPath, slug, category);
     pages.push(page);
   }
 
-  for (const entry of Deno.readDirSync(blogDir)) {
+  for (const entry of Deno.readDirSync(categoryDir)) {
     if (entry.isDirectory) {
       // Render `${entry.name}/index.md` as the main markdown file
-      const dirPath = path.join(blogDir, entry.name);
-      const markdownPath = path.join(dirPath, "index.md");
+      const pageDir = path.join(categoryDir, entry.name);
+      const markdownPath = path.join(pageDir, "index.md");
       const slug = entry.name;
       addPage(markdownPath, slug);
       // Render the rest of the directory as usual
-      renderDirectory(dirPath, slug, ["index.md"]);
+      copyOrCompileDirectory(pageDir, slug, ["index.md"]);
     } else if (entry.name.endsWith(".md")) {
       // Render this page without any other files
       const slug = path.basename(entry.name, ".md");
-      addPage(path.join(blogDir, entry.name), slug);
+      addPage(path.join(categoryDir, entry.name), slug);
     }
   }
   return pages;
@@ -75,7 +78,7 @@ function renderMainPage(subPages: Page[]) {
   Deno.writeTextFileSync(path.join(OUT_DIR, "index.html"), rendered);
 
   // Render the rest of the directory contents
-  renderDirectory("main-page/", ".", []);
+  copyOrCompileDirectory("main-page/", ".", []);
 }
 
 type Page = FrontMatter & { slug: string; category: Category };
@@ -115,7 +118,7 @@ type FrontMatter = {
   languages: string[];
 };
 
-function renderDirectory(inDir: string, outDir: string, ignorePaths: string[]): void {
+function copyOrCompileDirectory(inDir: string, outDir: string, ignorePaths: string[]): void {
   // Create output directory
   const outputPath = path.join(OUT_DIR, outDir);
   makeDirExist(outputPath);
