@@ -1,9 +1,9 @@
 +++
 title = "Sapling"
-description = "A highly experimental vi-inspired editor where you edit code, not text"
+description = "An experimental vi-inspired editor where you edit code, not text."
 
 date = 2020-09-17
-formattedDate = "Sep 2020-Oct 2022"
+formattedDate = "Sep 2020 - Oct 2022"
 
 languages = ["rust"]
 topics = ["misc"]

@@ -1,6 +1,6 @@
 +++
 title = "Shortlist"
-description = "A tiny Rust crate which keeps the largest items given to it"
+description = "A tiny Rust crate which keeps the largest items given to it."
 
 date = 2020-10-08
 formattedDate = "Oct 2020"

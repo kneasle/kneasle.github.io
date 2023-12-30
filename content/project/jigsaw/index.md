@@ -1,6 +1,6 @@
 +++
 title = "Jigsaw"
-description = "A visual, incremental composing tool for change ringing"
+description = "A visual, incremental composing tool for change ringing."
 
 date = 2021-02-15
 formattedDate = "Feb-Dec 2021"

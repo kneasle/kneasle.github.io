@@ -1,6 +1,6 @@
 +++
 title = "This Site"
-description = "The website you're looking at right now"
+description = "The website you're looking at right now."
 
 date = 2023-12-21
 

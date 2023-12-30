@@ -5,6 +5,8 @@ body {
   font-size: 17px;
 }
 
+
+
 /* SITE "MATRIX" HEADERS */
 
 #matrix-container {
@@ -69,11 +71,13 @@ body {
   opacity: 0;
 }
 
+
+
 /* PAGE ENTRIES */
 
 .site-body {
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .category-project {
@@ -81,7 +85,7 @@ body {
 }
 
 .category-blog {
-  color: #573efa; /* Inherited by other items */
+  color: #FFDE33; /* Inherited by other items */
 }
 
 .subpage-entry {
@@ -124,7 +128,7 @@ body {
   margin: 0;
   border-bottom: 3px solid;
 
-  font-size: 30px;
+  font-size: 29px;
   font-weight: bold;
   text-align: center;
 }

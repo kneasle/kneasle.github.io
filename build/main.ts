@@ -12,9 +12,6 @@ const TEMPLATE_DIR = "templates/";
 /////////////////////
 
 function build() {
-  // Setup handlebars
-  Handlebars.registerHelper("formatDate", (date) => date.toLocaleDateString()); // TODO: Better format
-
   // Prepare output directory
   console.log("Preparing output directory");
   removeIfExists(OUT_DIR);
@@ -30,6 +27,27 @@ function build() {
 }
 
 build();
+
+function renderMainPage(subPages: Page[]) {
+  // Sort pages
+  subPages.sort((a: Page, b: Page) => b.date.valueOf() - a.date.valueOf());
+  // Filter drafts.
+  // TODO: Arg for this
+  subPages = subPages.filter((page) => !page.draft);
+
+  console.log("Rendering main page");
+
+  // Render the main page
+  const templateData = { subPages };
+  // console.log(templateData);
+  const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, "main-page.html"));
+  const template = Handlebars.compile(source);
+  const rendered = template(templateData);
+  Deno.writeTextFileSync(path.join(OUT_DIR, "index.html"), rendered);
+
+  // Render the rest of the directory contents
+  copyOrCompileDirectory("main-page/", ".", []);
+}
 
 function renderCategoryDirectory(category: Category): Page[] {
   const categoryDir = path.join("content", category);
@@ -60,28 +78,11 @@ function renderCategoryDirectory(category: Category): Page[] {
   return pages;
 }
 
-function renderMainPage(subPages: Page[]) {
-  // Sort pages
-  subPages.sort((a: Page, b: Page) => b.date.valueOf() - a.date.valueOf());
-  // Filter drafts.
-  // TODO: Arg for this
-  subPages = subPages.filter((page) => !page.draft);
-
-  console.log("Rendering main page");
-
-  // Render the main page
-  const templateData = { subPages };
-  // console.log(templateData);
-  const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, "main-page.html"));
-  const template = Handlebars.compile(source);
-  const rendered = template(templateData);
-  Deno.writeTextFileSync(path.join(OUT_DIR, "index.html"), rendered);
-
-  // Render the rest of the directory contents
-  copyOrCompileDirectory("main-page/", ".", []);
-}
-
-type Page = FrontMatter & { slug: string; category: Category };
+type Page = FrontMatter & {
+  slug: string;
+  category: Category;
+  dateString: string;
+};
 type Category = "project" | "blog";
 
 ///////////////
@@ -100,7 +101,12 @@ function renderFrontmatteredMarkdown(mdFilePath: string, slug: string, category:
 
   // Parse frontmatter as TOML
   const frontMatter = <FrontMatter> parseToml(frontMatterToml);
-  const page: Page = { slug, category, ...frontMatter };
+  const page: Page = {
+    slug,
+    category,
+    dateString: frontMatter.formattedDate || formatDate(frontMatter.date),
+    ...frontMatter,
+  };
 
   // TODO: Render markdown
 
@@ -112,6 +118,7 @@ type FrontMatter = {
   description: string;
 
   date: Date;
+  formattedDate?: string;
   draft?: boolean;
 
   topics: string[];
@@ -187,6 +194,24 @@ function buildTypescript(tsDir: string, pageDir: string): string[] {
 ///////////
 // UTILS //
 ///////////
+
+function formatDate(date: Date): string {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+}
 
 function makeDirExist(outputPath: string) {
   Deno.mkdirSync(outputPath, { recursive: true });

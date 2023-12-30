@@ -1,6 +1,6 @@
 +++
 title = "Minor General"
-description = "Run extremely efficient Ringing Room practices"
+description = "Run extremely efficient Ringing Room practices."
 
 date = 2021-02-04
 formattedDate = "Feb-Apr 2021"

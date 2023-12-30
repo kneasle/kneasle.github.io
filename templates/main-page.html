@@ -45,11 +45,11 @@
 				<div style="display: flex; flex-direction: column">
 					<h2>{{title}}</h2>
 					<div style="display: flex; justify-content: space-between; margin: 0;">
-						<p class="subheading">{{formatDate date}}</p>
+						<p class="subheading">{{dateString}}</p>
 						<p class="subheading">
-							<span>project</span>
-							<span>bellringing</span>
-							<span>rust</span>
+							<span>{{category}}</span>
+							{{#each topics}}<span>{{this}}</span> {{/each}}
+							{{#each languages}}<span>{{this}}</span> {{/each}}
 						</p>
 					</div>
 					<p>{{description}}</p>

@@ -3,7 +3,7 @@ title = "Wheatley"
 description = "A robot bell-ringer to increase the scope of Ringing Room practices."
 
 date = 2020-06-11
-formattedDate = "Jun 2020-Aug 2021"
+formattedDate = "Jun 2020 - Aug 2021"
 
 languages = ["python"]
 topics = ["bell-ringing"]
