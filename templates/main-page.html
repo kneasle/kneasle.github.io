@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
-    <title>kneasle::Home</title>
+  <title>kneasle::Home</title>
 
-    <link rel="stylesheet" href="/site.css"/>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="/site.css"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+	<script src="js/matrix.js"></script>
+	<script src="js/pageHandling.js"></script>
 </head>
 
 <body>
@@ -30,19 +33,20 @@
 		<p id="scroll-down" class="site-title scroll-down scroll-down-present">Scroll down ...</p>
 	</div>
 
+	<!-- BODY -->
 	<div class="site-body">
 		<!-- "About me" -->
 		<div style="height: 50px;"></div>
-		<div style="height: 200px; background: #048;">
+		<div style="height: 200px;">
 			<!-- TODO: Contents -->
 		</div>
 		<div style="height: 100px;"></div>
 
 		<div id="subpage-container">
 			{{#each subPages}}
-			<div class="subpage-entry category-{{category}}">
+			<div class="subpage-entry category-{{category}}" onclick="loadPage('{{slug}}');">
 				<img src="https://avatars.githubusercontent.com/u/32932209?v=4"></img>
-				<div style="display: flex; flex-direction: column">
+				<div id="header" style="display: flex; flex-direction: column">
 					<h2>{{title}}</h2>
 					<div style="display: flex; justify-content: space-between; margin: 0;">
 						<p class="subheading">{{dateString}}</p>
@@ -52,14 +56,14 @@
 							{{#each languages}}<span>{{this}}</span> {{/each}}
 						</p>
 					</div>
-					<p>{{description}}</p>
+					<p style="text-align: center;">{{description}}</p>
 				</div>
 			</div>
 			{{/each}}
 		</div>
 	</div>
 
-	<script src="js/matrix.js"></script>
+	<p style="text-align: center;">Design and content: © Ben White-Horne 2020-2023</p>
 </body>
 
 </html>

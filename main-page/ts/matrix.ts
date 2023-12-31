@@ -22,6 +22,7 @@ function main() {
   // Update the parallax when the user scrolls
   let scroll_down_elem = document.getElementById("scroll-down")!;
   document.onscroll = () => {
+    // TODO: Handle parallax with CSS
     for (const m of matrices) {
       m.update_y_pos();
     }
@@ -39,6 +40,8 @@ function main() {
   // Begin the animation loop
   frame();
 }
+
+window.addEventListener("load", main);
 
 function makeMatrix(elem: HTMLElement, distance: number) {
   fetch(random_url())
@@ -195,5 +198,3 @@ function random_url() {
 
   return urls[idx];
 }
-
-main();
