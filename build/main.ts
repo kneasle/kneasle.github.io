@@ -19,8 +19,10 @@ function build() {
 
   // Render and collect the subpages
   const subPages: Page[] = [];
-  subPages.push(...renderCategoryDirectory("blog"));
-  subPages.push(...renderCategoryDirectory("project"));
+  const allCategories: Category[] = ["blog", "project", "art"];
+  for (const cat of allCategories) {
+    subPages.push(...renderCategoryDirectory(cat));
+  }
 
   // Render the main page
   renderMainPage(subPages);
@@ -83,7 +85,7 @@ type Page = FrontMatter & {
   category: Category;
   dateString: string;
 };
-type Category = "project" | "blog";
+type Category = "project" | "blog" | "art";
 
 ///////////////
 // RENDERING //

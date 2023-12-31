@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background: #012;
+  color: #38f;
   font-family: monospace;
   font-size: 17px;
 }
@@ -85,7 +86,11 @@ body {
 }
 
 .category-blog {
-  color: #FFDE33; /* Inherited by other items */
+  color: #E6D117; /* Inherited by other items */
+}
+
+.category-art {
+  color: #FF8F33; /* Inherited by other items */
 }
 
 .subpage-entry {
