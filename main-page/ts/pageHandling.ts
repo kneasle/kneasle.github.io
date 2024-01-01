@@ -23,3 +23,8 @@ function loadPage(slug: string, category: string) {
 
   // TODO: Populate contents
 }
+
+function closeOverlay() {
+  const pageOverlay = document.getElementById("page-overlay-outer")!;
+  pageOverlay.classList.value = "";
+}

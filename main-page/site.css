@@ -193,3 +193,13 @@ body {
 
   background: var(--bg-color);
 }
+
+.page-overlay-x-button {
+  width: 5em;
+  height: 5em;
+
+  background: red;
+  border-radius: var(--border-radius);
+
+  cursor: pointer;
+}
