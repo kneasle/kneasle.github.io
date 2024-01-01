@@ -1,6 +1,13 @@
+:root {
+  --border-radius: 30px;
+  --border-width: 8px;
+
+  --bg-color: #012;
+}
+
 body {
   margin: 0;
-  background: #012;
+  background: var(--bg-color);
   color: #38f;
   font-family: monospace;
   font-size: 17px;
@@ -97,8 +104,8 @@ body {
   cursor: pointer;
 
   margin: 40px 10px;
-  border: 8px solid;
-  border-radius: 30px;
+  border: var(--border-width) solid;
+  border-radius: var(--border-radius);
 
   transition: background 0.2s, margin 0.2s ease-in-out;
 
@@ -114,22 +121,25 @@ body {
 
 .subpage-entry img {
   height: 10em;
+  border-radius: var(--border-radius);
 }
 
 .subpage-entry img:first-child {
-  border-radius: 30px 0 0 30px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .subpage-entry img:last-child {
-  border-radius: 0 30px 30px 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-.subpage-entry div {
+.subpage-header {
   margin: 15px 30px 20px 30px;
   flex-grow: 1;
 }
 
-.subpage-entry h2 {
+.subpage-header h2 {
   margin: 0;
   border-bottom: 3px solid;
 
@@ -138,13 +148,48 @@ body {
   text-align: center;
 }
 
-.subpage-entry .subheading {
+.subheading {
   margin: 0;
 
   font-size: 20px;
   font-weight: bold;
 }
 
-.subpage-entry p {
+.subpage-header p {
   margin: 0;
+}
+
+
+
+/* PAGE OVERLAY */
+
+#page-overlay-outer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 100%;
+  bottom: -100%;
+
+  transition: top 0.5s, bottom 0.5s, background 0.5s ease-in-out;
+}
+
+.page-overlay-outer-active {
+  top: 0 !important;
+  bottom: 0 !important;
+
+  background: #012d;
+}
+
+.page-overlay-box {
+  margin: 50px;
+  border: var(--border-width) solid;
+  border-radius: var(--border-radius);
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  background: var(--bg-color);
 }

@@ -14,56 +14,70 @@
 </head>
 
 <body>
-	<!-- HEADER -->
-	<div>
-		<div style="width: 100%; height: 80vh; background: black;">
-			<div id="matrix-container"></div>
-			<div class="matrix-title-overlay">
-				<div style="flex-grow: 1;"></div>
-				<p class="site-title" style="font-size: 5vw;">Welcome to</p>
-				<h1 class="site-title" style="font-size: 7vw;">kneasle.github.io</h1>
-				<div style="height: 10vh;"></div>
-				<h2 class="site-title" style="font-size: 3vw;">A site by Ben White-Horne</h2>
-				<div style="flex-grow: 1;"></div>
-				<div style="height: 17vh;"></div>
-			</div>
-		</div>
-		<div style="width: 100%; height: 20vh; background: linear-gradient(#000, #012)"></div>
-
-		<p id="scroll-down" class="site-title scroll-down scroll-down-present">Scroll down ...</p>
-	</div>
-
-	<!-- BODY -->
-	<div class="site-body">
-		<!-- "About me" -->
-		<div style="height: 50px;"></div>
-		<div style="height: 200px;">
-			<!-- TODO: Contents -->
-		</div>
-		<div style="height: 100px;"></div>
-
-		<div id="subpage-container">
-			{{#each subPages}}
-			<div class="subpage-entry category-{{category}}" onclick="loadPage('{{slug}}');">
-				<img src="https://avatars.githubusercontent.com/u/32932209?v=4"></img>
-				<div id="header" style="display: flex; flex-direction: column">
-					<h2>{{title}}</h2>
-					<div style="display: flex; justify-content: space-between; margin: 0;">
-						<p class="subheading">{{dateString}}</p>
-						<p class="subheading">
-							<span>{{category}}</span>
-							{{#each topics}}<span>{{this}}</span> {{/each}}
-							{{#each languages}}<span>{{this}}</span> {{/each}}
-						</p>
-					</div>
-					<p style="text-align: center;">{{description}}</p>
+	<div> <!-- normal scrolling layer (i.e. not the page overlay) -->
+		<!-- HEADER -->
+		<div>
+			<div style="width: 100%; height: 80vh; background: black;">
+				<div id="matrix-container"></div>
+				<div class="matrix-title-overlay">
+					<div style="flex-grow: 1;"></div>
+					<p class="site-title" style="font-size: 5vw;">Welcome to</p>
+					<h1 class="site-title" style="font-size: 7vw;">kneasle.github.io</h1>
+					<div style="height: 10vh;"></div>
+					<h2 class="site-title" style="font-size: 3vw;">A site by Ben White-Horne</h2>
+					<div style="flex-grow: 1;"></div>
+					<div style="height: 17vh;"></div>
 				</div>
 			</div>
-			{{/each}}
-		</div>
-	</div>
+			<div style="width: 100%; height: 20vh; background: linear-gradient(#000, #012)"></div>
 
-	<p style="text-align: center;">Design and content: © Ben White-Horne 2020-2023</p>
+			<p id="scroll-down" class="site-title scroll-down scroll-down-present">Scroll down ...</p>
+		</div>
+
+		<!-- BODY -->
+		<div class="site-body">
+			<!-- "About me" -->
+			<div style="height: 50px;"></div>
+			<div style="height: 200px;">
+				<!-- TODO: Contents -->
+			</div>
+			<div style="height: 100px;"></div>
+
+			<div id="subpage-container">
+				{{#each subPages}}
+				<div id="subpage-item-{{slug}}" class="subpage-entry category-{{category}}" onclick="loadPage('{{slug}}', '{{category}}');">
+					<img src="https://avatars.githubusercontent.com/u/32932209?v=4"></img>
+					<div id="header" class="subpage-header" style="display: flex; flex-direction: column;">
+						<h2>{{title}}</h2>
+						<div style="display: flex; justify-content: space-between; margin: 0;">
+							<p class="subheading">{{dateString}}</p>
+							<p class="subheading">
+								<span>{{category}}</span>
+								{{#each topics}}<span>{{this}}</span> {{/each}}
+								{{#each languages}}<span>{{this}}</span> {{/each}}
+							</p>
+						</div>
+						<p id="description" style="text-align: center;">{{description}}</p>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+
+		<p style="text-align: center;">Design and content: © Ben White-Horne 2020-2023</p>
+	</div> <!-- end of normal scroll layer -->
+
+	<div id="page-overlay-outer"> <!-- page overlay -->
+		<div class="page-overlay-box">
+			<!-- overlay header -->
+			<div style="display: flex; flex-direction: row;">
+				<div id="page-overlay-header" style="flex-grow: 1"></div>
+				<div style="background: #f00; width: 5em; height: 5em;"></div>
+			</div>
+
+			<!-- overlay content -->
+		</div>
+	</div> <!-- end of page overlay -->
 </body>
 
 </html>

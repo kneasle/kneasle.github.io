@@ -183,6 +183,7 @@ function buildTypescript(tsDir: string, pageDir: string): string[] {
   const command = new Deno.Command("tsc", {
     args: ["-p", tsConfigPath, "--outDir", outDir],
     stderr: "inherit",
+    stdout: "inherit",
   });
   const result = command.outputSync();
   if (!result.success) {
