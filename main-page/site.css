@@ -89,15 +89,15 @@ body {
 }
 
 .category-project {
-  color: #38f; /* Inherited by other items */
+  --category-color: #38f;
 }
 
 .category-blog {
-  color: #E6D117; /* Inherited by other items */
+  --category-color: #E6D117;
 }
 
 .category-art {
-  color: #FF8F33; /* Inherited by other items */
+  --category-color: #FF8F33;
 }
 
 .subpage-entry {
@@ -106,6 +106,8 @@ body {
   margin: 40px 10px;
   border: var(--border-width) solid;
   border-radius: var(--border-radius);
+
+  color: var(--category-color); /* Inherited by other items */
 
   transition: background 0.2s, margin 0.2s ease-in-out;
 
@@ -185,6 +187,8 @@ body {
   border: var(--border-width) solid;
   border-radius: var(--border-radius);
 
+  color: var(--category-color);
+
   position: absolute;
   left: 0;
   right: 0;
@@ -198,8 +202,14 @@ body {
   width: 5em;
   height: 5em;
 
-  background: red;
-  border-radius: var(--border-radius);
-
   cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.page-overlay-x-button:hover {
+  transform: scale(1.1);
+}
+
+.page-overlay-x-button path {
+  stroke: var(--category-color);
 }

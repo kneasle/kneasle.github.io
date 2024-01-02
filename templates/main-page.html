@@ -57,6 +57,7 @@
 								{{#each languages}}<span>{{this}}</span> {{/each}}
 							</p>
 						</div>
+						<div style="flex-grow: 1;"></div>
 						<p id="description" style="text-align: center;">{{description}}</p>
 					</div>
 				</div>
@@ -72,7 +73,11 @@
 			<!-- overlay header -->
 			<div style="display: flex; flex-direction: row;">
 				<div id="page-overlay-header" style="flex-grow: 1"></div>
-				<div class="page-overlay-x-button" onclick="closeOverlay()"></div>
+				<svg class="page-overlay-x-button" onclick="closeOverlay()"
+					   viewBox="0 0 85 85" xmlns="http://www.w3.org/2000/svg">
+			    <path style="stroke-width: 8px; stroke-linecap:round;" d="M 25,25 60,60" />
+			    <path style="stroke-width: 8px; stroke-linecap:round;" d="M 25,60 60,25" />
+				</svg>
 			</div>
 
 			<!-- overlay content -->
