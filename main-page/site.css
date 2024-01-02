@@ -100,6 +100,10 @@ body {
   --category-color: #FF8F33;
 }
 
+.use-category-color {
+  color: var(--category-color);
+}
+
 .subpage-entry {
   cursor: pointer;
 
@@ -195,7 +199,18 @@ body {
   top: 0;
   bottom: 0;
 
+  display: flex;
+  flex-direction: column;
+
   background: var(--bg-color);
+}
+
+.page-overlay-box iframe {
+  width: 100%;
+  flex-grow: 1;
+
+  border: 0 none;
+  border-radius: 0 0 26px 26px;
 }
 
 .page-overlay-x-button {
@@ -212,4 +227,12 @@ body {
 
 .page-overlay-x-button path {
   stroke: var(--category-color);
+}
+
+/* SUB-PAGE/BLOGS */
+
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 30px;
 }

@@ -3,6 +3,7 @@ import * as jsonc from "https://deno.land/std@0.210.0/jsonc/parse.ts";
 import { walkSync } from "https://deno.land/std@0.207.0/fs/walk.ts";
 import { parse as parseToml } from "https://deno.land/std@0.207.0/toml/mod.ts";
 import Handlebars from "npm:handlebars@4.7.8";
+import { marked } from "npm:marked@11.1.1";
 
 const OUT_DIR = "rendered/";
 const TEMPLATE_DIR = "templates/";
@@ -15,7 +16,7 @@ function build() {
   // Prepare output directory
   console.log("Preparing output directory");
   removeIfExists(OUT_DIR);
-  makeDirExist(OUT_DIR);
+  ensureDirExists(OUT_DIR);
 
   // Render and collect the subpages
   const subPages: Page[] = [];
@@ -40,11 +41,7 @@ function renderMainPage(subPages: Page[]) {
   console.log("Rendering main page");
 
   // Render the main page
-  const templateData = { subPages };
-  // console.log(templateData);
-  const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, "main-page.html"));
-  const template = Handlebars.compile(source);
-  const rendered = template(templateData);
+  const rendered = renderTemplate("main-page", { subPages });
   Deno.writeTextFileSync(path.join(OUT_DIR, "index.html"), rendered);
 
   // Render the rest of the directory contents
@@ -110,7 +107,17 @@ function renderFrontmatteredMarkdown(mdFilePath: string, slug: string, category:
     ...frontMatter,
   };
 
-  // TODO: Render markdown
+  // Render markdown
+  const data = {
+    title: page.title,
+    category: page.category,
+    content: marked.parse(markdown, { async: false }) as string,
+  };
+  const renderedHtml = renderTemplate("blog", data);
+  // Create subpage
+  const pageDir = path.join(OUT_DIR, slug);
+  ensureDirExists(pageDir);
+  Deno.writeTextFileSync(path.join(pageDir, "index.html"), renderedHtml);
 
   return [page];
 }
@@ -130,7 +137,7 @@ type FrontMatter = {
 function copyOrCompileDirectory(inDir: string, outDir: string, ignorePaths: string[]): void {
   // Create output directory
   const outputPath = path.join(OUT_DIR, outDir);
-  makeDirExist(outputPath);
+  ensureDirExists(outputPath);
   // Handle files with a special meaning
   const pathsToNotCopy = ignorePaths;
   for (const entry of Deno.readDirSync(inDir)) {
@@ -163,7 +170,7 @@ function copyOrCompileDirectory(inDir: string, outDir: string, ignorePaths: stri
     // Copy if not ignored
     if (!shouldBeIgnored) {
       const destPath = path.join(outputPath, relativePath);
-      makeDirExist(path.dirname(destPath));
+      ensureDirExists(path.dirname(destPath));
       Deno.copyFileSync(sourcePath, destPath);
     }
   }
@@ -176,7 +183,7 @@ function buildTypescript(tsDir: string, pageDir: string): string[] {
   const tsConfigPath = path.join(tsDir, "tsconfig.json");
   const tsConfig = <TsConfig> jsonc.parse(Deno.readTextFileSync(tsConfigPath))!;
   const outDir = path.join(pageDir, tsConfig.compilerOptions.outDir);
-  makeDirExist(outDir);
+  ensureDirExists(outDir);
 
   // Run the compiler
   console.log(`    Compiling ${tsConfigPath} with tsc...`);
@@ -198,6 +205,12 @@ function buildTypescript(tsDir: string, pageDir: string): string[] {
 // UTILS //
 ///////////
 
+function renderTemplate(templateName: string, data: any) {
+  const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, `${templateName}.html`));
+  const template = Handlebars.compile(source);
+  return template(data);
+}
+
 function formatDate(date: Date): string {
   const months = [
     "Jan",
@@ -216,7 +229,7 @@ function formatDate(date: Date): string {
   return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 }
 
-function makeDirExist(outputPath: string) {
+function ensureDirExists(outputPath: string) {
   Deno.mkdirSync(outputPath, { recursive: true });
 }
 

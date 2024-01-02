@@ -23,6 +23,8 @@ function loadPage(slug: string, category: string) {
   headerContainer.appendChild(header);
 
   // TODO: Populate contents
+  const iframe = pageOverlay.querySelector("iframe")!;
+  iframe.src = `/${slug}`;
 }
 
 function closeOverlay() {

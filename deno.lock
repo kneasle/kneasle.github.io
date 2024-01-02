@@ -2,7 +2,8 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "npm:handlebars@4.7.8": "npm:handlebars@4.7.8"
+      "npm:handlebars@4.7.8": "npm:handlebars@4.7.8",
+      "npm:marked@11.1.1": "npm:marked@11.1.1"
     },
     "npm": {
       "handlebars@4.7.8": {
@@ -14,6 +15,10 @@
           "uglify-js": "uglify-js@3.17.4",
           "wordwrap": "wordwrap@1.0.0"
         }
+      },
+      "marked@11.1.1": {
+        "integrity": "sha512-EgxRjgK9axsQuUa/oKMx5DEY8oXpKJfk61rT5iY3aRlgU6QJtUcxU5OAymdhCvWvhYcd9FKmO5eQoX8m9VGJXg==",
+        "dependencies": {}
       },
       "minimist@1.2.8": {
         "integrity": "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==",
