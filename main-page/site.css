@@ -1,8 +1,13 @@
+/* GENERAL */
+
 :root {
   --border-radius: 30px;
   --border-width: 8px;
 
+  --bg-color-dark: #00070f;
   --bg-color: #012;
+  --bg-color-light: #001730;
+  --bg-color-lighter: #024;
 }
 
 body {
@@ -11,6 +16,16 @@ body {
   color: #38f;
   font-family: monospace;
   font-size: 17px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 29px;
+  font-weight: bold;
 }
 
 
@@ -120,7 +135,7 @@ body {
 }
 
 .subpage-entry:hover {
-  background: #00070f;
+  background: var(--bg-color-dark);
   margin-left: 0;
   margin-right: 20px;
 }
@@ -149,8 +164,6 @@ body {
   margin: 0;
   border-bottom: 3px solid;
 
-  font-size: 29px;
-  font-weight: bold;
   text-align: center;
 }
 
@@ -229,10 +242,99 @@ body {
   stroke: var(--category-color);
 }
 
-/* SUB-PAGE/BLOGS */
+/* CONTENT */
 
 .page-content {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 30px;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin: 24px 0 16px 0;
+}
+
+.content h1,
+.content h2 {
+  margin-top: 70px;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid;
+
+  text-align: center;
+}
+
+.content p,
+.content li {
+  line-height: 1.4;
+}
+
+.content p {
+  margin: 0;
+  margin-bottom: 2em;
+}
+
+.content li {
+  margin: 0;
+  margin-bottom: 0.1em;
+}
+
+/* inline code */
+.content code {
+  background: var(--bg-color-lighter);
+  font-weight: bold;
+}
+
+/* code blocks */
+.content pre {
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  background: var(--bg-color-light);
+  padding: 0.7em;
+}
+
+.content pre code {
+  /* Undo the styling from inline code */
+  background: none;
+}
+
+.content img {
+  /* Display images in the centre of the page */
+  display: block;
+  margin: 0 auto 16px auto;
+
+  /* Give images round borders */
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid;
+
+  max-width: 100%; /* Prevent images from overflowing their container */
+  max-height: 22em; /* Also prevent images from getting really big */
+
+  background: white;
+}
+
+
+.content .side-by-side-images {
+  text-align: center;
+}
+
+.content .side-by-side-images img {
+  margin: 0 auto 16px auto;
+  width: 100%;
+  max-width: 350px;
+}
+
+/* For not-tiny screens, display the images inline */
+@media only screen and (min-width: 688px) {
+  .content .side-by-side-images img {
+    max-width: none;
+    display: inline-block;
+    width: 46%;
+    margin: 0.5%;
+  }
 }
