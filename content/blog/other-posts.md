@@ -8,6 +8,10 @@ topics = ["misc"]
 languages = ["all"]
 +++
 
+This is a collection of posts (with some videos) that I have read and enjoyed and think are worth
+sharing.  In general, these say something insightful about software engineering or challenge
+established ideas in an interesting way.
+
 ## Non-Programming
 - [Don't sacrifice the right ideas to win the right words (Drew Devault)](https://drewdevault.com/2019/09/17/The-wrong-words-but-the-right-ideas.html)
 - [The Silence is Deafening (Devon Zuegel)](https://devonzuegel.com/post/the-silence-is-deafening)
@@ -15,7 +19,7 @@ languages = ["all"]
 - [80% of Success is Showing Up (Steve Klabnik)](https://steveklabnik.com/writing/80-of-success-is-showing-up)
 - [Mental Health Considerations for Startup & Project Founders (Michael DeHaan)](https://michaeldehaan.substack.com/p/mental-health-considerations-for?s=r)
 - [All in Moderation (llogiq)](https://llogiq.github.io/2017/01/13/mod.html)
-- [ Why Lichess Will Always be Free (Lichess blog)](https://lichess.org/blog/YF-ZORQAACAA89PI/why-lichess-will-always-be-free)
+- [Why Lichess Will Always be Free (Lichess blog)](https://lichess.org/blog/YF-ZORQAACAA89PI/why-lichess-will-always-be-free)
 
 ## Computing
 - [Software Disenchantment (tonsky.me)](https://tonsky.me/blog/disenchantment/)

@@ -39,13 +39,19 @@ function renderMainPage(subPages: Page[]) {
   subPages = subPages.filter((page) => !page.draft);
 
   console.log("Rendering main page");
+  const mainPageDir = "main-page/";
 
   // Render the main page
-  const rendered = renderTemplate("main-page", { subPages });
+  const aboutMeMarkdown = Deno.readTextFileSync(path.join(mainPageDir, "about.md"));
+  const templateData = {
+    subPages,
+    aboutMe: renderMarkdown(aboutMeMarkdown),
+  };
+  const rendered = renderTemplate("main-page", templateData);
   Deno.writeTextFileSync(path.join(OUT_DIR, "index.html"), rendered);
 
   // Render the rest of the directory contents
-  copyOrCompileDirectory("main-page/", ".", []);
+  copyOrCompileDirectory(mainPageDir, ".", ["about.md"]);
 }
 
 function renderCategoryDirectory(category: Category): Page[] {
@@ -111,7 +117,7 @@ function renderFrontmatteredMarkdown(mdFilePath: string, slug: string, category:
   const data = {
     title: page.title,
     category: page.category,
-    content: marked.parse(markdown, { async: false }) as string,
+    content: renderMarkdown(markdown),
   };
   const renderedHtml = renderTemplate("blog", data);
   // Create subpage
@@ -205,7 +211,12 @@ function buildTypescript(tsDir: string, pageDir: string): string[] {
 // UTILS //
 ///////////
 
+function renderMarkdown(markdown: string): string {
+  return marked.parse(markdown, { async: false }) as string;
+}
+
 function renderTemplate(templateName: string, data: any) {
+  // TODO: Write to `index.html` from within this function
   const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, `${templateName}.html`));
   const template = Handlebars.compile(source);
   return template(data);

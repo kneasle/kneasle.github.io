@@ -8,6 +8,10 @@
   --bg-color: #012;
   --bg-color-light: #001730;
   --bg-color-lighter: #024;
+
+  --project-color: #38f;
+  --blog-color: #E6D117;
+  --art-color: #FF8F33;
 }
 
 body {
@@ -96,6 +100,28 @@ h2 {
 
 
 
+/* REST OF MAIN PAGE */
+
+.about img.me {
+  float: left;
+  border: 0 none;
+  border-radius: var(--border-radius) 0 0 0;
+  margin-right: 20px;
+
+  height: 270px;
+}
+
+.about img.site {
+  float: right;
+  border: 0 none;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  margin-left: 20px;
+
+  height: 283px;
+}
+
+
+
 /* PAGE ENTRIES */
 
 .site-body {
@@ -104,15 +130,15 @@ h2 {
 }
 
 .category-project {
-  --category-color: #38f;
+  --category-color: var(--project-color);
 }
 
 .category-blog {
-  --category-color: #E6D117;
+  --category-color: var(--blog-color);
 }
 
 .category-art {
-  --category-color: #FF8F33;
+  --category-color: var(--art-color);
 }
 
 .use-category-color {
@@ -270,7 +296,8 @@ h2 {
 
 .content p,
 .content li {
-  line-height: 1.4;
+  text-align: justify;
+  line-height: 1.5;
 }
 
 .content p {
