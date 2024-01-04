@@ -1,5 +1,6 @@
 import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
 import * as jsonc from "https://deno.land/std@0.210.0/jsonc/parse.ts";
+import { copySync } from "https://deno.land/std@0.211.0/fs/copy.ts";
 import { walkSync } from "https://deno.land/std@0.207.0/fs/walk.ts";
 import { parse as parseToml } from "https://deno.land/std@0.207.0/toml/mod.ts";
 import Handlebars from "npm:handlebars@4.7.8";
@@ -50,6 +51,9 @@ function renderMainPage(subPages: Page[]) {
   const rendered = renderTemplate("main-page", templateData);
   Deno.writeTextFileSync(path.join(OUT_DIR, "index.html"), rendered);
 
+  // Copy the page-icons directory
+  copySync("content/page-icons", path.join(OUT_DIR, "page-icons"));
+
   // Render the rest of the directory contents
   copyOrCompileDirectory(mainPageDir, ".", ["about.md"]);
 }
@@ -87,6 +91,7 @@ type Page = FrontMatter & {
   slug: string;
   category: Category;
   dateString: string;
+  imageFileName: string;
 };
 type Category = "project" | "blog" | "art";
 
@@ -109,6 +114,7 @@ function renderFrontmatteredMarkdown(mdFilePath: string, slug: string, category:
   const page: Page = {
     slug,
     category,
+    imageFileName: getPageIconFileName(slug),
     dateString: frontMatter.formattedDate || formatDate(frontMatter.date),
     ...frontMatter,
   };
@@ -215,11 +221,21 @@ function renderMarkdown(markdown: string): string {
   return marked.parse(markdown, { async: false }) as string;
 }
 
-function renderTemplate(templateName: string, data: any) {
+function renderTemplate(templateName: string, data: any): string {
   // TODO: Write to `index.html` from within this function
   const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, `${templateName}.html`));
   const template = Handlebars.compile(source);
   return template(data);
+}
+
+function getPageIconFileName(slug: string): string {
+  for (const imgFile of Deno.readDirSync("content/page-icons")) {
+    const fileWithoutExtension = imgFile.name.split(".")[0];
+    if (fileWithoutExtension == slug) {
+      return imgFile.name;
+    }
+  }
+  return "default.png";
 }
 
 function formatDate(date: Date): string {
