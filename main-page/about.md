@@ -18,7 +18,7 @@ I've also contributed to larger open source projects, such as
 
 <div style="height: 100px;"></div>
 
-<img src="me.jpg" class="site" />
+<img src="site.png" class="site" style="background: none;" />
 
 This is my personal website, and it chronicles many of the passion projects I've worked on over the
 years, shown in <strong style="color: var(--project-color);">blue boxes</strong>.  There are also
