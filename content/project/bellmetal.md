@@ -4,6 +4,7 @@ description = "An experimental Rust standard library for change ringing."
 
 date = 2019-12-20
 formattedDate = "Dec 2019 - Mar 2022"
+draft = true
 
 topics = ["bell-ringing"]
 languages = ["rust"]
