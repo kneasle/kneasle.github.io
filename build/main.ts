@@ -5,6 +5,8 @@ import { walkSync } from "https://deno.land/std@0.207.0/fs/walk.ts";
 import { parse as parseToml } from "https://deno.land/std@0.207.0/toml/mod.ts";
 import Handlebars from "npm:handlebars@4.7.8";
 import { marked } from "npm:marked@11.1.1";
+import { clear as clearTerm } from "https://deno.land/x/clear@v1.3.0/mod.ts";
+import { debounce } from "https://deno.land/std@0.207.0/async/debounce.ts";
 
 const OUT_DIR = "rendered/";
 const TEMPLATE_DIR = "templates/";
@@ -13,8 +15,29 @@ const TEMPLATE_DIR = "templates/";
 // TOP-LEVEL BUILD //
 /////////////////////
 
+// Do an initial build
+build();
+
+// Set up debounced build function
+const outputPath = path.join(Deno.cwd(), OUT_DIR);
+const debouncedBuild = debounce(build, 200);
+
+const watcher = Deno.watchFs("");
+for await (const event of watcher) {
+  if (event.kind == "access") continue; // File accesses don't matter
+  for (const path of event.paths) {
+    if (path.startsWith(outputPath)) continue;
+
+    console.log("[trigger]", event.kind, path);
+    debouncedBuild();
+  }
+}
+
 function build() {
   // Prepare output directory
+  console.log();
+  console.log();
+  console.log();
   console.log("Preparing output directory");
   removeIfExists(OUT_DIR);
   ensureDirExists(OUT_DIR);
@@ -29,8 +52,6 @@ function build() {
   // Render the main page
   renderMainPage(subPages);
 }
-
-build();
 
 function renderMainPage(subPages: Page[]) {
   // Sort pages
