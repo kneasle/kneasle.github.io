@@ -328,6 +328,7 @@ h2 {
 .content pre code {
   /* Undo the styling from inline code */
   background: none;
+  font-weight: normal;
 }
 
 .content img {
