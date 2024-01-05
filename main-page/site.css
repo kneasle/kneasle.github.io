@@ -168,7 +168,7 @@ h2 {
 
 .subpage-entry img {
   height: 10em;
-  border-radius: var(--border-radius);
+  border-radius: 22px;
 }
 
 .subpage-entry img:first-child {
