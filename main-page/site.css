@@ -9,8 +9,11 @@
   --bg-color-light: #001730;
   --bg-color-lighter: #024;
 
-  --project-color: #38f;
-  --blog-color: #E6D117;
+  --primary-color: #38f;
+  --secondary-color: #E6D117;
+
+  --project-color: var(--primary-color);
+  --blog-color: var(--secondary-color);
   --art-color: #FF8F33;
 }
 
@@ -102,22 +105,32 @@ h2 {
 
 /* REST OF MAIN PAGE */
 
-.about img.me {
-  float: left;
-  border: 0 none;
-  border-radius: var(--border-radius) 0 0 0;
-  margin-right: 20px;
+.about-section {
+  background: var(--bg-color-dark);
+  border-radius: var(--border-radius);
 
-  height: 270px;
+  display: flex;
+  flex-direction: row;
 }
 
-.about img.site {
-  float: right;
+.about-section img.me {
+  margin: 0;
+  border: 0 none;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+
+  height: 100%;
+}
+
+.about-section div {
+  padding: 15px 15px;
+}
+
+.about-section img.site {
+  margin: 0;
   border: 0 none;
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
-  margin-left: 20px;
 
-  height: 283px;
+  height: 100%;
 }
 
 
@@ -303,6 +316,10 @@ h2 {
 .content p {
   margin: 0;
   margin-bottom: 2em;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
 }
 
 .content li {
