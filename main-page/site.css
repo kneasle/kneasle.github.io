@@ -1,0 +1,385 @@
+/* GENERAL */
+
+:root {
+  --border-radius: 30px;
+  --border-width: 8px;
+
+  --bg-color-dark: #00070f;
+  --bg-color: #012;
+  --bg-color-light: #001730;
+  --bg-color-lighter: #024;
+
+  --primary-color: #38f;
+  --secondary-color: #E6D117;
+
+  --project-color: var(--primary-color);
+  --blog-color: var(--secondary-color);
+  --art-color: #FF8F33;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  color: #38f;
+  font-family: monospace;
+  font-size: 17px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 29px;
+  font-weight: bold;
+}
+
+
+
+/* SITE "MATRIX" HEADERS */
+
+#matrix-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.matrix-text {
+  position: absolute;
+  /* `left` and top are set by the JS code */
+  right: 0;
+  bottom: 0;
+  margin: 0;
+
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: clip;
+
+  color: #048;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.matrix-title-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  margin: 0;
+
+  /* font-size: Set in HTML */
+  font-weight: bold;
+  text-align: center;
+
+  color: #cff;
+  text-shadow: 0 0 4vw #000, 0 0 3vw #aff, 0 0 1vw #aff;
+}
+
+.scroll-down {
+  font-size: 5vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.scroll-down-present {
+  bottom: 20px;
+  opacity: 1;
+}
+
+.scroll-down-faded {
+  bottom: 100px;
+  opacity: 0;
+}
+
+
+
+/* REST OF MAIN PAGE */
+
+.about-section {
+  background: var(--bg-color-dark);
+  border-radius: var(--border-radius);
+
+  display: flex;
+  flex-direction: row;
+}
+
+.about-section img.me {
+  margin: 0;
+  border: 0 none;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+
+  height: 100%;
+}
+
+.about-section div {
+  padding: 15px 15px;
+}
+
+.about-section img.site {
+  margin: 0;
+  border: 0 none;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+
+  height: 100%;
+}
+
+
+
+/* PAGE ENTRIES */
+
+.site-body {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.category-project {
+  --category-color: var(--project-color);
+}
+
+.category-blog {
+  --category-color: var(--blog-color);
+}
+
+.category-art {
+  --category-color: var(--art-color);
+}
+
+.use-category-color {
+  color: var(--category-color);
+}
+
+.subpage-entry {
+  cursor: pointer;
+
+  margin: 40px 10px;
+  border: var(--border-width) solid;
+  border-radius: var(--border-radius);
+
+  color: var(--category-color); /* Inherited by other items */
+
+  transition: background 0.2s, margin 0.2s ease-in-out;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.subpage-entry:hover {
+  background: var(--bg-color-dark);
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+.subpage-entry img {
+  height: 10em;
+  border-radius: 22px;
+}
+
+.subpage-entry img:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.subpage-entry img:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.subpage-header {
+  margin: 15px 30px 20px 30px;
+  flex-grow: 1;
+}
+
+.subpage-header h2 {
+  margin: 0;
+  border-bottom: 3px solid;
+
+  text-align: center;
+}
+
+.subheading {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.subpage-header p {
+  margin: 0;
+}
+
+
+
+/* PAGE OVERLAY */
+
+#page-overlay-outer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 100%;
+  bottom: -100%;
+
+  transition: top 0.5s, bottom 0.5s, background 0.5s ease-in-out;
+}
+
+.page-overlay-outer-active {
+  top: 0 !important;
+  bottom: 0 !important;
+
+  background: #012d;
+}
+
+.page-overlay-box {
+  margin: 50px;
+  border: var(--border-width) solid;
+  border-radius: var(--border-radius);
+
+  color: var(--category-color);
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg-color);
+}
+
+.page-overlay-box iframe {
+  width: 100%;
+  flex-grow: 1;
+
+  border: 0 none;
+  border-radius: 0 0 26px 26px;
+}
+
+.page-overlay-x-button {
+  width: 5em;
+  height: 5em;
+
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.page-overlay-x-button:hover {
+  transform: scale(1.1);
+}
+
+.page-overlay-x-button path {
+  stroke: var(--category-color);
+}
+
+/* CONTENT */
+
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin: 24px 0 16px 0;
+}
+
+.content h1,
+.content h2 {
+  margin-top: 70px;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid;
+
+  text-align: center;
+}
+
+.content p,
+.content li {
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.content p {
+  margin: 0;
+  margin-bottom: 2em;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.content li {
+  margin: 0;
+  margin-bottom: 0.1em;
+}
+
+/* inline code */
+.content code {
+  background: var(--bg-color-lighter);
+  font-weight: bold;
+}
+
+/* code blocks */
+.content pre {
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  background: var(--bg-color-light);
+  padding: 0.7em;
+}
+
+.content pre code {
+  /* Undo the styling from inline code */
+  background: none;
+  font-weight: normal;
+}
+
+.content img {
+  /* Display images in the centre of the page */
+  display: block;
+  margin: 0 auto 16px auto;
+
+  /* Give images round borders */
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid;
+
+  max-width: 100%; /* Prevent images from overflowing their container */
+  max-height: 22em; /* Also prevent images from getting really big */
+
+  background: white;
+}
+
+
+.content .side-by-side-images {
+  text-align: center;
+}
+
+.content .side-by-side-images img {
+  margin: 0 auto 16px auto;
+  width: 100%;
+  max-width: 350px;
+}
+
+/* For not-tiny screens, display the images inline */
+@media only screen and (min-width: 688px) {
+  .content .side-by-side-images img {
+    max-width: none;
+    display: inline-block;
+    width: 46%;
+    margin: 0.5%;
+  }
+}

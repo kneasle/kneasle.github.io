@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "build": "deno run --allow-write --allow-read --allow-run --allow-net build/main.ts",
+    "serve": "deno run --allow-write --allow-read --allow-run --allow-net build/main.ts --serve"
+  }
+}

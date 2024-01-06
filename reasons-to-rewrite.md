@@ -1,6 +1,0 @@
-- Image pre-processing
-    - Automatically scale down images (and convert)
-    - Strip SVGs?
-- Double spacing after `.`
-- Better control over tags
-- Add drafts to final build?

@@ -2,3 +2,6 @@
 public/
 # The generated files from Jigsaw
 static/jigsaw/
+
+# Directory where the fully rendered site will be created
+rendered/
