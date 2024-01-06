@@ -1,3 +1,5 @@
+#!/usr/bin/env -S deno run --allow-env
+
 import * as path from "https://deno.land/std@0.207.0/path/mod.ts";
 import * as jsonc from "https://deno.land/std@0.210.0/jsonc/parse.ts";
 import { copySync } from "https://deno.land/std@0.211.0/fs/copy.ts";
@@ -6,7 +8,9 @@ import { parse as parseToml } from "https://deno.land/std@0.207.0/toml/mod.ts";
 import Handlebars from "npm:handlebars@4.7.8";
 import { marked } from "npm:marked@11.1.1";
 import { clear as clearTerm } from "https://deno.land/x/clear@v1.3.0/mod.ts";
+import { parse as parseArgs } from "https://deno.land/std@0.207.0/flags/mod.ts";
 import { debounce } from "https://deno.land/std@0.207.0/async/debounce.ts";
+import { serveDir } from "https://deno.land/std@0.207.0/http/file_server.ts";
 
 const OUT_DIR = "rendered/";
 const TEMPLATE_DIR = "templates/";
@@ -15,24 +19,45 @@ const TEMPLATE_DIR = "templates/";
 // TOP-LEVEL BUILD //
 /////////////////////
 
-// Do an initial build
-build();
+// Call `serve` or `build` depending on the args inputted:
+// `deno task build` --> `Deno.args = []` --> calls `build`
+// `deno task serve` --> `Deno.args = ["--serve"]` --> calls `serve`
+const args = parseArgs(Deno.args, { boolean: ["serve"] });
+if (args.serve) {
+  await serve();
+} else {
+  build();
+}
 
-// Set up debounced build function
-const outputPath = path.join(Deno.cwd(), OUT_DIR);
-const debouncedBuild = debounce(build, 200);
+// Serve a HTTP server and rebuild when files change
+async function serve() {
+  // Do an initial build
+  buildAndLog();
 
-const watcher = Deno.watchFs("");
-for await (const event of watcher) {
-  if (event.kind == "access") continue; // File accesses don't matter
-  for (const path of event.paths) {
-    if (path.startsWith(outputPath)) continue;
+  // Run an HTTP server in the background
+  Deno.serve((request: Request) => serveDir(request, { fsRoot: OUT_DIR }));
 
-    console.log("[trigger]", event.kind, path);
-    debouncedBuild();
+  // Set up debounced build function
+  const outputPath = path.join(Deno.cwd(), OUT_DIR);
+  const debouncedBuild = debounce(buildAndLog, 200);
+  // Rebuild if the file system changes
+  const watcher = Deno.watchFs("");
+  for await (const event of watcher) {
+    if (event.kind == "access") continue; // File accesses don't matter
+    for (const path of event.paths) {
+      if (path.startsWith(outputPath)) continue;
+      debouncedBuild();
+    }
   }
 }
 
+function buildAndLog(): void {
+  clearTerm(true);
+  build();
+  console.log("Awaiting file changes to rebuild...");
+}
+
+// Build the site, writing the result to `OUT_DIR`
 function build() {
   // Prepare output directory
   console.log();
@@ -64,7 +89,9 @@ function renderMainPage(subPages: Page[]) {
   const mainPageDir = "main-page/";
 
   // Render the main page
-  const aboutMeMarkdown = Deno.readTextFileSync(path.join(mainPageDir, "about.md"));
+  const aboutMeMarkdown = Deno.readTextFileSync(
+    path.join(mainPageDir, "about.md")
+  );
   const templateData = {
     subPages,
     aboutMe: renderMarkdown(aboutMeMarkdown),
@@ -120,7 +147,11 @@ type Category = "project" | "blog" | "art";
 // RENDERING //
 ///////////////
 
-function renderFrontmatteredMarkdown(mdFilePath: string, slug: string, category: Category): [Page] {
+function renderFrontmatteredMarkdown(
+  mdFilePath: string,
+  slug: string,
+  category: Category
+): [Page] {
   // Read file into frontmatter and markdown.  They are split by the next occurrence of the first
   // line (usually `+++`)
   const fileContents = Deno.readTextFileSync(mdFilePath);
@@ -128,10 +159,13 @@ function renderFrontmatteredMarkdown(mdFilePath: string, slug: string, category:
   const splitIndex = lines.indexOf(lines[0], 1);
   console.assert(splitIndex >= 0);
   const frontMatterToml = lines.slice(1, splitIndex).join("\n").trim();
-  const markdown = lines.slice(splitIndex + 1).join("\n").trim();
+  const markdown = lines
+    .slice(splitIndex + 1)
+    .join("\n")
+    .trim();
 
   // Parse frontmatter as TOML
-  const frontMatter = <FrontMatter> parseToml(frontMatterToml);
+  const frontMatter = <FrontMatter>parseToml(frontMatterToml);
   const page: Page = {
     slug,
     category,
@@ -167,17 +201,18 @@ type FrontMatter = {
   languages: string[];
 };
 
-function copyOrCompileDirectory(inDir: string, outDir: string, ignorePaths: string[]): void {
+function copyOrCompileDirectory(
+  inDir: string,
+  outDir: string,
+  ignorePaths: string[]
+): void {
   // Create output directory
   const outputPath = path.join(OUT_DIR, outDir);
   ensureDirExists(outputPath);
   // Handle files with a special meaning
   const pathsToNotCopy = ignorePaths;
   for (const entry of Deno.readDirSync(inDir)) {
-    if (
-      entry.isFile &&
-      entry.name == "tsconfig.json"
-    ) {
+    if (entry.isFile && entry.name == "tsconfig.json") {
       const tsSourcePaths = buildTypescript(inDir, outputPath);
       pathsToNotCopy.push(entry.name, ...tsSourcePaths);
     }
@@ -214,7 +249,7 @@ function buildTypescript(tsDir: string, pageDir: string): string[] {
   type TsConfig = { include: string[]; compilerOptions: { outDir: string } };
   // Read tsconfig
   const tsConfigPath = path.join(tsDir, "tsconfig.json");
-  const tsConfig = <TsConfig> jsonc.parse(Deno.readTextFileSync(tsConfigPath))!;
+  const tsConfig = <TsConfig>jsonc.parse(Deno.readTextFileSync(tsConfigPath))!;
   const outDir = path.join(pageDir, tsConfig.compilerOptions.outDir);
   ensureDirExists(outDir);
 
@@ -244,7 +279,9 @@ function renderMarkdown(markdown: string): string {
 
 function renderTemplate(templateName: string, data: any): string {
   // TODO: Write to `index.html` from within this function
-  const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, `${templateName}.html`));
+  const source = Deno.readTextFileSync(
+    path.join(TEMPLATE_DIR, `${templateName}.html`)
+  );
   const template = Handlebars.compile(source);
   return template(data);
 }
