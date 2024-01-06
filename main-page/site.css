@@ -267,6 +267,7 @@ h2 {
 
 .page-overlay-x-button {
   width: 5em;
+  min-width: 5em; /* Don't allow the browsers to squish the button if the page name is long */
   height: 5em;
 
   cursor: pointer;
