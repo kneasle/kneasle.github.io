@@ -34,9 +34,7 @@ jobs:
 
       # BUILD
       - name: Build
-        run: |
-          deno --version
-          tsc --version
+        run: deno task build
 
       # UPLOAD TO PAGES
       - name: Setup Pages
