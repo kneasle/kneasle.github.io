@@ -38,9 +38,9 @@ async function serve() {
   Deno.serve((request: Request) => serveDir(request, { fsRoot: OUT_DIR }));
 
   // Set up debounced build function
-  const outputPath = path.join(Deno.cwd(), OUT_DIR);
   const debouncedBuild = debounce(buildAndLog, 200);
   // Rebuild if the file system changes
+  const outputPath = path.join(Deno.cwd(), OUT_DIR);
   const watcher = Deno.watchFs("");
   for await (const event of watcher) {
     if (event.kind == "access") continue; // File accesses don't matter
@@ -53,7 +53,16 @@ async function serve() {
 
 function buildAndLog(): void {
   clearTerm(true);
-  build();
+  try {
+    build();
+  } catch (exception) {
+    console.log(
+      "%cBuild failed with this exception:",
+      "color: red; font-weight: bold;"
+    );
+    console.error(exception);
+  }
+  console.log();
   console.log("Awaiting file changes to rebuild...");
 }
 
