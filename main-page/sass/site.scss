@@ -296,17 +296,19 @@ h2 {
 
 /* PAGE ENTRY ANIMATIONS */
 
-/* Sequence (each step takes 0.4s):
- *   delay of 0.0s: Remove icon
- *   delay of 0.4s: Expand width
- *   delay of 0.8s: Swap description for content
- *   delay of 1.2s: Expand height
- *   delay of 1.6s: Add 'x' button
- */
-
 #page-overlay.expanded {
+  $step: 0.25s;
+
+  /* Sequence (each step takes `$step` time):
+   *   delay of $step * 0: Remove icon
+   *   delay of $step * 1: Expand width
+   *   delay of $step * 2: Swap description for content
+   *   delay of $step * 3: Expand height
+   *   delay of $step * 4: Add 'x' button
+   */
+
   background: #012d !important;
-  transition: background 2s ease-in-out; /* Background animates over the entire 1s */
+  transition: background ($step * 5) ease-in-out; /* Background animates over the entire 1s */
 
   .subpage-entry {
     left:   50px !important;
@@ -314,43 +316,43 @@ h2 {
     top:    50px !important;
     bottom: 50px !important;
     transition:
-      left   0.4s ease-in-out 0.4s,
-      right  0.4s ease-in-out 0.4s,
-      top    0.4s ease-in-out 1.2s,
-      bottom 0.4s ease-in-out 1.2s;
+      left   $step ease-in-out ($step * 1),
+      right  $step ease-in-out ($step * 1),
+      top    $step ease-in-out ($step * 3),
+      bottom $step ease-in-out ($step * 3);
   }
 
   #icon {
     width: 0 !important;
-    transition: width 0.4s ease-in-out 0.0s;
+    transition: width $step ease-in-out ($step * 0);
   }
 
   .header {
     margin-right: -30px;
-    transition: margin-right 0.4s ease-in-out 1.6s;
+    transition: margin-right $step ease-in-out ($step * 4);
   }
 
   .x-button {
     width: 5em;
     min-width: 5em;
     transition:
-      width     0.4s ease-in-out 1.6s,
-      min-width 0.4s ease-in-out 1.6s;
+      width     $step ease-in-out ($step * 4),
+      min-width $step ease-in-out ($step * 4);
   }
 
   .padding {
     flex-grow: 0;
-    transition: flex-grow 0.4s ease-in-out 0.8s;
+    transition: flex-grow $step ease-in-out ($step * 2);
   }
 
   .description {
     font-size: 0;
-    transition: font-size 0.4s ease-in-out 0.8s;
+    transition: font-size $step ease-in-out ($step * 2);
   }
 
   .content-container {
     flex-grow: 1;
-    transition: flex-grow 0.4s ease-in-out 0.8s;
+    transition: flex-grow $step ease-in-out ($step * 2);
   }
 }
 
