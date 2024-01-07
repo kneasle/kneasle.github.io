@@ -35,6 +35,19 @@ h2 {
   font-weight: bold;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-fill {
+  flex-grow: 1;
+}
 
 
 /* SITE "MATRIX" HEADERS */
@@ -165,121 +178,170 @@ h2 {
   border: var(--border-width) solid;
   border-radius: var(--border-radius);
 
+  background: var(--bg-color);
   color: var(--category-color); /* Inherited by other items */
 
   transition: background 0.2s, margin 0.2s ease-in-out;
-
-  display: flex;
-  flex-direction: row;
 }
 
-.subpage-entry:hover {
+.subpage-entry.hoverable:hover {
   background: var(--bg-color-dark);
   margin-left: 0;
   margin-right: 20px;
 }
 
-.subpage-entry img {
+.subpage-entry #icon {
+  width: 10em;
   height: 10em;
   border-radius: 22px;
+  background: white; /* TODO: Just give the kuudos image a background */
 }
 
-.subpage-entry img:first-child {
+.subpage-entry #icon:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.subpage-entry img:last-child {
+.subpage-entry #icon:last-child {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.subpage-header {
+.subpage-entry .text-container {
   margin: 15px 30px 20px 30px;
-  flex-grow: 1;
 }
 
-.subpage-header h2 {
+.subpage-entry .header h2 {
   margin: 0;
   border-bottom: 3px solid;
 
   text-align: center;
 }
 
-.subheading {
+.subpage-entry .subheading {
+  margin: 0;
+  justify-content: space-between;
+}
+
+.subpage-entry .subheading p {
   margin: 0;
 
   font-size: 20px;
   font-weight: bold;
 }
 
-.subpage-header p {
-  margin: 0;
+.subpage-entry .padding {
+  flex-grow: 1;
 }
 
+.subpage-entry .description {
+  margin: 0;
+  text-align: center;
+}
+
+.subpage-entry .content-container {
+  height: 0;
+  overflow: scroll;
+}
 
 
 /* PAGE OVERLAY */
 
-#page-overlay-outer {
+#page-overlay {
+  display: none;
+
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 100%;
-  bottom: -100%;
-
-  transition: top 0.5s, bottom 0.5s, background 0.5s ease-in-out;
-}
-
-.page-overlay-outer-active {
-  top: 0 !important;
-  bottom: 0 !important;
-
-  background: #012d;
-}
-
-.page-overlay-box {
-  margin: 50px;
-  border: var(--border-width) solid;
-  border-radius: var(--border-radius);
-
-  color: var(--category-color);
-
-  position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
 
-  display: flex;
-  flex-direction: column;
-
-  background: var(--bg-color);
+  background: #0120;
 }
 
-.page-overlay-box iframe {
-  width: 100%;
-  flex-grow: 1;
+/* PAGE OPENING INITIAL VALUES */
 
-  border: 0 none;
-  border-radius: 0 0 26px 26px;
-}
+.x-button {
+  position: relative;
+  left: 30px;
+  bottom: 15px;
 
-.page-overlay-x-button {
-  width: 5em;
-  min-width: 5em; /* Don't allow the browsers to squish the button if the page name is long */
+  width: 0;
+  min-width: 0; /* Don't allow the browsers to squish the button if the page name is long */
   height: 5em;
 
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }
 
-.page-overlay-x-button:hover {
-  transform: scale(1.1);
+.x-button:hover {
+  transform: scale(1.1) !important;
 }
 
-.page-overlay-x-button path {
+.x-button path {
   stroke: var(--category-color);
+}
+
+#page-overlay.active {
+  display: block !important;
+}
+
+#page-overlay .subpage-entry {
+  position: absolute;
+  cursor: default !important;
+  margin: 0 !important;
+}
+
+/* PAGE ENTRY ANIMATIONS */
+
+#page-overlay.expanded {
+  background: #012d !important;
+  transition: background 1s ease-in-out;
+}
+
+#page-overlay.expanded .subpage-entry {
+  left:   50px !important;
+  right:  50px !important;
+  top:    50px !important;
+  bottom: 50px !important;
+  transition:
+    left   1s ease-in-out,
+    right  1s ease-in-out,
+    top    1s ease-in-out,
+    bottom 1s ease-in-out;
+}
+
+#page-overlay.expanded #icon {
+  width: 0 !important;
+  transition: width 1s ease-in-out;
+}
+
+#page-overlay.expanded .header {
+  margin-right: -30px;
+  transition: margin-right 1s ease-in-out;
+}
+
+#page-overlay.expanded .x-button {
+  width: 5em;
+  min-width: 5em;
+  transition:
+    width     1s ease-in-out,
+    min-width 1s ease-in-out;
+}
+
+#page-overlay.expanded .padding {
+  flex-grow: 0;
+  transition: flex-grow 1s ease-in-out;
+}
+
+#page-overlay.expanded .description {
+  font-size: 0;
+  transition: font-size 1s ease-in-out;
+}
+
+#page-overlay.expanded .content-container {
+  flex-grow: 1;
+  transition: flex-grow 1s ease-in-out;
 }
 
 /* CONTENT */
