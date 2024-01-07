@@ -294,9 +294,17 @@ h2 {
 
 /* PAGE ENTRY ANIMATIONS */
 
+/* Sequence (each step takes 0.4s):
+ *   delay of 0.0s: Remove icon
+ *   delay of 0.4s: Expand width
+ *   delay of 0.8s: Swap description for content
+ *   delay of 1.2s: Expand height
+ *   delay of 1.6s: Add 'x' button
+ */
+
 #page-overlay.expanded {
   background: #012d !important;
-  transition: background 1s ease-in-out;
+  transition: background 2s ease-in-out; /* Background animates over the entire 1s */
 }
 
 #page-overlay.expanded .subpage-entry {
@@ -305,43 +313,43 @@ h2 {
   top:    50px !important;
   bottom: 50px !important;
   transition:
-    left   1s ease-in-out,
-    right  1s ease-in-out,
-    top    1s ease-in-out,
-    bottom 1s ease-in-out;
+    left   0.4s ease-in-out 0.4s,
+    right  0.4s ease-in-out 0.4s,
+    top    0.4s ease-in-out 1.2s,
+    bottom 0.4s ease-in-out 1.2s;
 }
 
 #page-overlay.expanded #icon {
   width: 0 !important;
-  transition: width 1s ease-in-out;
+  transition: width 0.4s ease-in-out 0.0s;
 }
 
 #page-overlay.expanded .header {
   margin-right: -30px;
-  transition: margin-right 1s ease-in-out;
+  transition: margin-right 0.4s ease-in-out 1.6s;
 }
 
 #page-overlay.expanded .x-button {
   width: 5em;
   min-width: 5em;
   transition:
-    width     1s ease-in-out,
-    min-width 1s ease-in-out;
+    width     0.4s ease-in-out 1.6s,
+    min-width 0.4s ease-in-out 1.6s;
 }
 
 #page-overlay.expanded .padding {
   flex-grow: 0;
-  transition: flex-grow 1s ease-in-out;
+  transition: flex-grow 0.4s ease-in-out 0.8s;
 }
 
 #page-overlay.expanded .description {
   font-size: 0;
-  transition: font-size 1s ease-in-out;
+  transition: font-size 0.4s ease-in-out 0.8s;
 }
 
 #page-overlay.expanded .content-container {
   flex-grow: 1;
-  transition: flex-grow 1s ease-in-out;
+  transition: flex-grow 0.4s ease-in-out 0.8s;
 }
 
 /* CONTENT */
