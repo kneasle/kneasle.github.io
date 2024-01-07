@@ -240,7 +240,7 @@ h2 {
     text-align: center;
   }
 
-  .content-container {
+  #content-container {
     height: 0;
     overflow: scroll;
   }
@@ -294,11 +294,53 @@ h2 {
   margin: 0 !important;
 }
 
-/* PAGE ENTRY ANIMATIONS */
+/* FULLY OPEN VALUES */
 
 #page-overlay.expanded {
-  $step: 0.25s;
+  background: #012d !important;
 
+  .subpage-entry {
+    left:   50px !important;
+    right:  50px !important;
+    top:    50px !important;
+    bottom: 50px !important;
+  }
+
+  #icon {
+    width: 0 !important;
+  }
+
+  .header {
+    margin-right: -30px;
+  }
+
+  .x-button {
+    width: 5em;
+    min-width: 5em;
+  }
+
+  .padding {
+    flex-grow: 0;
+  }
+
+  .description {
+    font-size: 0;
+  }
+
+  #content-container {
+    flex-grow: 1;
+  }
+}
+
+/* PAGE ENTRY ANIMATION */
+
+$step: 0.25s;
+
+#page-overlay {
+  transition: background ($step * 5) ease-in-out; /* Background animates over the entire 1s */
+}
+
+#page-overlay.expanded {
   /* Sequence (each step takes `$step` time):
    *   delay of $step * 0: Remove icon
    *   delay of $step * 1: Expand width
@@ -307,14 +349,7 @@ h2 {
    *   delay of $step * 4: Add 'x' button
    */
 
-  background: #012d !important;
-  transition: background ($step * 5) ease-in-out; /* Background animates over the entire 1s */
-
   .subpage-entry {
-    left:   50px !important;
-    right:  50px !important;
-    top:    50px !important;
-    bottom: 50px !important;
     transition:
       left   $step ease-in-out ($step * 1),
       right  $step ease-in-out ($step * 1),
@@ -323,35 +358,74 @@ h2 {
   }
 
   #icon {
-    width: 0 !important;
     transition: width $step ease-in-out ($step * 0);
   }
 
   .header {
-    margin-right: -30px;
     transition: margin-right $step ease-in-out ($step * 4);
   }
 
   .x-button {
-    width: 5em;
-    min-width: 5em;
     transition:
       width     $step ease-in-out ($step * 4),
       min-width $step ease-in-out ($step * 4);
   }
 
   .padding {
-    flex-grow: 0;
     transition: flex-grow $step ease-in-out ($step * 2);
   }
 
   .description {
-    font-size: 0;
     transition: font-size $step ease-in-out ($step * 2);
   }
 
-  .content-container {
-    flex-grow: 1;
+  #content-container {
+    transition: flex-grow $step ease-in-out ($step * 2);
+  }
+}
+
+/* PAGE EXIT ANIMATION */
+
+#page-overlay.contracting {
+  /* Sequence to be played backwards (each step takes `$step` time):
+   *   delay of $step * 4: Remove icon
+   *   delay of $step * 3: Expand width
+   *   delay of $step * 2: Swap description for content
+   *   delay of $step * 1: Expand height
+   *   delay of $step * 0: Add 'x' button
+   */
+
+  .subpage-entry {
+    transition:
+      left   $step ease-in-out ($step * 3),
+      right  $step ease-in-out ($step * 3),
+      top    $step ease-in-out ($step * 1),
+      bottom $step ease-in-out ($step * 1);
+  }
+
+  #icon {
+    transition: width $step ease-in-out ($step * 4);
+  }
+
+  .header {
+    transition: margin-right $step ease-in-out ($step * 0);
+  }
+
+  .x-button {
+    transition:
+      width     $step ease-in-out ($step * 0),
+      min-width $step ease-in-out ($step * 0);
+  }
+
+  .padding {
+    transition: flex-grow $step ease-in-out ($step * 2);
+  }
+
+  .description {
+    transition: font-size $step ease-in-out ($step * 2);
+  }
+
+  #content-container {
     transition: flex-grow $step ease-in-out ($step * 2);
   }
 }

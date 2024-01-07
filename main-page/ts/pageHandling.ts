@@ -1,3 +1,6 @@
+let loadedPageBox: HTMLElement | null = null;
+let clonedBox: HTMLElement | null = null;
+
 function loadPage(slug: string, category: string) {
   // Make overlay appear
   const pageOverlay = document.getElementById("page-overlay")!;
@@ -6,17 +9,12 @@ function loadPage(slug: string, category: string) {
   pageOverlay.classList.add(`category-${category}`);
 
   // Clone a copy of the page box into the overlay
-  const sourceBox = document.getElementById(`subpage-item-${slug}`)!;
-  const clonedBox = sourceBox.cloneNode(true) as HTMLElement;
+  loadedPageBox = document.getElementById(`subpage-item-${slug}`)!;
+  clonedBox = loadedPageBox.cloneNode(true) as HTMLElement;
   pageOverlay.appendChild(clonedBox);
 
   // Place this page box in the same location, but in the overlay
-  const rootHtmlElement = document.documentElement;
-  const rect = sourceBox.getBoundingClientRect();
-  clonedBox.style.left = `${rect.left}px`;
-  clonedBox.style.top = `${rect.top}px`;
-  clonedBox.style.right = `${rootHtmlElement.clientWidth - rect.right}px`;
-  clonedBox.style.bottom = `${rootHtmlElement.clientHeight - rect.bottom}px`;
+  placeOverLoadedPageBox();
   // Remove hover/click behaviour
   clonedBox.onclick = null;
   clonedBox.classList.remove("hoverable");
@@ -32,6 +30,29 @@ function loadPage(slug: string, category: string) {
 
 function closeOverlay() {
   // Close overlay
-  const pageOverlay = document.getElementById("page-overlay-outer")!;
+  const pageOverlay = document.getElementById("page-overlay")!;
   pageOverlay.classList.remove("page-overlay-outer-active");
+  pageOverlay.classList.remove("expanded");
+  pageOverlay.classList.add("contracting");
+  placeOverLoadedPageBox();
+
+  // Reset everything once the animation is over
+  setTimeout(() => {
+    pageOverlay.removeChild(clonedBox!);
+    pageOverlay.classList.value = "";
+
+    clonedBox = null;
+    loadedPageBox = null;
+  }, 1250);
+}
+
+function placeOverLoadedPageBox() {
+  if (clonedBox == null) return;
+
+  const rootHtmlElement = document.documentElement;
+  const rect = loadedPageBox!.getBoundingClientRect();
+  clonedBox.style.left = `${rect.left}px`;
+  clonedBox.style.top = `${rect.top}px`;
+  clonedBox.style.right = `${rootHtmlElement.clientWidth - rect.right}px`;
+  clonedBox.style.bottom = `${rootHtmlElement.clientHeight - rect.bottom}px`;
 }
