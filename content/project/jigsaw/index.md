@@ -27,4 +27,4 @@ feature, a crash/freeze results in you having to redo your work.   Now that's ou
 very welcome to play around; a recent build of Jigsaw is always available
 [here](https://kneasle.github.io/jigsaw/firehose).
 
-![Screenshot of Jigsaw](screenshot.png)
+![Screenshot of Jigsaw](jigsaw/screenshot.png)

@@ -38,16 +38,16 @@ parents' back garden, so they make useful test subjects.  We also have no shorta
 derpy chicken photos - they are, after all, hilariously derpy creatures - but here's a particularly
 good one.  Meet Flecky, our glamorous assistant:
 
-![Portrait of Flecky the Hen](flecky-portrait.jpg)
+![Portrait of Flecky the Hen](unicycling-vs-walking/flecky-portrait.jpg)
 
 Now, whilst we distract the chickens with food _(chicken food, my favourite!)_, I swoop in with my
 trusty metal ruler and measure Flecky's height and foot size:
 
 <!-- TODO: Replace these with `png`s -->
 <p class="side-by-side-images">
-    <img alt="Measuring Flecky's foot width" src="flecky-width.jpg" />
-    <img alt="Measuring Flecky's foot length" src="flecky-length.jpg" />
-    <img alt="Measuring Flecky's height" src="flecky-height.jpg" />
+    <img alt="Measuring Flecky's foot width" src="unicycling-vs-walking/flecky-width.jpg" />
+    <img alt="Measuring Flecky's foot length" src="unicycling-vs-walking/flecky-length.jpg" />
+    <img alt="Measuring Flecky's height" src="unicycling-vs-walking/flecky-height.jpg" />
 </p>
 
 The trusty metal ruler concludes that Flecky is about 26cm tall and each of her feet are 10cm
@@ -60,7 +60,7 @@ Compared to their height, humans balance on feet that are **four times** smaller
 chicken.  If we were to scale a chicken so that it's the same height as a human, we can see just how
 much easier it is for chickens to balance:
 
-![Balance comparison between humans and chickens](balancing.svg)
+![Balance comparison between humans and chickens](unicycling-vs-walking/balancing.svg)
 
 ### Major Difficulty #2: We Can Fall in Any Direction
 

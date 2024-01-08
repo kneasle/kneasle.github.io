@@ -45,16 +45,16 @@ tried solving them by hand yet, so if you do manage to solve them, please let me
 
 ## Classic
 
-![Classic sudoku puzzle](classic.svg)
+![Classic sudoku puzzle](kuudos/classic.svg)
 
 ## Wheel
 
-![Sudoku puzzle 'Wheel'](wheel.svg)
+![Sudoku puzzle 'Wheel'](kuudos/wheel.svg)
 
 ## Race Track
 
-![Sudoku puzzle 'Race track'](race-track.svg)
+![Sudoku puzzle 'Race track'](kuudos/race-track.svg)
 
 ## Space Station
 
-![Sudoku puzzle 'Space Station'](space-station.svg)
+![Sudoku puzzle 'Space Station'](kuudos/space-station.svg)
