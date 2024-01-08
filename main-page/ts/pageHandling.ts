@@ -24,8 +24,10 @@ function loadPage(slug: string, category: string) {
   requestAnimationFrame(() => pageOverlay.classList.add("expanded"));
 
   // TODO: Populate contents
-  const iframe = pageOverlay.querySelector("iframe")!;
-  iframe.src = `/${slug}`;
+  const container = pageOverlay.querySelector("#content-container")!;
+  fetch(`/${slug}`)
+    .then((response: Response) => response.text())
+    .then((text: string) => container.innerHTML = text);
 }
 
 function closeOverlay() {

@@ -185,16 +185,10 @@ function renderFrontmatteredMarkdown(
   };
 
   // Render markdown
-  const data = {
-    title: page.title,
-    category: page.category,
-    content: renderMarkdown(markdown),
-  };
-  const renderedHtml = renderTemplate("blog", data);
   // Create subpage
   const pageDir = path.join(OUT_DIR, slug);
   ensureDirExists(pageDir);
-  Deno.writeTextFileSync(path.join(pageDir, "index.html"), renderedHtml);
+  Deno.writeTextFileSync(path.join(pageDir, "index.html"), renderMarkdown(markdown));
 
   return [page];
 }
@@ -307,6 +301,7 @@ function buildSass(inDir: string, outDir: string) {
 ///////////
 
 function renderMarkdown(markdown: string): string {
+  // TODO: Add slug path to sub-page markdown
   return marked.parse(markdown, { async: false }) as string;
 }
 
