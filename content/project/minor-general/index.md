@@ -18,7 +18,7 @@ During 2020, I was running several Ringing Room practices by keeping a plan of t
 pen-and-paper.  And as the saying goes: why spend a few minutes doing a task when you can spend
 several days automating it?
 
-![Screenshot of Minor General](screenshot.png)
+![Screenshot of Minor General](minor-general/screenshot.png)
 
 After emerging from various rabbit holes, this is the result!  I'm pretty pleased with it - it was
 made pretty quickly, but is surprisingly useful and robust.  This screenshot is taken just before
@@ -36,7 +36,7 @@ are `Load`ed.  Minor General also error-checks the assignments - cells will be h
 you assign two ringers to the same bell, or assign a bell to a ringer who has since left the
 practice:
 
-![Screenshot with missing users](screenshot-missing-people.png)
+![Screenshot with missing users](minor-general/screenshot-missing-people.png)
 
 Also, Minor General helpfully reports which bells need to be assigned in order to complete the
 touch (this can be seen in both screenshots).
