@@ -240,7 +240,7 @@ h2 {
     text-align: center;
   }
 
-  #content-container {
+  .content-container {
     height: 0;
     overflow: scroll;
   }
@@ -327,7 +327,7 @@ h2 {
     font-size: 0;
   }
 
-  #content-container {
+  .content-container {
     flex-grow: 1;
   }
 }
@@ -379,7 +379,7 @@ $step: 0.25s;
     transition: font-size $step ease-in-out ($step * 2);
   }
 
-  #content-container {
+  .content-container {
     transition: flex-grow $step ease-in-out ($step * 2);
   }
 }
@@ -425,7 +425,7 @@ $step: 0.25s;
     transition: font-size $step ease-in-out ($step * 2);
   }
 
-  #content-container {
+  .content-container {
     transition: flex-grow $step ease-in-out ($step * 2);
   }
 }
@@ -435,7 +435,6 @@ $step: 0.25s;
 .page-content {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 30px;
 }
 
 .content {

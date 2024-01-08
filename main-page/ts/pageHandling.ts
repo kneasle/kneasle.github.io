@@ -24,7 +24,7 @@ function loadPage(slug: string, category: string) {
   requestAnimationFrame(() => pageOverlay.classList.add("expanded"));
 
   // TODO: Populate contents
-  const container = pageOverlay.querySelector("#content-container")!;
+  const container = pageOverlay.querySelector("#page-content")!;
   fetch(`/${slug}`)
     .then((response: Response) => response.text())
     .then((text: string) => container.innerHTML = text);
