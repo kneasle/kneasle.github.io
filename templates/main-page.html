@@ -4,7 +4,7 @@
 <head>
   <title>kneasle::Home</title>
 
-  <link rel="stylesheet" href="/site.css"/>
+  <link rel="stylesheet" href="/css/site.css"/>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -46,20 +46,35 @@
 
 			<div id="subpage-container">
 				{{#each subPages}}
-				<div id="subpage-item-{{slug}}" class="subpage-entry category-{{category}}" onclick="loadPage('{{slug}}', '{{category}}');">
-					<img src="/page-icons/{{imageFileName}}" style="background: white;"></img>
-					<div id="header" class="subpage-header" style="display: flex; flex-direction: column;">
-						<h2>{{title}}</h2>
-						<div style="display: flex; justify-content: space-between; margin: 0;">
-							<p class="subheading">{{dateString}}</p>
-							<p class="subheading">
-								<span>#{{category}}</span>
-								{{#each topics}}<span>#{{this}}</span> {{/each}}
-								{{#each languages}}<span>#{{this}}</span> {{/each}}
-							</p>
+				<div id="subpage-item-{{slug}}" class="flex-row subpage-entry category-{{category}} hoverable" onclick="loadPage('{{slug}}', '{{category}}');">
+					<img id="icon" src="/page-icons/{{imageFileName}}"></img>
+
+					<div class="text-container flex-col flex-fill">
+						<div class="flex-row">
+							<!-- start name and date/tags -->
+							<div class="header flex-fill">
+								<h2>{{title}}</h2>
+								<div class="subheading flex-row">
+									<p>{{dateString}}</p>
+									<p>
+										<span>#{{category}}</span>
+										{{#each topics}}<span>#{{this}}</span> {{/each}}
+										{{#each languages}}<span>#{{this}}</span> {{/each}}
+									</p>
+								</div>
+							</div>
+							<!-- end name and date/tags -->
+
+							<svg class="x-button" onclick="closeOverlay()"
+								   viewBox="0 0 85 85" xmlns="http://www.w3.org/2000/svg">
+						    <path style="stroke-width: 8px; stroke-linecap:round;" d="M 25,25 60,60" />
+						    <path style="stroke-width: 8px; stroke-linecap:round;" d="M 25,60 60,25" />
+							</svg>
 						</div>
-						<div style="flex-grow: 1;"></div>
-						<p id="description" style="text-align: center;">{{description}}</p>
+
+						<div class="padding"></div>
+						<p class="description">{{description}}</p>
+						<div id="content-container" class="content"></div>
 					</div>
 				</div>
 				{{/each}}
@@ -71,8 +86,9 @@
 	<!-- end of normal scroll layer -->
 
   <!-- page overlay -->
-	<div id="page-overlay-outer">
-		<div class="page-overlay-box">
+	<div id="page-overlay">
+		<!-- TODO: Actually remove this -->
+		<div class="page-overlay-box" style="display: none;">
 			<!-- overlay header -->
 			<div style="display: flex; flex-direction: row;">
 				<div id="page-overlay-header" style="flex-grow: 1"></div>

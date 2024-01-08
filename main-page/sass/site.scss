@@ -1,0 +1,527 @@
+/* GENERAL */
+
+:root {
+  --border-radius: 30px;
+  --border-width: 8px;
+
+  --bg-color-dark: #00070f;
+  --bg-color: #012;
+  --bg-color-light: #001730;
+  --bg-color-lighter: #024;
+
+  --primary-color: #38f;
+  --secondary-color: #E6D117;
+
+  --project-color: var(--primary-color);
+  --blog-color: var(--secondary-color);
+  --art-color: #FF8F33;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  color: #38f;
+  font-family: monospace;
+  font-size: 17px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 29px;
+  font-weight: bold;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-fill {
+  flex-grow: 1;
+}
+
+
+/* SITE "MATRIX" HEADERS */
+
+#matrix-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.matrix-text {
+  position: absolute;
+  /* `left` and top are set by the JS code */
+  right: 0;
+  bottom: 0;
+  margin: 0;
+
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: clip;
+
+  color: #048;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.matrix-title-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-title {
+  margin: 0;
+
+  /* font-size: Set in HTML */
+  font-weight: bold;
+  text-align: center;
+
+  color: #cff;
+  text-shadow: 0 0 4vw #000, 0 0 3vw #aff, 0 0 1vw #aff;
+}
+
+.scroll-down {
+  font-size: 5vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.scroll-down-present {
+  bottom: 20px;
+  opacity: 1;
+}
+
+.scroll-down-faded {
+  bottom: 100px;
+  opacity: 0;
+}
+
+
+
+/* REST OF MAIN PAGE */
+
+.about-section {
+  background: var(--bg-color-dark);
+  border-radius: var(--border-radius);
+
+  display: flex;
+  flex-direction: row;
+
+  div {
+    padding: 15px 15px;
+  }
+
+  img.me {
+    margin: 0;
+    border: 0 none;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+
+    height: 100%;
+  }
+
+  img.site {
+    margin: 0;
+    border: 0 none;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+
+    height: 100%;
+  }
+}
+
+
+
+/* PAGE ENTRIES */
+
+.site-body {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.category-project {
+  --category-color: var(--project-color);
+}
+
+.category-blog {
+  --category-color: var(--blog-color);
+}
+
+.category-art {
+  --category-color: var(--art-color);
+}
+
+.use-category-color {
+  color: var(--category-color);
+}
+
+.subpage-entry {
+  cursor: pointer;
+
+  margin: 40px 10px;
+  border: var(--border-width) solid;
+  border-radius: var(--border-radius);
+
+  background: var(--bg-color);
+  color: var(--category-color); /* Inherited by other items */
+
+  transition: background 0.2s, margin 0.2s ease-in-out;
+}
+
+.subpage-entry.hoverable:hover {
+  background: var(--bg-color-dark);
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+.subpage-entry {
+  #icon {
+    width: 10em;
+    height: 10em;
+    border-radius: 22px;
+    background: white; /* TODO: Just give the kuudos image a background */
+  }
+
+  #icon:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  #icon:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .text-container {
+    margin: 15px 30px 20px 30px;
+  }
+
+  .header h2 {
+    margin: 0;
+    border-bottom: 3px solid;
+
+    text-align: center;
+  }
+
+  .subheading {
+    margin: 0;
+    justify-content: space-between;
+  }
+
+  .subheading p {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .padding {
+    flex-grow: 1;
+  }
+
+  .description {
+    margin: 0;
+    text-align: center;
+  }
+
+  #content-container {
+    height: 0;
+    overflow: scroll;
+  }
+}
+
+
+/* PAGE OVERLAY */
+
+#page-overlay {
+  display: none;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  background: #0120;
+}
+
+/* PAGE OPENING INITIAL VALUES */
+
+.x-button {
+  position: relative;
+  left: 30px;
+  bottom: 15px;
+
+  width: 0;
+  min-width: 0; /* Don't allow the browsers to squish the button if the page name is long */
+  height: 5em;
+
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.x-button:hover {
+  transform: scale(1.1) !important;
+}
+
+.x-button path {
+  stroke: var(--category-color);
+}
+
+#page-overlay.active {
+  display: block !important;
+}
+
+#page-overlay .subpage-entry {
+  position: absolute;
+  cursor: default !important;
+  margin: 0 !important;
+}
+
+/* FULLY OPEN VALUES */
+
+#page-overlay.expanded {
+  background: #012d !important;
+
+  .subpage-entry {
+    left:   50px !important;
+    right:  50px !important;
+    top:    50px !important;
+    bottom: 50px !important;
+  }
+
+  #icon {
+    width: 0 !important;
+  }
+
+  .header {
+    margin-right: -30px;
+  }
+
+  .x-button {
+    width: 5em;
+    min-width: 5em;
+  }
+
+  .padding {
+    flex-grow: 0;
+  }
+
+  .description {
+    font-size: 0;
+  }
+
+  #content-container {
+    flex-grow: 1;
+  }
+}
+
+/* PAGE ENTRY ANIMATION */
+
+$step: 0.25s;
+
+#page-overlay {
+  transition: background ($step * 5) ease-in-out; /* Background animates over the entire 1s */
+}
+
+#page-overlay.expanded {
+  /* Sequence (each step takes `$step` time):
+   *   delay of $step * 0: Remove icon
+   *   delay of $step * 1: Expand width
+   *   delay of $step * 2: Swap description for content
+   *   delay of $step * 3: Expand height
+   *   delay of $step * 4: Add 'x' button
+   */
+
+  .subpage-entry {
+    transition:
+      left   $step ease-in-out ($step * 1),
+      right  $step ease-in-out ($step * 1),
+      top    $step ease-in-out ($step * 3),
+      bottom $step ease-in-out ($step * 3);
+  }
+
+  #icon {
+    transition: width $step ease-in-out ($step * 0);
+  }
+
+  .header {
+    transition: margin-right $step ease-in-out ($step * 4);
+  }
+
+  .x-button {
+    transition:
+      width     $step ease-in-out ($step * 4),
+      min-width $step ease-in-out ($step * 4);
+  }
+
+  .padding {
+    transition: flex-grow $step ease-in-out ($step * 2);
+  }
+
+  .description {
+    transition: font-size $step ease-in-out ($step * 2);
+  }
+
+  #content-container {
+    transition: flex-grow $step ease-in-out ($step * 2);
+  }
+}
+
+/* PAGE EXIT ANIMATION */
+
+#page-overlay.contracting {
+  /* Sequence to be played backwards (each step takes `$step` time):
+   *   delay of $step * 4: Remove icon
+   *   delay of $step * 3: Expand width
+   *   delay of $step * 2: Swap description for content
+   *   delay of $step * 1: Expand height
+   *   delay of $step * 0: Add 'x' button
+   */
+
+  .subpage-entry {
+    transition:
+      left   $step ease-in-out ($step * 3),
+      right  $step ease-in-out ($step * 3),
+      top    $step ease-in-out ($step * 1),
+      bottom $step ease-in-out ($step * 1);
+  }
+
+  #icon {
+    transition: width $step ease-in-out ($step * 4);
+  }
+
+  .header {
+    transition: margin-right $step ease-in-out ($step * 0);
+  }
+
+  .x-button {
+    transition:
+      width     $step ease-in-out ($step * 0),
+      min-width $step ease-in-out ($step * 0);
+  }
+
+  .padding {
+    transition: flex-grow $step ease-in-out ($step * 2);
+  }
+
+  .description {
+    transition: font-size $step ease-in-out ($step * 2);
+  }
+
+  #content-container {
+    transition: flex-grow $step ease-in-out ($step * 2);
+  }
+}
+
+/* CONTENT */
+
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.content {
+  h1, h2, h3, h4, h5, h6 {
+    margin: 24px 0 16px 0;
+  }
+  
+  h1, h2 {
+    margin-top: 70px;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid;
+
+    text-align: center;
+  }
+
+  p, li {
+    text-align: justify;
+    line-height: 1.5;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 2em;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  li {
+    margin: 0;
+    margin-bottom: 0.1em;
+  }
+
+  /* inline code */
+  code {
+    background: var(--bg-color-lighter);
+    font-weight: bold;
+  }
+
+  /* code blocks */
+  pre {
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    background: var(--bg-color-light);
+    padding: 0.7em;
+  }
+
+  pre code {
+    /* Undo the styling from inline code */
+    background: none;
+    font-weight: normal;
+  }
+
+  img {
+    /* Display images in the centre of the page */
+    display: block;
+    margin: 0 auto 16px auto;
+
+    /* Give images round borders */
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid;
+
+    max-width: 100%; /* Prevent images from overflowing their container */
+    max-height: 22em; /* Also prevent images from getting really big */
+
+    background: white;
+  }
+
+
+  .side-by-side-images {
+    text-align: center;
+
+    img {
+      margin: 0 auto 16px auto;
+      width: 100%;
+      max-width: 350px;
+
+      /* For not-tiny screens, display the images inline */
+      @media only screen and (min-width: 688px) {
+          max-width: none;
+          display: inline-block;
+          width: 46%;
+          margin: 0.5%;
+      }
+    }
+  }
+}

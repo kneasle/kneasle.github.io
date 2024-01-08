@@ -9,6 +9,7 @@ import Handlebars from "npm:handlebars@4.7.8";
 import { marked } from "npm:marked@11.1.1";
 import { clear as clearTerm } from "https://deno.land/x/clear@v1.3.0/mod.ts";
 import { parse as parseArgs } from "https://deno.land/std@0.207.0/flags/mod.ts";
+import sass from "https://deno.land/x/denosass@1.0.6/mod.ts";
 import { debounce } from "https://deno.land/std@0.207.0/async/debounce.ts";
 import { serveDir } from "https://deno.land/std@0.207.0/http/file_server.ts";
 
@@ -58,7 +59,7 @@ function buildAndLog(): void {
   } catch (exception) {
     console.log(
       "%cBuild failed with this exception:",
-      "color: red; font-weight: bold;"
+      "color: red; font-weight: bold;",
     );
     console.error(exception);
   }
@@ -99,7 +100,7 @@ function renderMainPage(subPages: Page[]) {
 
   // Render the main page
   const aboutMeMarkdown = Deno.readTextFileSync(
-    path.join(mainPageDir, "about.md")
+    path.join(mainPageDir, "about.md"),
   );
   const templateData = {
     subPages,
@@ -159,7 +160,7 @@ type Category = "project" | "blog" | "art";
 function renderFrontmatteredMarkdown(
   mdFilePath: string,
   slug: string,
-  category: Category
+  category: Category,
 ): [Page] {
   // Read file into frontmatter and markdown.  They are split by the next occurrence of the first
   // line (usually `+++`)
@@ -174,7 +175,7 @@ function renderFrontmatteredMarkdown(
     .trim();
 
   // Parse frontmatter as TOML
-  const frontMatter = <FrontMatter>parseToml(frontMatterToml);
+  const frontMatter = <FrontMatter> parseToml(frontMatterToml);
   const page: Page = {
     slug,
     category,
@@ -184,16 +185,10 @@ function renderFrontmatteredMarkdown(
   };
 
   // Render markdown
-  const data = {
-    title: page.title,
-    category: page.category,
-    content: renderMarkdown(markdown),
-  };
-  const renderedHtml = renderTemplate("blog", data);
   // Create subpage
   const pageDir = path.join(OUT_DIR, slug);
   ensureDirExists(pageDir);
-  Deno.writeTextFileSync(path.join(pageDir, "index.html"), renderedHtml);
+  Deno.writeTextFileSync(path.join(pageDir, "index.html"), renderMarkdown(markdown));
 
   return [page];
 }
@@ -213,7 +208,7 @@ type FrontMatter = {
 function copyOrCompileDirectory(
   inDir: string,
   outDir: string,
-  ignorePaths: string[]
+  ignorePaths: string[],
 ): void {
   // Create output directory
   const outputPath = path.join(OUT_DIR, outDir);
@@ -224,6 +219,10 @@ function copyOrCompileDirectory(
     if (entry.isFile && entry.name == "tsconfig.json") {
       const tsSourcePaths = buildTypescript(inDir, outputPath);
       pathsToNotCopy.push(entry.name, ...tsSourcePaths);
+    }
+    if (entry.isDirectory && entry.name == "sass") {
+      buildSass(path.join(inDir, entry.name), outputPath);
+      pathsToNotCopy.push(entry.name);
     }
   }
 
@@ -258,7 +257,7 @@ function buildTypescript(tsDir: string, pageDir: string): string[] {
   type TsConfig = { include: string[]; compilerOptions: { outDir: string } };
   // Read tsconfig
   const tsConfigPath = path.join(tsDir, "tsconfig.json");
-  const tsConfig = <TsConfig>jsonc.parse(Deno.readTextFileSync(tsConfigPath))!;
+  const tsConfig = <TsConfig> jsonc.parse(Deno.readTextFileSync(tsConfigPath))!;
   const outDir = path.join(pageDir, tsConfig.compilerOptions.outDir);
   ensureDirExists(outDir);
 
@@ -278,18 +277,38 @@ function buildTypescript(tsDir: string, pageDir: string): string[] {
   return tsConfig.include; // Don't copy any TS files because they've been compiled
 }
 
+function buildSass(inDir: string, outDir: string) {
+  const outCssDir = path.join(outDir, "css");
+  ensureDirExists(outCssDir);
+
+  for (const entry of walkSync(inDir)) {
+    if (entry.isFile && entry.name.endsWith(".scss")) {
+      // Determine where to place the outputted CSS
+      const subDirPath = path.relative(inDir, entry.path);
+      const cssDirPath = path.join(outCssDir, path.dirname(subDirPath));
+      const cssFilePath = path.join(cssDirPath, entry.name.replace(".scss", ".css"));
+      // Compile the SASS
+      const compiledCss = sass(Deno.readTextFileSync(entry.path)).to_string() as string;
+      // Create the CSS
+      ensureDirExists(cssDirPath);
+      Deno.writeTextFileSync(cssFilePath, compiledCss);
+    }
+  }
+}
+
 ///////////
 // UTILS //
 ///////////
 
 function renderMarkdown(markdown: string): string {
+  // TODO: Add slug path to sub-page markdown
   return marked.parse(markdown, { async: false }) as string;
 }
 
 function renderTemplate(templateName: string, data: any): string {
   // TODO: Write to `index.html` from within this function
   const source = Deno.readTextFileSync(
-    path.join(TEMPLATE_DIR, `${templateName}.html`)
+    path.join(TEMPLATE_DIR, `${templateName}.html`),
   );
   const template = Handlebars.compile(source);
   return template(data);
