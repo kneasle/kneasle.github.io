@@ -33,6 +33,14 @@ h2 {
   font-weight: bold;
 }
 
+a {
+  color: inherit;
+}
+
+a:hover {
+  opacity: 80%;
+}
+
 
 
 /* SITE "MATRIX" HEADERS */
@@ -140,16 +148,25 @@ h2 {
   max-width: 1000px;
 }
 
-.category-project {
+$link-brighten: 40%;
+$visited-link-brighten: 10%;
+
+.category-project, :root {
   --category-color: $project-color;
+  --link-color: lighten($project-color, $link-brighten);
+  --visited-link-color: lighten($project-color, $visited-link-brighten);
 }
 
 .category-blog {
   --category-color: $blog-color;
+  --link-color: lighten($blog-color, $link-brighten);
+  --visited-link-color: lighten($blog-color, $visited-link-brighten);
 }
 
 .category-art {
   --category-color: $art-color;
+  --link-color: lighten($art-color, $link-brighten);
+  --visited-link-color: lighten($art-color, $visited-link-brighten);
 }
 
 .use-category-color {
@@ -447,6 +464,14 @@ $step: 0.25s;
 
   p:last-child {
     margin-bottom: 0;
+  }
+
+  a {
+    color: var(--link-color);
+  }
+
+  a:visited {
+    color: var(--visited-link-color);
   }
 
   li {
