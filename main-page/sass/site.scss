@@ -221,8 +221,8 @@ $visited-link-brighten: 10%;
 
 .subpage-entry {
   #icon {
-    width: 10em;
-    height: 10em;
+    width: 10.5em;
+    height: 10.5em;
     border-radius: 22px;
     background: white; /* TODO: Just give the kuudos image a background */
 
@@ -242,7 +242,7 @@ $visited-link-brighten: 10%;
   }
 
   .text-container {
-    margin: 15px 30px 20px 30px;
+    margin: 15px 30px;
   }
 
   .header h2 {
@@ -270,6 +270,7 @@ $visited-link-brighten: 10%;
 
   .description {
     margin: 0;
+    margin-top: 10px;
     text-align: center;
   }
 
