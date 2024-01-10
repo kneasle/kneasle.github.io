@@ -112,30 +112,57 @@ a:hover {
 /* REST OF MAIN PAGE */
 
 .about-section {
+  margin: 10px;
   background: $bg-color-dark;
   border-radius: $border-radius;
 
-  display: flex;
-  flex-direction: row;
+  @media only screen and (min-width: 1020px) {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
 
   div {
     padding: 15px 15px;
   }
 
-  img.me {
-    margin: 0;
-    border: 0 none;
-    border-radius: $border-radius 0 0 $border-radius;
+  $img-margin: 10px;
 
-    height: 100%;
+  img {
+    margin: $img-margin !important;
+    border: 0 none !important;
+    background: none !important;
+    border-radius: $border-radius - $img-margin !important;
+
+    width: 200px;
+    height: 200px;
+
+    @media only screen and (min-width: 1020px) {
+      margin: 0 !important;
+      width: revert;
+      height: 100%;
+    }
+  }
+
+  img.me {
+    float: left;
+    margin-right: 30px !important;
+
+    @media only screen and (min-width: 1020px) {
+      margin-right: revert !important;
+      border-radius: $border-radius 0 0 $border-radius !important;
+    }
   }
 
   img.site {
-    margin: 0;
-    border: 0 none;
-    border-radius: 0 $border-radius $border-radius 0;
+    float: right;
+    margin-left: 30px !important;
 
-    height: 100%;
+    @media only screen and (min-width: 1020px) {
+      border-radius: 0 $border-radius $border-radius 0 !important;
+      margin-left: revert !important;
+      order: 2;
+    }
   }
 }
 

@@ -25,6 +25,8 @@ has over 400 stars on GitHub.  I've also contributed to larger open source proje
 
 <div class="about-section">
 
+<img src="site.png" class="site" style="background: none;" />
+
 <div>
 
 This is my personal website, and it chronicles many of the passion projects I've worked on over the
@@ -40,7 +42,5 @@ custom site generator:
 </p>
 
 </div>
-
-<img src="site.png" class="site" style="background: none;" />
 
 </div>
