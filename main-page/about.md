@@ -28,15 +28,15 @@ has over 400 stars on GitHub.  I've also contributed to larger open source proje
 <div>
 
 This is my personal website, and it chronicles many of the passion projects I've worked on over the
-years, shown in <strong style="color: var(--project-color);">blue boxes</strong>.  There are also
-a few blog posts, shown in <strong style="color: var(--blog-color);">yellow boxes</strong>.
+years, shown in <strong class="category-project use-category-color">blue boxes</strong>.  There are also
+a few blog posts, shown in <strong class="category-blog use-category-color">yellow boxes</strong>.
 
 My vision for this site required more flexibility than existing tools would allow, so this site is built
 entirely from scratch.  Thus, from the content and web design, right down to the HTML/CSS/JS and a
 custom site generator:
 
 <p style="text-align: center; font-size: 20px;">
-  <strong style="color: var(--secondary-color);">Everything here is my own work.</strong>
+  <strong style="color: #fff;">Everything here is my own work.</strong>
 </p>
 
 </div>
