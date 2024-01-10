@@ -483,6 +483,8 @@ $step: 0.2s;
   code {
     background: $bg-color-lighter;
     font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 6px;
   }
 
   /* code blocks */
@@ -498,6 +500,7 @@ $step: 0.2s;
     /* Undo the styling from inline code */
     background: none;
     font-weight: normal;
+    padding: 0;
   }
 
   img {
