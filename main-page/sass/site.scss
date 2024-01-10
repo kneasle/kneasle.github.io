@@ -336,7 +336,7 @@ $visited-link-brighten: 10%;
 
 /* PAGE ENTRY ANIMATION */
 
-$step: 0.25s;
+$step: 0.2s;
 
 #page-overlay {
   transition: background ($step * 5) ease-in-out; /* Background animates over the entire 1s */
