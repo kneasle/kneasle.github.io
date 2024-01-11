@@ -37,9 +37,7 @@ My vision for this site required more flexibility than existing tools would allo
 entirely from scratch.  Thus, from the content and web design, right down to the HTML/CSS/JS and a
 custom site generator:
 
-<p style="text-align: center; font-size: 20px;">
-  <strong style="color: #fff;">Everything here is my own work.</strong>
-</p>
+> Everything here is my own work.
 
 </div>
 

@@ -494,8 +494,19 @@ $step: 0.2s;
     margin-bottom: 2em;
   }
 
-  p:last-child {
+  p:last-child, blockquote:last-child {
     margin-bottom: 0;
+  }
+
+  blockquote {
+    margin: 0 30px 2em 30px;
+    font-size: 20px;
+
+    p {
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+    }
   }
 
   a {
