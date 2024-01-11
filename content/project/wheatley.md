@@ -1,19 +1,82 @@
 +++
 title = "Wheatley"
-description = "A robot bell-ringer to increase the scope of Ringing Room practices."
+description = "A human-like AI bell-ringer for online bell-ringing."
 
 date = 2020-06-11
 formattedDate = "Jun 2020 - Aug 2021"
 
 languages = ["python"]
 topics = ["bell-ringing"]
-
-[extra]
-links = [
-    ["Github", "https://github.com/kneasle/wheatley"],
-    ["PyPI", "https://pypi.org/project/wheatley/"]
-]
 +++
+
+Wheatley is an AI bell-ringer for [Ringing Room](https://ringingroom.com), a popular online platform
+for [Change Ringing](https://en.wikipedia.org/wiki/Change_ringing) (a very English and largely
+secular way of ringing church bells).  Wheatley heavily uses techniques from statistics and machine
+learning to emulate the behaviour of human ringers, and Wheatley really stands out against similar
+programs for its ability to seamlessly fit in with human ringers.  It is often very difficult to
+tell the difference between Wheatley and a human ringer - often, the only give-away is
+Wheatley's inhuman level of accuracy.
+
+This makes Wheatley an invaluable tool in online ringing practices: very few human ringers can ring
+more than two bells simultaneously but Wheatley can ring as many bells as required, to any tune (any
+'method') that the human ringers want to ring.  Therefore, if Wheatley is present in a Ringing Room
+'tower', then you do not have to worry about how many ringers turn up: you can ring as many bells as
+you want, because Wheatley can fill in the extra spaces and will do so with perfect accuracy while
+also being considerate of other ringers.  Wheatley's catchprase is that it behaves like:
+
+> "A ninja helper with no ego"
+
+## The Technology behind Wheatley
+
+Wheatley was written by myself and my friend Matthew Johnson in Python.  The source code
+can be found [on GitHub](https://github.com/kneasle/wheatley) and is published to
+[Python's Package Index](https://pypi.org/project/wheatley/).
+
+Wheatley uses Python's websocket library to interact with the Ringing Room servers, and numpy to
+handle the numerical calculations required to detect and respond to the rhythm of human ringers.  We
+decided to add type annotations to the entire codebase, which helps catch mistakes and allows code
+editors to provide more accurate completions.  In CI, we automatically check the types for incoming
+pull requests using [mypy](https://mypy.readthedocs.io/en/stable/).
+
+By far the biggest challenge of Wheatley is determining - in real time - when its bells should be rung.  This
+requires detecting (and adjusting to) the continually-changing 'rhythm' of the human ringers, and sending
+websocket signals at the appropriate times to fill in the gaps.  Wheatley's current approach uses
+techniques from statistics and machine learning, but applies them in a quite unique way: instead of
+a model learning from pre-collected data _before deployment_, Wheatley's rhythm model learns **in
+real time**, using the striking of human-rung bells as datapoints.  Ringing should always happen at
+an evenly-spaced rhythm, so Wheatley uses a linear regression model to predict when its bells
+should ring.  I'm sure there are more accurate and complex strategies, but linear regression turns out to
+be impressively effective while still being simple to understand, implement and maintain.
+
+
+
+<!--
+
+One of my main hobbies is an English style of ringing church bells, known as 'Change Ringing'.
+There is an age old problem in ringing: every bell in a bell tower requires one person to ring it
+and (almost all) ringers can only ring one bell at a time.  If your tower has eight bells, but seven
+ringers turn up, there is no way to ring all eight of the bells.  However much you want to, there
+is no way to practice anything which requires all eight bells to be ringing.
+
+## Spring 2020 and Ringing Room
+
+Change ringing has an unfortunate property, in that it exclusively takes place in small
+and often poorly-ventilated church towers.  This setup is not exactly compatible with
+with world-wide outbreaks of airbourne viruses, so during 2020 it became suddenly impossible to
+practice bell ringing.  However, two American ringers came to our rescue and created Ringing Room,
+an online platform for bellringing.  This presents a shared virtual 'ringing room', with virtual
+bell-ropes arranged similarly to their real-world counterparts:
+
+(**TODO: Picture of Ringing Room versus normal ringing**)
+
+However, the new platform of Ringing Room provides an opportunity: for the first time in history,
+ringing can be performed entirely digitally.  A bell 'ringing' is simply a WebSocket event sent from a
+browser, so a carefully written computer program can send an equivalent WebSocket event at the
+right time and _interact seamlessly with human ringers_.
+
+## The Creation of Wheatley
+
+----
 
 **Wheatley** is a computer ringer for the popular online change-ringing website
 [Ringing Room](https://ringingroom.com) which aims to be a _'ninja helper with no ego'_.  Ringing
@@ -26,7 +89,7 @@ most apparent when pulling off, since Wheatley will seamlessly pull off at the s
 other ringers.  Wheatley will also wait patiently if other people pause to think, which is
 particularly useful during practice nights.
 
-<!--
+----
 
 ## It's Summer of 2020
 
