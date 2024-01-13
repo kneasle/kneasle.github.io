@@ -2,7 +2,7 @@
 title = "Other Interesting Posts"
 description = "Posts from other sites that I think are worth reading."
 
-date = 2023-12-30
+date = 2021-03-17
 
 topics = ["misc"]
 languages = ["all"]

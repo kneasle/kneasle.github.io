@@ -88,12 +88,25 @@ function build() {
   renderMainPage(subPages);
 }
 
-function renderMainPage(subPages: Page[]) {
-  // Sort pages
-  subPages.sort((a: Page, b: Page) => b.date.valueOf() - a.date.valueOf());
+function renderMainPage(unsortedSubPages: Page[]) {
+  const pagesAtTop = ["wheatley", "this-site"];
+
+  let sortedSubPages: Page[] = [];
+  // Copy pages which we've forced to the top
+  for (const p of pagesAtTop) {
+    const pageIdx = unsortedSubPages.findIndex((page: Page) => page.slug == p);
+    const page = unsortedSubPages.splice(pageIdx, 1)[0];
+    sortedSubPages.push(page);
+  }
+  // Add the remaining subpages, sorted by date
+  unsortedSubPages.sort(
+    (a: Page, b: Page) => b.date.valueOf() - a.date.valueOf()
+  );
+  sortedSubPages.push(...unsortedSubPages);
+
   // Filter drafts.
   // TODO: Arg for this
-  subPages = subPages.filter((page) => !page.draft);
+  sortedSubPages = sortedSubPages.filter((page) => !page.draft);
 
   console.log("Rendering main page");
   const mainPageDir = "main-page/";
@@ -103,7 +116,7 @@ function renderMainPage(subPages: Page[]) {
     path.join(mainPageDir, "about.md"),
   );
   const templateData = {
-    subPages,
+    subPages: sortedSubPages,
     aboutMe: renderMarkdown(aboutMeMarkdown),
   };
   const rendered = renderTemplate("main-page", templateData);

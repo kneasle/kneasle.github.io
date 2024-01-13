@@ -2,7 +2,7 @@
 title = "Goldilocks and the Three JSON Formatters"
 description = "Once upon a time, there lived a computer scientist with beautiful golden hair..."
 
-date = 2021-03-16
+date = 2021-03-20
 
 topics = ["coding"]
 languages = ["rust"]
