@@ -7,6 +7,8 @@ function loadPage(slug: string, category: string) {
   pageOverlay.classList.value = "";
   pageOverlay.classList.add("active");
   pageOverlay.classList.add(`category-${category}`);
+  // Lock document scrolling
+  document.body.style.overflowY = "hidden";
 
   // Clone a copy of the page box into the overlay
   loadedPageBox = document.getElementById(`subpage-item-${slug}`)!;
@@ -27,7 +29,7 @@ function loadPage(slug: string, category: string) {
   const container = pageOverlay.querySelector("#page-content")!;
   fetch(`/${slug}`)
     .then((response: Response) => response.text())
-    .then((text: string) => container.innerHTML = text);
+    .then((text: string) => (container.innerHTML = text));
 }
 
 function closeOverlay() {
@@ -40,9 +42,13 @@ function closeOverlay() {
 
   // Reset everything once the animation is over
   setTimeout(() => {
+    // Remove overlay
     pageOverlay.removeChild(clonedBox!);
     pageOverlay.classList.value = "";
+    // Re-enable scrolling
+    document.body.style.overflowY = "scroll";
 
+    // Clear variables
     clonedBox = null;
     loadedPageBox = null;
   }, 1250);
