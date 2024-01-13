@@ -77,10 +77,8 @@
 
 						<div class="padding"></div>
 						<p class="description">{{description}}</p>
-						<div class="content-container">
-							<div id="page-content" class="page-content content">
-								<!-- content goes here -->
-							</div>
+						<div id="page-content" class="content-container">
+							<!-- page content goes here when loaded in the overlay -->
 						</div>
 					</div>
 				</div>
@@ -92,25 +90,7 @@
 	</div>
 	<!-- end of normal scroll layer -->
 
-  <!-- page overlay -->
-	<div id="page-overlay">
-		<!-- TODO: Actually remove this -->
-		<div class="page-overlay-box" style="display: none;">
-			<!-- overlay header -->
-			<div style="display: flex; flex-direction: row;">
-				<div id="page-overlay-header" style="flex-grow: 1"></div>
-				<svg class="page-overlay-x-button" onclick="closeOverlay()"
-					   viewBox="0 0 85 85" xmlns="http://www.w3.org/2000/svg">
-			    <path style="stroke-width: 8px; stroke-linecap:round;" d="M 25,25 60,60" />
-			    <path style="stroke-width: 8px; stroke-linecap:round;" d="M 25,60 60,25" />
-				</svg>
-			</div>
-
-			<!-- overlay content -->
-			<iframe src="/comp-data"></iframe>
-		</div>
-	</div>
-	<!-- end of page overlay -->
+	<div id="page-overlay"></div>
 </body>
 
 </html>

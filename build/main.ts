@@ -188,7 +188,9 @@ function renderFrontmatteredMarkdown(
   // Create subpage
   const pageDir = path.join(OUT_DIR, slug);
   ensureDirExists(pageDir);
-  Deno.writeTextFileSync(path.join(pageDir, "index.html"), renderMarkdown(markdown));
+  const content = renderMarkdown(markdown);
+  const html = renderTemplate("page-prose", { content });
+  Deno.writeTextFileSync(path.join(pageDir, "index.html"), html);
 
   return [page];
 }
