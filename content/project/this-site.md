@@ -36,4 +36,5 @@ in the format consumed by browsers.  This program is usually as a "Static Site G
 are many, many, many general-purpose site generators.  However, as described above, this site is
 built by a small TypeScript script hosted using [Deno](https://deno.land).
 
-The resulting HTML/JS/CSS is then hosted on GitHub pages.
+The resulting HTML/JS/CSS is then hosted on GitHub pages and I use GitHub action to automatically
+update the hosted site every time the source code changes.
