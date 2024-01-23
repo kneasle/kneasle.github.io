@@ -99,9 +99,7 @@ function renderMainPage(unsortedSubPages: Page[]) {
     sortedSubPages.push(page);
   }
   // Add the remaining subpages, sorted by date
-  unsortedSubPages.sort(
-    (a: Page, b: Page) => b.date.valueOf() - a.date.valueOf()
-  );
+  unsortedSubPages.sort((a: Page, b: Page) => b.date.valueOf() - a.date.valueOf());
   sortedSubPages.push(...unsortedSubPages);
 
   // Filter drafts.
@@ -112,9 +110,7 @@ function renderMainPage(unsortedSubPages: Page[]) {
   const mainPageDir = "main-page/";
 
   // Render the main page
-  const aboutMeMarkdown = Deno.readTextFileSync(
-    path.join(mainPageDir, "about.md"),
-  );
+  const aboutMeMarkdown = Deno.readTextFileSync(path.join(mainPageDir, "about.md"));
   const templateData = {
     subPages: sortedSubPages,
     aboutMe: renderMarkdown(aboutMeMarkdown),
@@ -182,10 +178,7 @@ function renderFrontmatteredMarkdown(
   const splitIndex = lines.indexOf(lines[0], 1);
   console.assert(splitIndex >= 0);
   const frontMatterToml = lines.slice(1, splitIndex).join("\n").trim();
-  const markdown = lines
-    .slice(splitIndex + 1)
-    .join("\n")
-    .trim();
+  const markdown = lines.slice(splitIndex + 1).join("\n").trim();
 
   // Parse frontmatter as TOML
   const frontMatter = <FrontMatter> parseToml(frontMatterToml);
@@ -322,9 +315,7 @@ function renderMarkdown(markdown: string): string {
 
 function renderTemplate(templateName: string, data: any): string {
   // TODO: Write to `index.html` from within this function
-  const source = Deno.readTextFileSync(
-    path.join(TEMPLATE_DIR, `${templateName}.html`),
-  );
+  const source = Deno.readTextFileSync(path.join(TEMPLATE_DIR, `${templateName}.html`));
   const template = Handlebars.compile(source);
   return template(data);
 }
