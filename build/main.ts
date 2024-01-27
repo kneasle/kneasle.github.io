@@ -110,10 +110,15 @@ function renderMainPage(unsortedSubPages: Page[]) {
   const mainPageDir = "main-page/";
 
   // Render the main page
-  const aboutMeMarkdown = Deno.readTextFileSync(path.join(mainPageDir, "about.md"));
+  const renderMdFromFile = (fileName: string): string => {
+    const md = Deno.readTextFileSync(path.join(mainPageDir, fileName));
+    return renderMarkdown(md);
+  };
+
   const templateData = {
     subPages: sortedSubPages,
-    aboutMe: renderMarkdown(aboutMeMarkdown),
+    aboutMe: renderMdFromFile("about-me.md"),
+    aboutSite: renderMdFromFile("about-site.md"),
   };
   const rendered = renderTemplate("main-page", templateData);
   Deno.writeTextFileSync(path.join(OUT_DIR, "index.html"), rendered);

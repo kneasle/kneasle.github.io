@@ -40,13 +40,27 @@
 
 		<!-- BODY -->
 		<div class="site-body">
-			<div style="height: 100px;"></div>
+			<div style="height: 200px;"></div>
+
 			<!-- "About me" -->
 			<div class="content about">
-				{{{aboutMe}}}
+				<div class="about-section">
+					<img src="me.jpg" class="me" />
+					<div>{{{aboutMe}}}</div>
+				</div>
+
+				<div style="height: 100px;"></div>
+
+				<div class="about-section">
+					<img src="site.png" class="site" style="background: none;" />
+					<div>{{{aboutSite}}}</div>
+				</div>
 			</div>
+			<!-- End "About me" -->
+
 			<div style="height: 100px;"></div>
 
+			<!-- Subpages -->
 			<div id="subpage-container">
 				{{#each subPages}}
 				<div id="subpage-item-{{slug}}" class="flex-row subpage-entry category-{{category}} hoverable" onclick="loadPage('{{slug}}', '{{category}}');">
@@ -84,6 +98,7 @@
 				</div>
 				{{/each}}
 			</div>
+			<!-- End subpages -->
 		</div>
 
 		<p style="text-align: center;">Design and content: © Ben White-Horne 2020-2023</p>
