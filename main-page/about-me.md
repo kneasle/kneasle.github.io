@@ -6,5 +6,6 @@ Outside of work, I often work on coding projects (such as this site) using whate
 the project.  Many of these projects (like [Wheatley](https://github.com/kneasle/wheatley) and
 [Monument](https://github.com/kneasle/ringing/tree/master/monument)) are in production use and are
 relied on by many users.  [Sapling](https://github.com/kneasle/sapling), a prototype code editor,
-has over 400 stars on GitHub.  I've also contributed to larger open source projects, such as
+has nearly 700 stars on GitHub and has [been featured](https://news.ycombinator.com/item?id=39253798)
+on the front page of Hacker News.  I've also contributed to larger open source projects, such as
 [the Rust language](https://github.com/rust-lang/rust-clippy/pull/7640).
