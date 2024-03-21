@@ -15,9 +15,12 @@ function loadPage(slug: string, category: string) {
   clonedBox = loadedPageBox.cloneNode(true) as HTMLElement;
   pageOverlay.appendChild(clonedBox);
 
+  // Make the now-loaded box invisible
+  loadedPageBox.style.visibility = "hidden";
+
   // Place this page box in the same location, but in the overlay
   placeOverLoadedPageBox();
-  // Remove hover/click behaviour
+  // Remove hover/click behaviour of the new box
   clonedBox.onclick = null;
   clonedBox.classList.remove("hoverable");
 
@@ -47,6 +50,8 @@ function closeOverlay() {
     pageOverlay.classList.value = "";
     // Re-enable scrolling
     document.body.style.overflowY = "scroll";
+    // Un-hide the inline page box
+    loadedPageBox!.style.visibility = "visible";
 
     // Clear variables
     clonedBox = null;
