@@ -15,6 +15,9 @@ $project-color: $primary-color;
 $blog-color: $secondary-color;
 $art-color: #FF8F33;
 
+/* Step length of page entry animation */
+$step: 0.2s;
+
 body {
   margin: 0;
   background: $bg-color;
@@ -210,13 +213,16 @@ $visited-link-brighten: 10%;
   background: $bg-color;
   color: var(--category-color); /* Inherited by other items */
 
-  transition: background 0.2s, margin 0.2s ease-in-out;
+  transition:
+    background 0.2s, margin 0.2s ease-in-out;
 }
 
-.subpage-entry.hoverable:hover {
-  background: $bg-color-dark;
-  margin-left: 0;
-  margin-right: 20px;
+@media (any-hover: hover) {
+  .subpage-entry.hoverable:hover {
+    background: $bg-color-dark;
+    margin-left: 0;
+    margin-right: 20px;
+  }
 }
 
 .subpage-entry {
@@ -338,6 +344,16 @@ $visited-link-brighten: 10%;
     right:  50px !important;
     top:    50px !important;
     bottom: 50px !important;
+
+    @media only screen and (max-width: 500px) {
+      left:   0 !important;
+      right:  0 !important;
+      top:    0 !important;
+      bottom: 0 !important;
+
+      border: none;
+      border-radius: 0;
+    }
   }
 
   #icon {
@@ -368,10 +384,10 @@ $visited-link-brighten: 10%;
 
 /* PAGE ENTRY ANIMATION */
 
-$step: 0.2s;
-
+/* Things which animate over the entire transition */
 #page-overlay {
-  transition: background ($step * 5) ease-in-out; /* Background animates over the entire 1s */
+  transition:
+    background    ($step * 5) ease-in-out;
 }
 
 #page-overlay.expanded {
@@ -388,7 +404,9 @@ $step: 0.2s;
       left   $step ease-in-out ($step * 1),
       right  $step ease-in-out ($step * 1),
       top    $step ease-in-out ($step * 3),
-      bottom $step ease-in-out ($step * 3);
+      bottom $step ease-in-out ($step * 3),
+      border-width  ($step * 5) ease-in-out ($step * 1),
+      border-radius ($step * 5) ease-in-out ($step * 1);
   }
 
   #icon {
@@ -434,7 +452,9 @@ $step: 0.2s;
       left   $step ease-in-out ($step * 3),
       right  $step ease-in-out ($step * 3),
       top    $step ease-in-out ($step * 1),
-      bottom $step ease-in-out ($step * 1);
+      bottom $step ease-in-out ($step * 1),
+      border-width  ($step * 5) ease-in-out ($step * 1),
+      border-radius ($step * 5) ease-in-out ($step * 1);
   }
 
   #icon {
