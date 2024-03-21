@@ -2,7 +2,7 @@
 
 This repo contains the source code for my personal website, hosted at
 [kneasle.github.io](https://kneasle.github.io).  Everything - content, icons, CSS/web design, etc.
-- is made from scratch by me.  The site is built using a one-off site generator and hosted using
+\- is made from scratch by me.  The site is built using a custom one-off site generator and hosted using
 GitHub pages.
 
 ## Building
