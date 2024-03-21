@@ -1,5 +1,5 @@
 # Directory where the fully rendered site will be created
-rendered/
+.rendered/
 
 # Deno
 .deno_plugins

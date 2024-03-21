@@ -13,7 +13,7 @@ import sass from "https://deno.land/x/denosass@1.0.6/mod.ts";
 import { debounce } from "https://deno.land/std@0.207.0/async/debounce.ts";
 import { serveDir } from "https://deno.land/std@0.207.0/http/file_server.ts";
 
-const OUT_DIR = "rendered/";
+const OUT_DIR = ".rendered/";
 const TEMPLATE_DIR = "templates/";
 
 /////////////////////
