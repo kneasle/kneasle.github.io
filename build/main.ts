@@ -86,6 +86,8 @@ function build() {
 
   // Render the main page
   renderMainPage(subPages);
+  // Copy the `archive directory as-is`
+  copySync("archive", path.join(OUT_DIR, "archive"));
 }
 
 function renderMainPage(unsortedSubPages: Page[]) {
