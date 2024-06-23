@@ -77,6 +77,9 @@ function build() {
   removeIfExists(OUT_DIR);
   ensureDirExists(OUT_DIR);
 
+  // Collect git repos and create `main-page/ts/codeUrls.ts`
+  collectGitRepos();
+
   // Render and collect the subpages
   const subPages: Page[] = [];
   const allCategories: Category[] = ["blog", "project", "art"];
@@ -130,6 +133,125 @@ function renderMainPage(unsortedSubPages: Page[]) {
 
   // Render the rest of the directory contents
   copyOrCompileDirectory(mainPageDir, ".", ["about.md"]);
+}
+
+function collectGitRepos() {
+  const GITHUB_REPOS = [
+    "polymod",
+    "kuudos",
+    "kneasle",
+    "ringing",
+    "jigsaw",
+    "kneasle.github.io",
+    "wheatley",
+    "sapling",
+    "practice-spliced-sheet",
+    "dotfiles",
+    "coins",
+    "cc-method-lib",
+    "split",
+    "boomwhackers",
+    "4th-year-proj",
+    "goldilocks-json-fmt",
+    "bellmetal",
+    "doves-rs",
+    "shortlist",
+    "minor-general",
+    "tank-trouble",
+    "belltower",
+    "ringing-map-c-sharp",
+    "BobCSharp",
+    "Xmas-Quiz-2019",
+    "BobJava",
+    // "BluelineTouch",
+    "Animation-Cruncher",
+  ];
+
+  const outFile = "main-page/ts/codeUrls.ts";
+  if (fileExists(outFile)) {
+    console.log(`${outFile} already exists; skipping cloning GitHub repos.`);
+    return; // GH repos already fetched; nothing to do
+  }
+
+  console.log(`${outFile} doesn't exist yet, cloning GitHub repos.`);
+
+  // Collect my public github repos
+  const tempDir = Deno.makeTempDirSync();
+  const urls: string[] = [];
+  const extSet = new Set<string>();
+  for (const repo of GITHUB_REPOS) {
+    urls.push(...getGitRepoUrls(tempDir, repo, extSet));
+  }
+
+  // Make this into a JS file
+  const jsContents = `const CODE_URLS = ${JSON.stringify(urls)};\n`;
+  Deno.writeTextFileSync(outFile, jsContents);
+
+  // Clean up the temp directory
+  Deno.removeSync(tempDir, { recursive: true });
+}
+
+function getGitRepoUrls(tempDir: string, repoName: string, extSet: Set<string>): string[] {
+  // Clone the git repo
+  const url = `https://github.com/kneasle/${repoName}`;
+  console.log(`Cloning ${repoName}`);
+  const gitCloneCmd = new Deno.Command("git", {
+    args: ["clone", "--depth", "1", url],
+    cwd: tempDir,
+  });
+  const cloneResult = gitCloneCmd.outputSync();
+  if (!cloneResult.success) {
+    throw new Error(`Cloning ${url} unsuccessful.`);
+  }
+  const gitRepoDir = path.join(tempDir, repoName);
+
+  // Get the commit hash of the HEAD commit
+  const gitRevparseCmd = new Deno.Command("git", {
+    args: ["rev-parse", "HEAD"],
+    cwd: gitRepoDir,
+    stdout: "piped",
+  });
+  const revparseResult = gitRevparseCmd.outputSync();
+  const headHash = new TextDecoder().decode(revparseResult.stdout).trim();
+
+  // List all the files
+  const okExtensions = [
+    ".rs",
+    ".md",
+    ".toml",
+    ".lock",
+    ".py",
+    ".ts",
+    ".html",
+    ".js",
+    ".css",
+    ".json",
+    ".scss",
+    ".jsonc",
+    ".txt",
+    ".dot",
+    ".sh",
+    ".tex",
+    ".csv",
+    ".cs",
+    ".xml",
+    ".java",
+  ];
+  let urls: string[] = [];
+  for (const entry of walkSync(gitRepoDir)) {
+    if (entry.isFile && !entry.path.includes("/.")) {
+      const extension = path.extname(entry.path);
+      extSet.add(extension);
+      const isExtensionOk = !okExtensions.every((e) => extension != e);
+      if (isExtensionOk) {
+        // Add this file
+        const relPath = path.relative(gitRepoDir, entry.path);
+        const url = `https://raw.githubusercontent.com/kneasle/${repoName}/${headHash}/${relPath}`;
+        urls.push(url);
+      }
+    }
+  }
+  return urls;
 }
 
 function renderCategoryDirectory(category: Category): Page[] {
@@ -364,6 +486,19 @@ function removeIfExists(dir: string): void {
     Deno.removeSync(dir, { recursive: true });
   } catch (err) {
     if (!(err instanceof Deno.errors.NotFound)) {
+      throw err;
+    }
+  }
+}
+
+function fileExists(file: string): boolean {
+  try {
+    Deno.statSync(file);
+    return true;
+  } catch (err) {
+    if (err instanceof Deno.errors.NotFound) {
+      return false;
+    } else {
       throw err;
     }
   }

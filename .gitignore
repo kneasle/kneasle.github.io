@@ -1,5 +1,8 @@
 # Directory where the fully rendered site will be created
 .rendered/
 
+# Generated files
+main-page/ts/codeUrls.ts
+
 # Deno
 .deno_plugins
