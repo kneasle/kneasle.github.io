@@ -44,11 +44,20 @@ function main() {
 window.addEventListener("load", main);
 
 function makeMatrix(elem: HTMLElement, distance: number) {
-  fetch(random_url())
+  const url = random_url();
+  fetch(url)
     .then((response: Response) => response.text())
     .then((code: string) => {
+      // Parse the URL to add a header line to the code
+      const parts = /https:\/\/raw.githubusercontent.com\/kneasle\/(.+)\/[0-9a-f]+\/(.*)/.exec(url);
+      const repoSlug = parts![1];
+      const file = parts![2];
+      const textToDisplay =
+        `[[Writing file: ${file} from github.com/kneasle/${repoSlug}]]\n\n${code}`;
+
+      // Create the matrix
       const speed = 30 + 20 * Math.random();
-      matrices.push(new Matrix(code, elem, speed, distance));
+      matrices.push(new Matrix(textToDisplay, elem, speed, distance));
     });
 }
 
