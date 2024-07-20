@@ -1,6 +1,7 @@
 Hello!  I'm Ben White-Horne, and I'm a sofware developer based in Cambridge, UK.  During the day, I
-work at [MathWorks](https://mathworks.com/) (of MATLAB fame) working mostly in C++.  Before this,
-I studied Computer Science at St Anne's College, Oxford.
+work at [Cadence](https://www.cadence.com/en_US/home.html), writing chip optimizations in C++.
+Before this, I worked at MathWorks and before that, I studied Computer Science at St Anne's College,
+Oxford.
 
 Outside of work, I often work on coding projects (such as this site) using whatever tech best suits
 the project.  Many of these projects (like [Wheatley](https://github.com/kneasle/wheatley) and
