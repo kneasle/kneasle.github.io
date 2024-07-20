@@ -52,8 +52,9 @@ function makeMatrix(elem: HTMLElement, distance: number) {
       const parts = /https:\/\/raw.githubusercontent.com\/kneasle\/(.+)\/[0-9a-f]+\/(.*)/.exec(url);
       const repoSlug = parts![1];
       const file = parts![2];
+      const retabbedCode = code.replaceAll("\t", "    ");
       const textToDisplay =
-        `[[Writing file: ${file} from github.com/kneasle/${repoSlug}]]\n\n${code}`;
+        `[[Writing file: ${file} from github.com/kneasle/${repoSlug}]]\n\n${retabbedCode}`;
 
       // Create the matrix
       const speed = 30 + 20 * Math.random();
