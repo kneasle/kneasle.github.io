@@ -14,7 +14,7 @@ To build it, you need to have [TypeScript](https://www.typescriptlang.org/) and
 deno task build
 ```
 
-This will place the rendered site in a directory called `rendered/`.  This can then be either be
+This will place the rendered site in a hidden directory called `.rendered/`.  This can then be either be
 served using a basic HTTP server (like `python3 -m http.server`) or the site can be served
 automatically with:
 
